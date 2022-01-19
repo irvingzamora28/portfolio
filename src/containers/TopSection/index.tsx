@@ -130,12 +130,12 @@ const TopSection = () => {
                 <DescriptionText>
                 LaMelo LaFrance Ball (* 22. August 2001 in Anaheim, Kalifornien) ist ein US-amerikanischer Basketballspieler. Ball ist 2,01 Meter groß und läuft meist als Point Guard auf. Er wurde an dritter Stelle in der ersten Runde des NBA-Drafts 2020 von den Charlotte Hornets ausgewählt.
                 </DescriptionText>
-                <ViewMoreButton>
-                    <Link to="explore" smooth={"easeInOutQuad"} duration={1500}>
-                        <BsArrowDownCircle />
-                    </Link>
-                </ViewMoreButton>
             </InfoSection>
+            <ViewMoreButton>
+                <Link to="Explore" smooth={"easeInOutQuad"} duration={1500}>
+                    <BsArrowDownCircle />
+                </Link>
+            </ViewMoreButton>
         </LandingSection>
     </TopSectionContainer>
 }
