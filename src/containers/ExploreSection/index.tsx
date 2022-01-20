@@ -58,7 +58,7 @@ const ExploreSectionWrapper = tw.div`
     2xl:mt-10
     max-w-sm
     xl:max-w-2xl
-    2xl:max-w-4xl
+    2xl:max-w-3xl
 `;
 
 const Item = styled.div`

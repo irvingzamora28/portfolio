@@ -4,6 +4,7 @@ import './App.css';
 import tw from 'twin.macro';
 import TopSection from './containers/TopSection';
 import ExploreSection from './containers/ExploreSection';
+import Footer from './components/Footer';
 
 const AppContainer = tw.div`
     flex
@@ -18,6 +19,7 @@ function App() {
         <AppContainer>
             <TopSection></TopSection>
             <ExploreSection></ExploreSection>
+            <Footer></Footer>
         </AppContainer>
     );
 }
