@@ -1,6 +1,8 @@
 {
-    "tailwindCSS.experimental.classRegex": [
-    
-    ],
-    "tailwindCSS.includeLanguages": { "plaintext": "javascript" }
+    "tailwindCSS.experimental.classRegex": [],
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "javascript"
+    },
+    "prettier.tabWidth": 4,
+    "vue3snippets.tabWidth": 4
 }
