@@ -89,7 +89,7 @@ export const Navbar = () => {
                             </Link>
                         </ul>
                         <div className="pt-40">
-                            <p className="uppercase tracking-widest text-sky-800">
+                            <p className="uppercase tracking-widest text-sky-600">
                                 Let's Connect
                             </p>
                             <div className="flex items-center justify-between my-4 w-full sm:w-4/5">
