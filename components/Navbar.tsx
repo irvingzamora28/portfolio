@@ -46,7 +46,7 @@ export const Navbar = () => {
                 </div>
             </div>
 
-            <div className={ nav ? 'flex fixed left-0 top-0 w-full h-screen bg-black/70 duration-500' : ''}>
+            <div className={ nav ? 'flex md:hidden fixed left-0 top-0 w-full h-screen bg-black/70 duration-500' : ''}>
                 <div className={"fixed top-0 w-3/4 sm:w-3/5 md:w-1/2 h-screen bg-slate-100 p-10 ease-in duration-500 " + (nav ? 'left-0' : '-left-full')}>
                     <div>
                         <div className="flex w-full items-center justify-between">
