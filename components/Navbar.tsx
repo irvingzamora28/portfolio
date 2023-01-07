@@ -4,10 +4,27 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 export const Navbar = () => {
     const [nav, setNav] = useState(false);
     const [shadow, setShadow] = useState(false);
+    const [navBackground, setNavBackground] = useState('bg-slate-100')
+    const [linkColor, setLinkColor] = useState('text-slate-900')
+
+    const router = useRouter()
+
+    useEffect(() => {
+      if (router.asPath === "/project1" || router.asPath === "/project2") {
+        setNavBackground("bg-transparent")
+        setLinkColor("text-slate-100")
+      } else {
+        setNavBackground("bg-slate-100")
+        setLinkColor("text-slate-900")
+      }
+    
+    }, [router])
+    
 
     const handleNav = () => {
         setNav(!nav);
@@ -28,9 +45,10 @@ export const Navbar = () => {
     return (
         <div
             className={
-                shadow
-                    ? "fixed w-full h-20 shadow-xl z-50"
-                    : "fixed w-full h-20 z-50"
+                navBackground + (shadow
+                    ? " fixed w-full h-20 shadow-xl z-50"
+                    : " fixed w-full h-20 z-50")
+                
             }>
             <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
                 <Link href={"/"}>
@@ -42,7 +60,7 @@ export const Navbar = () => {
                     />
                 </Link>
                 <div>
-                    <ul className="hidden md:flex uppercase text-sm">
+                    <ul className={`hidden md:flex uppercase text-sm ${linkColor}`} >
                         <Link href={"/"}>
                             <li className="ml-10 hover:border-b">Home</li>
                         </Link>
@@ -60,7 +78,7 @@ export const Navbar = () => {
                         </Link>
                     </ul>
                 </div>
-                <div onClick={handleNav} className="md:hidden">
+                <div onClick={handleNav} className={`md:hidden ${linkColor}`}>
                     <AiOutlineMenu size={25} />
                 </div>
             </div>
