@@ -25,7 +25,7 @@ export const ProjectItem: React.FC<Props> = (props) => {
                 <p className="pb-4 pt-2 text-white text-center">React JS</p>
                 <Link href={props.url}>
                     <p className="text-lg text-center py-3 rounded-lg bg-white text-gray font-bold cursor-pointer">
-                        More Infov
+                        More Info
                     </p>
                 </Link>
             </div>
