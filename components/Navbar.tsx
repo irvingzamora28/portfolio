@@ -46,16 +46,16 @@ export const Navbar = () => {
                         <Link href={"/"}>
                             <li className="ml-10 hover:border-b">Home</li>
                         </Link>
-                        <Link href={"#about"}>
+                        <Link href={"/#about"}>
                             <li className="ml-10 hover:border-b">About</li>
                         </Link>
-                        <Link href={"#skills"}>
+                        <Link href={"/#skills"}>
                             <li className="ml-10 hover:border-b">Skill</li>
                         </Link>
-                        <Link href={"#projects"}>
+                        <Link href={"/#projects"}>
                             <li className="ml-10 hover:border-b">Projects</li>
                         </Link>
-                        <Link href={"#contact"}>
+                        <Link href={"/#contact"}>
                             <li className="ml-10 hover:border-b">Contact</li>
                         </Link>
                     </ul>
@@ -105,18 +105,18 @@ export const Navbar = () => {
                             <Link href={"/"}>
                                 <li onClick={() => setNav(false)} className="py-4 hover:border-b">Home</li>
                             </Link>
-                            <Link href={"#about"}>
+                            <Link href={"/#about"}>
                                 <li onClick={() => setNav(false)} className="py-4 hover:border-b">About</li>
                             </Link>
-                            <Link href={"#skills"}>
+                            <Link href={"/#skills"}>
                                 <li onClick={() => setNav(false)} className="py-4 hover:border-b">Skill</li>
                             </Link>
-                            <Link href={"#projects"}>
+                            <Link href={"/#projects"}>
                                 <li onClick={() => setNav(false)} className="py-4 hover:border-b">
                                     Projects
                                 </li>
                             </Link>
-                            <Link href={"#contact"}>
+                            <Link href={"/#contact"}>
                                 <li onClick={() => setNav(false)} className="py-4 hover:border-b">Contact</li>
                             </Link>
                         </ul>
