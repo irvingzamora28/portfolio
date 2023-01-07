@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsFillPersonLinesFill} from "react-icons/bs"
@@ -8,13 +8,27 @@ import { BsFillPersonLinesFill} from "react-icons/bs"
 export const Navbar = () => {
 
 	const [nav, setNav] = useState(false)
+    const [shadow, setShadow] = useState(false)
 
 	const handleNav = () => {
 		setNav(!nav)
 	}
 
+    useEffect(() => {
+      const handleShadow = () => {
+        if (window.scrollY >= 50) {
+            setShadow(true)
+        } else {
+            setShadow(false)
+        }
+      }
+    
+      window.addEventListener("scroll", handleShadow)
+    }, [])
+    
+
     return (
-        <div className="fixed w-full h-20 shadow-xl z-50">
+        <div className={shadow ? "fixed w-full h-20 shadow-xl z-50" : "fixed w-full h-20 z-50"}>
             <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
                 <Image
                     src={"/../public/assets/images/logo-removebg.png"}
