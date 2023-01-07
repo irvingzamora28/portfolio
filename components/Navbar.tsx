@@ -41,16 +41,16 @@ export const Navbar = () => {
                         <Link href={"/"}>
                             <li className="ml-10 hover:border-b">Home</li>
                         </Link>
-                        <Link href={"/"}>
+                        <Link href={"#about"}>
                             <li className="ml-10 hover:border-b">About</li>
                         </Link>
-                        <Link href={"/"}>
+                        <Link href={"#skills"}>
                             <li className="ml-10 hover:border-b">Skill</li>
                         </Link>
-                        <Link href={"/"}>
+                        <Link href={"#projects"}>
                             <li className="ml-10 hover:border-b">Projects</li>
                         </Link>
-                        <Link href={"/"}>
+                        <Link href={"#contact"}>
                             <li className="ml-10 hover:border-b">Contact</li>
                         </Link>
                     </ul>
@@ -85,7 +85,7 @@ export const Navbar = () => {
                     <div className="flex py-4 flex-col">
                         <ul className="uppercase text-sm">
                             <Link href={"/"}>
-                                <li className="py-4 hover:border-b">Home</li>
+                                <li className="py-4 hover:border-b">Homezxczx</li>
                             </Link>
                             <Link href={"/"}>
                                 <li className="py-4 hover:border-b">About</li>
