@@ -19,7 +19,7 @@ export const Contact = () => {
                         <div className="h-full lg:p-4">
                             <div>
                                 <Image
-                                    src={"/../public/assets/images/contact.png"}
+                                    src={"/assets/images/contact.png"}
                                     className="rounded-xl hover:scale-105 ease-in duration-300 h-56 w-56 lg:w-full"
                                     alt="Irving Zamora"
                                     width={100}

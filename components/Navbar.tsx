@@ -53,7 +53,7 @@ export const Navbar = () => {
             <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
                 <Link href={"/"}>
                     <Image
-                        src={"/../public/assets/images/logo-removebg.png"}
+                        src={"/assets/images/logo-removebg.png"}
                         alt="Irving Zamora"
                         width={125}
                         height={50}
@@ -99,7 +99,7 @@ export const Navbar = () => {
                             <Link href={"/"}>
                                 <Image
                                     src={
-                                        "/../public/assets/images/logo-removebg.png"
+                                        "/assets/images/logo-removebg.png"
                                     }
                                     alt={"Irving Zamora"}
                                     width={85}

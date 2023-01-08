@@ -8,7 +8,7 @@ const project2 = () => {
             <div className="w-screen h-[30vh] lg:h-[40vh] relative">
                 <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/70 z-10"></div>
                 <Image
-                    src={"/../public/assets/images/dalle-programming.png"}
+                    src={"/assets/images/dalle-programming.png"}
                     className="absolute z-1"
                     fill={true}
                     objectFit="cover"

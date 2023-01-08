@@ -27,7 +27,7 @@ export const About = () => {
                     className="flex items-center justify-centerw-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl
                 p-4 md:hover:scale-110 ease-in duration-300">
                     <Image
-                        src={"/../public/assets/images/dalle-programming.png"}
+                        src={"/assets/images/dalle-programming.png"}
                         className="rounded-xl w-full h-48"
                         alt="Irving Zamora"
                         width={200}

@@ -13,7 +13,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/html5_logo.png"
+                                        "/assets/images/html5_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -31,7 +31,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/sass_logo.png"
+                                        "/assets/images/sass_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -49,7 +49,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/typescript_logo.png"
+                                        "/assets/images/typescript_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -67,7 +67,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/nodejs_logo.png"
+                                        "/assets/images/nodejs_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -85,7 +85,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/vuejs_logo.png"
+                                        "/assets/images/vuejs_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -103,7 +103,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/laravel_logo.png"
+                                        "/assets/images/laravel_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -121,7 +121,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/mongodb_logo.png"
+                                        "/assets/images/mongodb_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -139,7 +139,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/git_logo.png"
+                                        "/assets/images/git_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
@@ -157,7 +157,7 @@ export const Skills = () => {
                             <div className="m-auto">
                                 <Image
                                     src={
-                                        "/../public/assets/images/docker_logo.png"
+                                        "/assets/images/docker_logo.png"
                                     }
                                     alt="Irving Zamora"
                                     width={128}
