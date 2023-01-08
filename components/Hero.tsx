@@ -9,10 +9,10 @@ const Hero = () => {
             <div className="flex max-w-[1240px] w-full h-full mx-auto p-2 justify-center items-center">
                 <div>
                     <p className="uppercase text-sm tracking-widest text-gray-600">
-                        LET'S START DEVELOPING TOGETHER
+                        LET&lsquo;S START DEVELOPING TOGETHER
                     </p>
                     <h1>
-                        Hi, I'm <span className="text-sky-600">Irving</span>
+                        Hi, I&lsquo;m <span className="text-sky-600">Irving</span>
                     </h1>
                     <h1 className="py-4 text-gray-700">A Web Developer</h1>
                     <p className="py-4 text-gray-600 w-4/5 m-auto">
