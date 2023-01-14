@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap")
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+@layer base
+    $main-color: 250
+    $primary: hsl($main-color, 70%, 60%)
+    $secondary: hsl($main-color, 70%, 60%)
+    $alt: hsl($main-color, 58%, 54%)
+    $lighter: hsl($main-color, 92%, 85%)
+    $title: hsl($main-color, 8%, 15%)
+    $text: hsl($main-color, 8%, 45%)
+    $text-light: hsl($main-color, 8%, 65%)
+    $lighter: hsl($main-color, 92%, 85%)
+    $input: hsl($main-color, 70%, 95%)
+    $body: hsl($main-color, 60%, 95%)
+    $container: #FFF
+
+    *
+        box-sizing: border-box
+        padding: 0
+        margin: 0
+
+    html
+        scroll-behavior: smooth !important
+
+    body
+        font-family: 'Poppins', sans-serif
+        @apply bg-slate-100 text-slate-800 tracking-wide
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+        @apply  font-semibold
+    h1
+        @apply text-4xl sm:text-5xl md:text-6xl
+
+    h2
+        @apply text-3xl sm:text-4xl md:text-5xl
+
+    li
+        @apply cursor-pointer
+    button
+        @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-sky-500 to-sky-400
+    img
+        max-width: 100%
+        height: auto
+    .z-tooltip
+        z-index: 10
+
+    .z-fixed
+        z-index: 100
+
+    .z-modal
+        z-index: 100
+    .section
+        padding: 2rem 0 4rem
+    .section_common
+        text-center
+    .section_title
+        @extend .section_common
+        @apply text-4xl sm:text-5xl md:text-6xl
+    .section_subtitle
+        @extend .section_common
+        @apply block mb-3 text-2xl sm:text-3xl md:text-4xl
+    
