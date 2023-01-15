@@ -16,6 +16,7 @@
     $input: hsl($main-color, 70%, 95%)
     $body: hsl($main-color, 60%, 95%)
     $container: #FFF
+    $header-height: 3rem
 
     *
         box-sizing: border-box
@@ -27,6 +28,7 @@
 
     body
         font-family: 'Poppins', sans-serif
+        color: $text!important
         @apply bg-slate-100 text-slate-800 tracking-wide
 
     h1,
@@ -68,3 +70,19 @@
         @extend .section_common
         @apply block mb-3 text-2xl sm:text-3xl md:text-4xl
     
+    .header
+        @apply w-full fixed bottom-0 left-0 z-50
+        background-color: $body
+
+    .nav
+        @apply flex max-w-5xl justify-between items-center
+        height: $header-height
+    .nav__logo, .nav__toggle
+        @apply font-medium
+        color: $title
+    .nav__logo:hover
+        color: $primary
+    .nav__toggle
+        @apply text-lg cursor-pointer
+    .nav__toggle:hover
+        color: $primary
