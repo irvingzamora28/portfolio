@@ -71,11 +71,11 @@
         @apply block mb-3 text-2xl sm:text-3xl md:text-4xl
     
     .header
-        @apply w-full fixed bottom-0 left-0 z-50
+        @apply w-full fixed bottom-0 left-0 z-20
         background-color: $body
 
     .nav
-        @apply flex max-w-5xl justify-between items-center
+        @apply flex max-w-5xl h-12 justify-between items-center
         height: $header-height
     .nav__logo, .nav__toggle
         @apply font-medium
@@ -86,3 +86,21 @@
         @apply text-lg cursor-pointer
     .nav__toggle:hover
         color: $primary
+    .nav__menu
+        @apply fixed -bottom-full left-0 w-full pt-8 px-6 pb-16 pr-16 border rounded-t-3xl shadow-top duration-300 bg-slate-100
+    .nav__list
+        @apply grid-cols-3 gap-8
+    .nav__link
+        @apply flex flex-col items-center text-sm font-medium
+        color: $title
+    .nav__link:hover
+        color: $primary
+    .nav__icon
+        @apply text-base
+    .nav__close
+        @apply absolute right-0 bottom-2 mx-5 text-2xl cursor-pointer
+        color: $primary
+    .nav__close:hover
+        color: $alt
+    .show-menu
+        @apply bottom-0
