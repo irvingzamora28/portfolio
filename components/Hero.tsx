@@ -1,45 +1,54 @@
 import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+import { BiSend, BiMouse, BiDownArrowAlt } from "react-icons/bi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import ImageBackground from "./ImageBackground";
 
 const Hero = () => {
     return (
-        <div id="hero" className="w-full h-screen text-center">
-            <div className="flex max-w-[1240px] w-full h-full mx-auto p-2 justify-center items-center">
-                <div>
-                    <p className="uppercase text-sm tracking-widest text-gray-600">
-                        LET&lsquo;S START DEVELOPING TOGETHER
-                    </p>
-                    <h1>
-                        Hi, I&lsquo;m <span className="text-sky-600">Irving</span>
-                    </h1>
-                    <h1 className="py-4 text-gray-700">A Web Developer</h1>
-                    <p className="py-4 text-gray-600 w-4/5 m-auto">
-                        I am a software web developer proficient in a variety of
-                        programming languages, including HTML, CSS, JavaScript,
-                        and PHP, I have experience with frameworks such as
-                        Laravel and Vue.js. I am also familiar with MySQL and
-                        MongoDB. I am currently learning React, Next.js, and
-                        Kubernetes to further expand my skillset.
-                    </p>
-                    <div className="flex items-center justify-between w-1/2 m-auto py-4">
-                    <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-125 ease-in duration-300">
+        <section id="hero" className="hero section">
+            <div className="hero__container container grid px-6">
+                <div className="hero__content grid">
+                    <div className="hero__social">
+                        <a href="#" className="hero__social-icon">
                             <FaLinkedinIn />
-                        </div>
-                        <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-125 ease-in duration-300">
+                        </a>
+                        <a href="#" className="hero__social-icon">
                             <FaGithub />
-                        </div>
-                        <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-125 ease-in duration-300">
+                        </a>
+
+                        <a href="#" className="hero__social-icon">
                             <AiOutlineMail />
-                        </div>
-                        <div className="rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-125 ease-in duration-300">
-                            <BsFillPersonLinesFill />
-                        </div>
+                        </a>
+                    </div>
+                    <div className="hero__img">
+                        <ImageBackground />
+                    </div>
+                    <div className="her__data">
+                        <h1 className="hero__title">Hi I an Irving</h1>
+                        <h3 className="hero__subtitle">Web Developer</h3>
+                        <p className="hero__description">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Sequi facere sit eum assumenda culpa alias
+                            voluptate! Odit illo maiores eum, a reiciendis harum
+                            dolor. Quaerat.
+                        </p>
+                        <a href={"/#contact"} className="button button-flex flex">
+                            Contact Me <BiSend className="button__icon" />
+                        </a>
                     </div>
                 </div>
+                <div className="hero__scroll">
+                    <a
+                        href={"/#about"}
+                        className="hero__scroll-button button-flex flex">
+                            <BiMouse className="hero__scroll-mouse" />
+                            <span className="hero__scroll-name">Scroll down</span>
+                            <BiDownArrowAlt className="hero__scroll-arrow" />
+                        </a>
+                </div>
             </div>
-        </div>
+        </section>
     );
 };
 

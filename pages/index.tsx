@@ -5,6 +5,9 @@ import {BiBriefcaseAlt2, BiImage} from "react-icons/bi"
 import { FaTimes } from "react-icons/fa";
 import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
+import Hero from "../components/Hero";
+import {Projects} from "../components/Projects";
+import {Skills} from "../components/Skills";
 
 export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
@@ -77,6 +80,10 @@ export default function Home() {
 
                 </nav>
             </header>
+
+            <main className="main">
+                <Hero />
+            </main>
         </>
     );
 }
