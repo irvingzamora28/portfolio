@@ -173,3 +173,64 @@
     .about__buttons
         @apply flex justify-center
     /* ** About ** */
+    /* ** Skills ** */
+    .skills__container
+        @apply gap-y-0
+    .skills__header
+        @apply flex items-center mb-9 cursor-pointer
+    .skills__open
+        @apply h-max mb-10
+    .skills__open .skills__down-arrow
+        @apply -rotate-180
+    .skills__close .skills__list
+        @apply h-0 overflow-hidden
+    .skills__icon, .skills__down-arrow
+        @apply text-4xl
+        color: $primary
+    .skills__icon
+        @apply mr-3
+    .skills__header-title
+        @apply text-xl
+    .skills__header-subtitle
+        @apply text-sm
+        color: $text-light
+    .skills__down-arrow
+        @apply ml-auto duration-500 text-3xl
+    .skills__list
+        @apply gap-5 pl-11
+    .skills__title
+        @apply flex justify-between mb-2
+    .skills__name
+        @apply text-base font-medium
+    .skills__bar, .skills__percentage
+        @apply h-1 rounded
+    .skills__bar
+        background-color: $lighter
+    .skills__percentage
+        @apply block
+        background-color: $primary
+    .skills__html
+        width: 90%
+    .skills__css
+        width: 90%
+    .skills__js
+        width: 90%
+    .skills__reactjs
+        width: 60%
+    .skills__php
+        width: 90%
+    .skills__node
+        width: 70%
+    .skills__mysql
+        width: 80%
+    .skills__laravel
+        width: 90%
+    .skills__git
+        width: 80%
+    .skills__docker
+        width: 20%
+    .skills__linux
+        width: 70%
+    .skills__mongo
+        width: 70%
+    /* ** Skills ** */

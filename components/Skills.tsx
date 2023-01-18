@@ -1,175 +1,178 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { TbDeviceDesktopAnalytics } from "react-icons/tb";
+import { BiCodeCurly } from "react-icons/bi";
+import { FaAngleDown, FaServer } from "react-icons/fa";
 
 export const Skills = () => {
+    const [open, setOpen] = useState([true, false, false])
+
+    const handleOpen = (index:number) => {
+        // open.map(val => val = !val)
+        console.log(`here ${index}`);
+        console.log(open[index]);
+        console.log(open);
+        open[index] = open[index] === true ? false : true;
+        console.log(open);
+        setOpen(open);
+    };
+
     return (
-        <div id="skills" className="w-full lg:h-screen p-2">
-            <div className="flex flex-col justify-center max-w-[1240px] mx-auto h-full">
-                <p className="text-xl tracking-widest text-sky-600">Skills</p>
-                <h2 className="py-4">What I can do</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/html5_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
+        <div id="skills" className="skills section px-6">
+            <h2 className="section__title">Skills</h2>
+            <span className="section__subtitle">My technical level</span>
+
+            <div className="skills__container container grid">
+                <div>
+                    {/* Skill 1 */}
+                    <div className={"skills__content " + (open[0] ? "skills__open" : "skills__close")}>
+                        <div className="skills__header" onClick={() => handleOpen(0)}>
+                            <BiCodeCurly className="skills__icon" />
+                            <div>
+                                <h1 className="skills__header-title">Frontend developer</h1>
+                                <span className="skills_header-subtitle">More than 5 years</span>
                             </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                HTML
+                            <FaAngleDown className="skills__down-arrow" />
+                        </div>
+                        <div className="skills__list grid">
+                        <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">HTML</h3>
+                                    <span className="skills__number">90%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__html"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">CSS</h3>
+                                    <span className="skills__number">90%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__css"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">Javascript</h3>
+                                    <span className="skills__number">90%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__js"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">ReactJS</h3>
+                                    <span className="skills__number">60%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__reactjs"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/sass_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
+                    {/* Skill 2 */}
+                    <div className={"skills__content " + (open[1] ? "skills__open" : "skills__close")}>
+                        <div className="skills__header" onClick={() => handleOpen(1)}>
+                            <FaServer className="skills__icon" />
+                            <div>
+                                <h1 className="skills__header-title">Backend developer</h1>
+                                <span className="skills_header-subtitle">More than 5 years</span>
                             </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                SASS
+                            <FaAngleDown className="skills__down-arrow" />
+                        </div>
+                        <div className="skills__list grid">
+                        <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">PHP</h3>
+                                    <span className="skills__number">90%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__php"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">Node Js</h3>
+                                    <span className="skills__number">70%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__node"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">MySQL</h3>
+                                    <span className="skills__number">80%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__mysql"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">Laravel</h3>
+                                    <span className="skills__number">90%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__laravel"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/typescript_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
+                    {/* Skill 3 */}
+                    <div className={"skills__content " + (open[2] ? "skills__open" : "skills__close")}>
+                        <div className="skills__header" onClick={() => handleOpen(2)}>
+                            <TbDeviceDesktopAnalytics className="skills__icon" />
+                            <div>
+                                <h1 className="skills__header-title">Other</h1>
+                                <span className="skills_header-subtitle">More than 5 years</span>
                             </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                TYPESCRIPT
+                            <FaAngleDown className="skills__down-arrow" />
+                        </div>
+                        <div className="skills__list grid">
+                        <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">Git</h3>
+                                    <span className="skills__number">80%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__git"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">Docker</h3>
+                                    <span className="skills__number">20%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__docker"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">Linux</h3>
+                                    <span className="skills__number">70%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__linux"></span>
+                                </div>
+                            </div>
+                            <div className="skills_data">
+                                <div className="skills__title">
+                                    <h3 className="skills__name">MongoDB</h3>
+                                    <span className="skills__number">70%</span>
+                                </div>
+                                <div className="skills__bar">
+                                    <span className="skills__percentage skills__mongo"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/nodejs_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
-                            </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                NODEJS
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/vuejs_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
-                            </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                VUEJS
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/laravel_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
-                            </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                LARAVEL
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/mongodb_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
-                            </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                MONGODB
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/git_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
-                            </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                GIT
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="p-2 shadow-xl rounded-xl hover:scale-105 ease-in duration-300">
-                        <div className="grid grid-cols-2 gap-4 justify-center items-center">
-                            <div className="m-auto">
-                                <Image
-                                    src={
-                                        "/assets/images/docker_logo.png"
-                                    }
-                                    alt="Irving Zamora"
-                                    width={128}
-                                    height={128}
-                                />
-                            </div>
-                            <div className="flex flex-col items-center justify-center text-gray-800 text-4xl md:text-xl">
-                                DOCKER
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

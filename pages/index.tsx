@@ -8,6 +8,7 @@ import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
 import About from "../components/About";
 import Hero from "../components/Hero";
+import { Skills } from "../components/Skills";
 
 export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
@@ -99,6 +100,7 @@ export default function Home() {
             <main className="main">
                 <Hero />
                 <About />
+                <Skills />
             </main>
         </>
     );
