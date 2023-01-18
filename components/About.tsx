@@ -1,40 +1,58 @@
 import Image from "next/image";
 import React from "react";
+import { BiDownload } from "react-icons/bi";
 
-export const About = () => {
+const About = () => {
     return (
-        <div id="about" className="flex w-full md:h-screen p-2 items-center py-16">
-            <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
-                <div className="col-span-2">
-                    <p className="uppercase text-xl tracking-widest text-sky-600">
-                        About
+        <section id="about" className="about section">
+            <h2 className="section__title">About Me</h2>
+            <span className="section__subtitle">Introduction</span>
+            <div className="about__container container grid">
+                <Image
+                    src={"/assets/images/dalle-programming.png"}
+                    className="about__img"
+                    alt="Irving Zamora"
+                    width={200}
+                    height={200}
+                />
+                <div className="about__data">
+                    <p className="about__description">
+                        I am a software web developer proficient in a variety of
+                        programming languages, including HTML, CSS, JavaScript,
+                        and PHP, I have experience with frameworks such as
+                        Laravel and Vue.js. I am also familiar with MySQL and
+                        MongoDB. I am currently learning React, Next.js, and
+                        Kubernetes to further expand my skillset.
                     </p>
-                    <h2 className="py-4">Who I am</h2>
-                    <p className="py-2 text-gray-600">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing
-                        elit. Porro culpa, neque aperiam earum cum maxime
-                        facilis alias mollitia magnam nemo ex deserunt, qui
-                        dolorem facere et, debitis ipsa accusamus rem reiciendis
-                        at rerum eveniet eos cumque illo! Ad est iusto modi
-                        recusandae eius! Excepturi ullam distinctio, debitis
-                        quaerat reiciendis incidunt?
-                    </p>
-                    <p className="py-2 text-gray-600 underline cursor-pointer">
-                        My latests projects
-                    </p>
-                </div>
-                <div
-                    className="flex items-center justify-centerw-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl
-                p-4 md:hover:scale-110 ease-in duration-300">
-                    <Image
-                        src={"/assets/images/dalle-programming.png"}
-                        className="rounded-xl w-full h-48"
-                        alt="Irving Zamora"
-                        width={200}
-                        height={200}
-                    />
+                    <div className="about__info">
+                        <div>
+                            <span className="about__info-title">03+</span>
+                            <span className="about__info-name">
+                                Years of experience
+                            </span>
+                        </div>
+                        <div>
+                            <span className="about__info-title">10+</span>
+                            <span className="about__info-name">
+                                Projects completed
+                            </span>
+                        </div>
+                        <div>
+                            <span className="about__info-title">02+</span>
+                            <span className="about__info-name">
+                                Companies worked
+                            </span>
+                        </div>
+                    </div>
+                    <div className="about__buttons">
+                        <a href="" className="button button-flex">
+                            Download CV <BiDownload className="button__icon" />
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
+
+export default About;
