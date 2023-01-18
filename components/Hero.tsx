@@ -6,8 +6,8 @@ import ImageBackground from "./ImageBackground";
 
 const Hero = () => {
     return (
-        <section id="hero" className="hero section">
-            <div className="hero__container container grid px-6">
+        <section id="hero" className="hero section px-6">
+            <div className="hero__container container grid">
                 <div className="hero__content grid">
                     <div className="hero__social">
                         <a href="#" className="hero__social-icon">

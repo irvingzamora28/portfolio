@@ -4,7 +4,7 @@ import { BiDownload } from "react-icons/bi";
 
 const About = () => {
     return (
-        <section id="about" className="about section">
+        <section id="about" className="about section px-6">
             <h2 className="section__title">About Me</h2>
             <span className="section__subtitle">Introduction</span>
             <div className="about__container container grid">
