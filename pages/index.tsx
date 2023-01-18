@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useState } from "react";
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import {BiBriefcaseAlt2, BiImage} from "react-icons/bi"
@@ -18,7 +19,15 @@ export default function Home() {
         <>
             <Head>
                 <title>Irving Zamora | Web Developer</title>
-                <meta name="description" content="Portfolio Irving Zamora" />
+                <meta charSet="utf-8"/>
+                <meta property="og:site_name" content="Irving Zamora | Web Developer" />
+                <meta property="og:title" content="Portfolio Irving Zamora" />
+                <meta property="og:description" content="As a web developer, I am passionate about building beautiful, fast, and responsive websites and web applications." />
+                <meta property="og:image" itemProp="image" content="/assets/images/logo-removebg.png" />
+                <meta property="og:type" content="website" />
+                <meta name="description" content="As a web developer, I am passionate about building beautiful, fast, and responsive websites and web applications." />
+                <meta name="author" content="Irving Zamora" />
+                <meta name="keywords" content="irvingzamora, programming, nextjs, laravel, php, mysql, typescript"/>
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
