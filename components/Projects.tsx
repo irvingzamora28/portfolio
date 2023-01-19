@@ -13,9 +13,6 @@ import 'swiper/css/scrollbar';
 export const Projects = () => {
     return (
         <div id="projects" className="projects section px-6">
-
-            
-        
             <h2 className="section__title">Projects</h2>
             <span className="section__subtitle">Recent work</span>
 
