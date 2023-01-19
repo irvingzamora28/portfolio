@@ -24,7 +24,7 @@ const Hero = () => {
                     <div className="hero__img">
                         <ImageBackground />
                     </div>
-                    <div className="her__data">
+                    <div className="hero__data">
                         <h1 className="hero__title">Hi I an Irving</h1>
                         <h3 className="hero__subtitle">Web Developer</h3>
                         <p className="hero__description">
@@ -33,7 +33,7 @@ const Hero = () => {
                             voluptate! Odit illo maiores eum, a reiciendis harum
                             dolor. Quaerat.
                         </p>
-                        <a href={"/#contact"} className="button button-flex flex">
+                        <a href={"/#contact"} className="hero__button button button-flex flex">
                             Contact Me <BiSend className="button__icon" />
                         </a>
                     </div>
