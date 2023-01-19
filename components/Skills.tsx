@@ -5,17 +5,15 @@ import { BiCodeCurly } from "react-icons/bi";
 import { FaAngleDown, FaServer } from "react-icons/fa";
 
 export const Skills = () => {
-    const [open, setOpen] = useState([true, false, false])
+    const [open, setOpen] = useState<boolean[]>([true, false, false])
 
-    const handleOpen = (index:number) => {
-        // open.map(val => val = !val)
-        console.log(`here ${index}`);
-        console.log(open[index]);
-        console.log(open);
-        open[index] = open[index] === true ? false : true;
-        console.log(open);
-        setOpen(open);
-    };
+    const handleOpen = (index: number) => {
+        setOpen(prevOpened => {
+      const newOpened = [...prevOpened];
+      newOpened[index] = !newOpened[index];
+      return newOpened;
+    });
+  };
 
     return (
         <div id="skills" className="skills section px-6">
