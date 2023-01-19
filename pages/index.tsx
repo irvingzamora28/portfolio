@@ -8,6 +8,7 @@ import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
 import About from "../components/About";
 import Hero from "../components/Hero";
+import { Projects } from "../components/Projects";
 import { Skills } from "../components/Skills";
 
 export default function Home() {
@@ -79,9 +80,9 @@ export default function Home() {
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#portfolio"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/#projects"} className="nav__link flex items-center" onClick={toggleNav}>
                                   <BiImage />
-                                  <div className="pl-1">Portfolio</div>
+                                  <div className="pl-1">Projects</div>
                                 </a>
                             </li>
                             <li className="nav__item">
@@ -101,6 +102,7 @@ export default function Home() {
                 <Hero />
                 <About />
                 <Skills />
+                <Projects />
             </main>
         </>
     );
