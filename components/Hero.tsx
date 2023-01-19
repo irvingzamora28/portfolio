@@ -33,7 +33,7 @@ const Hero = () => {
                             voluptate! Odit illo maiores eum, a reiciendis harum
                             dolor. Quaerat.
                         </p>
-                        <a href={"/#contact"} className="hero__button button button-flex flex">
+                        <a href={"/#contact"} className="hero__button button">
                             Contact Me <BiSend className="button__icon" />
                         </a>
                     </div>

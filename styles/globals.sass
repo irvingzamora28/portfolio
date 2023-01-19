@@ -49,6 +49,16 @@
         @apply cursor-pointer
     button
         @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-sky-500 to-sky-400
+    .button
+        @apply inline-block p-4 rounded-lg font-medium
+        background-color: $primary
+        color: $text-white
+    .button:hover
+        background-color: $alt
+    .button__icon
+        @apply text-2xl ml-2 duration-300
+    .button-flex
+        @apply inline-flex items-center
     img
         max-width: 100%
         height: auto
@@ -135,7 +145,7 @@
     .hero__description
         @apply mb-8
     .hero__button
-        @apply w-2/5
+        @apply inline-flex w-auto
     .hero__scroll
         @apply hidden
     .hero__scroll-button
@@ -150,16 +160,6 @@
         color: $title
     .hero__scroll-arrow
         @apply text-xl
-    .button
-        @apply inline-block p-4 rounded-lg font-medium
-        background-color: $primary
-        color: $text-white
-    .button:hover
-        background-color: $alt
-    .button__icon
-        @apply text-2xl ml-2 duration-300
-    .button-flex
-        @apply inline-flex items-center
     /* ** Hero ** */
     /* ** About ** */
     .about__img
