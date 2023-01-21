@@ -5,7 +5,7 @@ import { BiCodeCurly } from "react-icons/bi";
 import { FaAngleDown, FaServer } from "react-icons/fa";
 
 const Skills = forwardRef((props, ref: Ref<HTMLElement>) => {
-    const [open, setOpen] = useState<boolean[]>([true, false, false])
+    const [open, setOpen] = useState<boolean[]>([false, false, false])
 
     const handleOpen = (index: number) => {
         setOpen(prevOpened => {
