@@ -42,10 +42,6 @@ const Contact = forwardRef((props, ref: Ref<HTMLElement>) => {
                         </div>
                     </div>
                     <div className="contact__content">
-                        <input type="text" className="contact__input" id="input_subject" name="input_subject" />
-                        <label htmlFor="input_subject" className="contact__label">Subject</label>
-                    </div>
-                    <div className="contact__content">
                         <textarea name="input_message" id="input_message" cols={0} rows={7} className="contact__input"></textarea>
                         <label htmlFor="input_message" className="contact__label">Message</label>
                     </div>
