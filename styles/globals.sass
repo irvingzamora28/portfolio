@@ -71,23 +71,24 @@
     .z-modal
         z-index: 100
     .section
+        @apply dark:bg-slate-800 dark:text-slate-200
         padding: 2rem 0 4rem
-    .section_common
+    .section__common
         text-center
-    .section_title
-        @extend .section_common
-        @apply text-4xl sm:text-5xl md:text-6xl
-    .section_subtitle
-        @extend .section_common
-        @apply block mb-3 text-2xl sm:text-3xl md:text-4xl
-    
+    .section__title
+        @extend .section__common
+        @apply text-4xl sm:text-5xl md:text-6xl dark:text-slate-300
+    .section__subtitle
+        @extend .section__common
+        @apply block mb-3 text-2xl sm:text-3xl md:text-4xl dark:text-slate-200
     .header
         @apply w-full fixed bottom-0 left-0 z-20
         background-color: $body
-
     .nav
         @apply flex max-w-5xl h-12 justify-between items-center
         height: $header-height
+    .nav__buttons
+        @apply flex items-center
     .nav__logo, .nav__toggle
         @apply font-medium
         color: $title
@@ -115,6 +116,11 @@
         color: $primary
     .nav__close:hover
         color: $alt
+    .nav__toggle-darktheme
+        @apply text-xl mr-4 cursor-pointer
+        color: $title
+    .nav__toggle-darktheme:hover
+        color: $primary
     .show-menu
         @apply bottom-0
     .scrollup
@@ -149,9 +155,9 @@
     .hero__data
         @apply col-span-2 mt-4
     .hero__title
-        @apply text-4xl text-slate-700
+        @apply text-4xl text-slate-700 dark:text-slate-300
     .hero__subtitle
-        @apply text-xl font-medium mb-3
+        @apply text-xl font-medium mb-3 dark:text-slate-200
         color: $text  
     .hero__description
         @apply mb-8
@@ -302,7 +308,7 @@
     /* ** Contact ** */
     /* ** Footer ** */
     .footer
-        @apply pt-8
+        @apply pt-0
     .footer__container
         @apply gap-y-14
     .footer__bg

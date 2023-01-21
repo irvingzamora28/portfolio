@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import {BiBriefcaseAlt2, BiImage, BiUpArrowAlt} from "react-icons/bi"
+import {BiBriefcaseAlt2, BiImage, BiMoon, BiSun, BiUpArrowAlt} from "react-icons/bi"
 import { FaTimes } from "react-icons/fa";
 import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
@@ -16,6 +16,7 @@ import Skills from "../components/Skills";
 export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
     const [showButton, setShowButton] = useState(false)
+    const [theme, setTheme] = useState("light")
     const links = ["hero", "about", "skills", "services", "projects", "contact"];
     const [activeLink, setActiveLink] = useState("hero");
     const handleScroll = () => {
@@ -60,6 +61,11 @@ export default function Home() {
     const toggleNav = () => {
         setShowMenu(!showMenu)
     }
+    
+    const handleTheme = () => {
+        setTheme(theme === "dark" ? "light" : "dark")    
+    }
+
     return (
         <>
             <Head>
@@ -92,6 +98,10 @@ export default function Home() {
                         Irving
                     </a>
                     <div className="nav__buttons mx-6 mt-2">
+                        {theme === "dark" ? 
+                        <BiSun className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} /> : 
+                        <BiMoon className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} />
+                        }
                       <div className="nav__toggle" id="nav-toggle" onClick={toggleNav}>
                         <TiThMenuOutline /> 
                       </div>
@@ -165,7 +175,7 @@ export default function Home() {
                 </nav>
             </header>
 
-            <main className="main">
+            <main className={`main ${theme === "dark" ? "dark" : ""}`}>
                 <Hero />
                 <About />
                 <Skills />
