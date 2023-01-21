@@ -1,21 +1,41 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import {BiBriefcaseAlt2, BiImage} from "react-icons/bi"
 import { FaTimes } from "react-icons/fa";
 import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
 import About from "../components/About";
-import { Contact } from "../components/Contact";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import { Projects } from "../components/Projects";
-import { Skills } from "../components/Skills";
+import Projects from "../components/Projects";
+import Skills from "../components/Skills";
 
 export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
+    const links = ["hero", "about", "skills", "services", "projects", "contact"];
+    const [activeLink, setActiveLink] = useState("hero");
+    const handleScroll = () => {
+        const currentSection = links.find(link => {
+            const section = document.getElementById(link);
+            return (
+                (section?.offsetTop ?? 0) <= window.pageYOffset + 50 &&
+                (section?.offsetTop ?? 0) + (section?.clientHeight ?? 0) > window.pageYOffset
+            );
+        });
+        setActiveLink(currentSection ? currentSection : "hero");
 
+    };
+    
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    
     const toggleNav = () => {
         setShowMenu(!showMenu)
     }
@@ -58,37 +78,61 @@ export default function Home() {
                     <div className={"nav__menu " + (showMenu? "show-menu" : "")} id="nav-menu">
                         <ul className="nav__list grid gap-6">
                             <li className="nav__item">
-                                <a href={"/"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/"} className={`nav__link flex items-center ${
+                                activeLink === "hero"
+                                    ? "nav__link-active"
+                                    : ""
+                            }`} onClick={toggleNav}>
                                 <AiOutlineHome className="nav__icon" />
                                 <div className="pl-1">Home</div>
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#about"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/#about"} className={`nav__link flex items-center ${
+                                activeLink === "about"
+                                    ? "nav__link-active"
+                                    : ""
+                            }`} onClick={toggleNav}>
                                   <AiOutlineUser className="nav__icon" />
                                   <div className="pl-1">About</div>
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#skills"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/#skills"} className={`nav__link flex items-center ${
+                                activeLink === "skills"
+                                    ? "nav__link-active"
+                                    : ""
+                            }`} onClick={toggleNav}>
                                   <AiOutlineFileText />
                                   <div className="pl-1">Skills</div>
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#services"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/#services"} className={`nav__link flex items-center ${
+                                activeLink === "services"
+                                    ? "nav__link-active"
+                                    : ""
+                            }`} onClick={toggleNav}>
                                   <BiBriefcaseAlt2 />
                                   <div className="pl-1">Services</div>
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#projects"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/#projects"} className={`nav__link flex items-center ${
+                                activeLink === "projects"
+                                    ? "nav__link-active"
+                                    : ""
+                            }`} onClick={toggleNav}>
                                   <BiImage />
                                   <div className="pl-1">Projects</div>
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#contact"} className="nav__link flex items-center" onClick={toggleNav}>
+                                <a href={"/#contact"} className={`nav__link flex items-center ${
+                                activeLink === "contact"
+                                    ? "nav__link-active"
+                                    : ""
+                            }`} onClick={toggleNav}>
                                   <MdOutlineContactMail />
                                   <div className="pl-1">Contact</div>
                                 </a>

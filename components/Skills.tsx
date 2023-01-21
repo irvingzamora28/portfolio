@@ -1,10 +1,10 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { forwardRef, Ref, useState } from "react";
 import { TbDeviceDesktopAnalytics } from "react-icons/tb";
 import { BiCodeCurly } from "react-icons/bi";
 import { FaAngleDown, FaServer } from "react-icons/fa";
 
-export const Skills = () => {
+const Skills = forwardRef((props, ref: Ref<HTMLElement>) => {
     const [open, setOpen] = useState<boolean[]>([true, false, false])
 
     const handleOpen = (index: number) => {
@@ -16,7 +16,7 @@ export const Skills = () => {
   };
 
     return (
-        <div id="skills" className="skills section px-6">
+        <section id="skills" className="skills section px-6" ref={ref}>
             <h2 className="section__title">Skills</h2>
             <span className="section__subtitle">My technical level</span>
 
@@ -173,6 +173,9 @@ export const Skills = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
-};
+});
+Skills.displayName = "Skills";
+
+export default Skills;

@@ -1,15 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { BiSend } from "react-icons/bi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
-export const Contact = () => {
+const Contact = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <div id="contact" className="contact section px-6">
+        <section id="contact" className="contact section px-6" ref={ref}>
             <h2 className="section__title">Contact Me</h2>
             <span className="section__subtitle">Get in touch</span>
 
@@ -62,6 +57,8 @@ export const Contact = () => {
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
     );
-};
+});
+Contact.displayName = "Contact";
+export default Contact;

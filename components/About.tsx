@@ -1,10 +1,14 @@
+import React, { forwardRef, Ref } from "react";
 import Image from "next/image";
-import React from "react";
 import { BiDownload } from "react-icons/bi";
 
-const About = () => {
+const About = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <section id="about" className="about section px-6">
+        <section
+            id="about"
+            className="About section px-6 h-screen"
+            ref={ref}
+        >
             <h2 className="section__title">About Me</h2>
             <span className="section__subtitle">Introduction</span>
             <div className="about__container container grid">
@@ -53,6 +57,7 @@ const About = () => {
             </div>
         </section>
     );
-};
+});
+About.displayName = "About";
 
 export default About;

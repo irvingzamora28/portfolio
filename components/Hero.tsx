@@ -1,12 +1,16 @@
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiSend, BiMouse, BiDownArrowAlt } from "react-icons/bi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import ImageBackground from "./ImageBackground";
 
-const Hero = () => {
+const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <section id="hero" className="hero section px-6">
+        <section
+            id="hero"
+            className="hero section px-6 h-screen"
+            ref={ref}
+        >
             <div className="hero__container container grid">
                 <div className="hero__content grid">
                     <div className="hero__social">
@@ -48,8 +52,10 @@ const Hero = () => {
                         </a>
                 </div>
             </div>
-        </section>
+            </section>
     );
-};
+});
+Hero.displayName = "Hero";
+
 
 export default Hero;

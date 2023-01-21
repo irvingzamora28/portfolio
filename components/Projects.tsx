@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import { ProjectItem } from "./ProjectItem";
 import projectImage from "../public/assets/images/dalle-programming.png";
 import Image from "next/image";
@@ -10,9 +10,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-export const Projects = () => {
+const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <div id="projects" className="projects section px-6">
+        <section id="projects" className="projects section px-6" ref={ref}>
             <h2 className="section__title">Projects</h2>
             <span className="section__subtitle">Recent work</span>
 
@@ -40,6 +40,10 @@ export const Projects = () => {
             </Swiper>
                 </div>
             </div>
-        </div>
+            </section>
     );
-};
+});
+Projects.displayName = "Projects";
+
+
+export default Projects;
