@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import {BiBriefcaseAlt2, BiImage} from "react-icons/bi"
+import {BiBriefcaseAlt2, BiImage, BiUpArrowAlt} from "react-icons/bi"
 import { FaTimes } from "react-icons/fa";
 import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
@@ -15,9 +15,17 @@ import Skills from "../components/Skills";
 
 export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
+    const [showButton, setShowButton] = useState(false)
     const links = ["hero", "about", "skills", "services", "projects", "contact"];
     const [activeLink, setActiveLink] = useState("hero");
     const handleScroll = () => {
+        
+        if (window.pageYOffset > 250) {
+            setShowButton(true);
+        } else {
+            setShowButton(false);
+        }
+        
         const currentSection = links.find(link => {
             const section = document.getElementById(link);
             return (
@@ -28,6 +36,19 @@ export default function Home() {
         setActiveLink(currentSection ? currentSection : "hero");
 
     };
+
+    useEffect(() => {
+        function handleScroll() {
+          if (window.pageYOffset > 250) {
+            setShowButton(true);
+          } else {
+            setShowButton(false);
+          }
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
     
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -151,7 +172,11 @@ export default function Home() {
                 <Projects />
                 <Contact />
                 <Footer />
+                <a href={"#"} className={`scrollup ${showButton ? 'scrollup-show' : ''}`} id="scroll-up">
+                    <BiUpArrowAlt className="scrollup__icon" />
+                </a>
             </main>
+
         </>
     );
 }
