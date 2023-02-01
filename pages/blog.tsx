@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import PostCard from '../components/post/PostCard';
 
 const posts = [
-    { id: 1, title: 'Blog post 1', content: 'Lorem ipsum dolor sit amet...' },
-    { id: 2, title: 'Blog post 2', content: 'Consectetur adipiscing elit...' },
-    { id: 3, title: 'Blog post 3', content: 'Sed sollicitudin augue euismod...' },
+    { id: "1", title: 'Blog post 1', description: 'Lorem ipsum dolor sit amet...' },
+    { id: "2", title: 'Blog post 2', description: 'Consectetur adipiscing elit...' },
+    { id: "3", title: 'Blog post 3', description: 'Sed sollicitudin augue euismod...' },
     // ...
 ];
 
@@ -25,13 +26,7 @@ const Blog = () => {
             alt="Blog Image" className="mb-4 rounded-lg" />
       <div className="grid grid-cols-2 gap-4">
         {posts.map((post) => (
-          <div className="bg-gray-200 p-4 rounded-lg" key={post.id}>
-            <h2 className="text-lg font-medium">{post.title}</h2>
-            <p className="text-gray-600">{post.content}</p>
-            <Link href="/posts/[id]" as={`/posts/${post.id}`}>
-              Read More
-            </Link>
-          </div>
+            <PostCard key={post.id} id={post.id} title={post.title} description={post.description}  />
         ))}
       </div>
     </div>
