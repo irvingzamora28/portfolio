@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 import PostCard from '../components/post/PostCard';
 
 const posts = [
