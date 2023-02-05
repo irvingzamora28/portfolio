@@ -97,7 +97,7 @@ export default function Home() {
                     <a href={"/"} className="nav__logo mx-6">
                         Irving
                     </a>
-                    <div className="nav__buttons mx-6 mt-2">
+                    <div className="nav__buttons">
                         {theme === "dark" ? 
                         <BiSun className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} /> : 
                         <BiMoon className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} />
@@ -107,7 +107,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className={"nav__menu " + (showMenu? "show-menu" : "")} id="nav-menu">
-                        <ul className="nav__list grid gap-6">
+                        <ul className="nav__list">
                             <li className="nav__item">
                                 <a href={"/"} className={`nav__link flex items-center ${
                                 activeLink === "hero"
@@ -134,7 +134,7 @@ export default function Home() {
                                     ? "nav__link-active"
                                     : ""
                             }`} onClick={toggleNav}>
-                                  <AiOutlineFileText />
+                                  <AiOutlineFileText className="nav__icon" />
                                   <div className="pl-1">Skills</div>
                                 </a>
                             </li>
@@ -144,7 +144,7 @@ export default function Home() {
                                     ? "nav__link-active"
                                     : ""
                             }`} onClick={toggleNav}>
-                                  <BiBriefcaseAlt2 />
+                                  <BiBriefcaseAlt2 className="nav__icon" />
                                   <div className="pl-1">Services</div>
                                 </a>
                             </li>
@@ -154,7 +154,7 @@ export default function Home() {
                                     ? "nav__link-active"
                                     : ""
                             }`} onClick={toggleNav}>
-                                  <BiImage />
+                                  <BiImage className="nav__icon" />
                                   <div className="pl-1">Projects</div>
                                 </a>
                             </li>
@@ -164,7 +164,7 @@ export default function Home() {
                                     ? "nav__link-active"
                                     : ""
                             }`} onClick={toggleNav}>
-                                  <MdOutlineContactMail />
+                                  <MdOutlineContactMail className="nav__icon" />
                                   <div className="pl-1">Contact</div>
                                 </a>
                             </li>

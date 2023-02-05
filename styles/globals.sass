@@ -17,7 +17,6 @@
     $input: hsl($main-color, 70%, 95%)
     $body: hsl($main-color, 60%, 95%)
     $container: #FFF
-    $header-height: 3rem
 
     *
         box-sizing: border-box
@@ -82,26 +81,25 @@
         @extend .section__common
         @apply block mb-3 text-2xl sm:text-3xl md:text-4xl dark:text-slate-200
     .header
-        @apply w-full fixed bottom-0 left-0 z-20
+        @apply w-full fixed bottom-0 left-0 z-20 md:top-0 md:bottom-auto
         background-color: $body
     .nav
-        @apply flex max-w-5xl h-12 justify-between items-center
-        height: $header-height
+        @apply flex max-w-5xl justify-between items-center h-12 md:h-16 md:gap-4
     .nav__buttons
-        @apply flex items-center
+        @apply flex items-center mx-6 mt-2 md:order-2 md:mt-0
     .nav__logo, .nav__toggle
         @apply font-medium
         color: $title
     .nav__logo:hover
         color: $primary
     .nav__toggle
-        @apply text-lg cursor-pointer
+        @apply text-lg cursor-pointer md:hidden
     .nav__toggle:hover
         color: $primary
     .nav__menu
-        @apply fixed -bottom-full left-0 w-full pt-8 px-6 pb-16 pr-16 border rounded-t-3xl shadow-top duration-300 bg-slate-100
+        @apply fixed -bottom-full left-0 w-full pt-8 px-0 pb-12 border rounded-t-3xl shadow-top duration-300 bg-slate-100 md:ml-auto md:bottom-auto md:shadow-none md:border-none md:w-auto md:bg-transparent md:contents
     .nav__list
-        @apply grid-cols-3 gap-8
+        @apply grid grid-cols-3 gap-6 md:flex md:gap-8
     .nav__link
         @apply flex flex-col items-center text-sm font-medium
         color: $title
@@ -110,9 +108,9 @@
     .nav__link-active
         color: $primary
     .nav__icon
-        @apply text-base
+        @apply text-base md:hidden
     .nav__close
-        @apply absolute right-0 bottom-2 mx-5 text-2xl cursor-pointer
+        @apply absolute right-0 bottom-2 mx-5 text-2xl cursor-pointer md:hidden
         color: $primary
     .nav__close:hover
         color: $alt
@@ -122,7 +120,7 @@
     .nav__toggle-darktheme:hover
         color: $primary
     .show-menu
-        @apply bottom-0
+        @apply bottom-0 md:bottom-auto
     .scrollup
         @apply fixed right-4 -bottom-1/4 opacity-80 p-2 rounded-lg z-50 duration-500
         background-color: $primary
@@ -136,24 +134,23 @@
     .hero__container
         @apply gap-4
     .hero__content
-        @apply pt-14 items-center
-        grid-template-columns: .5fr 3fr
+        @apply pt-14 items-center md:grid-cols-8
     .hero__social
-        @apply grid auto-cols-max gap-4
+        @apply grid auto-cols-max gap-4 md:col-span-1
     .hero__social-icon
         @apply text-lg
         color: $primary
     .hero__social-icon:hover
         color: $alt
     .hero__img
-        @apply place-self-center
+        @apply place-self-center md:col-span-3 md:order-1
     .hero__blob
         @apply w-52
         fill: $primary
     .hero__blob-img
         @apply w-[360px]
     .hero__data
-        @apply col-span-2 mt-4
+        @apply col-span-2 mt-4 md:col-span-4
     .hero__title
         @apply text-4xl text-slate-700 dark:text-slate-300
     .hero__subtitle
