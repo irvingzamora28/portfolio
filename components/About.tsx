@@ -6,18 +6,18 @@ const About = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
         <section
             id="about"
-            className="About section px-6 h-screen"
+            className="About section px-6 min-h-screen"
             ref={ref}
         >
             <h2 className="section__title">About Me</h2>
             <span className="section__subtitle">Introduction</span>
-            <div className="about__container container grid">
+            <div className="about__container">
                 <Image
-                    src={"/assets/images/dalle-programming.png"}
+                    src={"/assets/images/about_profile.jpg"}
                     className="about__img"
                     alt="Irving Zamora"
-                    width={200}
-                    height={200}
+                    width={300}
+                    height={500}
                 />
                 <div className="about__data">
                     <p className="about__description">
