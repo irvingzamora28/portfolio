@@ -94,7 +94,7 @@ export default function Home() {
             </Head>
             <header id="header" className="header">
                 <nav className="nav container mx-auto">
-                    <a href={"/"} className="nav__logo mx-6">
+                    <a href={"/#"} className="nav__logo mx-6">
                         Irving
                     </a>
                     <div className="nav__buttons">
@@ -109,7 +109,7 @@ export default function Home() {
                     <div className={"nav__menu " + (showMenu? "show-menu" : "")} id="nav-menu">
                         <ul className="nav__list">
                             <li className="nav__item">
-                                <a href={"/"} className={`nav__link flex items-center ${
+                                <a href={"/#"} className={`nav__link flex items-center ${
                                 activeLink === "hero"
                                     ? "nav__link-active"
                                     : ""
