@@ -10,12 +10,12 @@ import 'swiper/css/scrollbar';
 
 const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <section id="projects" className="projects section px-6" ref={ref}>
+        <section id="projects" className="projects section px-6 min-h-screen" ref={ref}>
             <h2 className="section__title">Projects</h2>
             <span className="section__subtitle">Recent work</span>
 
             <div className="projects__container container">
-                <div>
+                <div className="projects__container-swiper">
                 <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
