@@ -282,7 +282,7 @@
     /* ** Projects ** */
     /* ** Contact ** */
     .contact__container
-        @apply gap-y-12
+        @apply gap-y-0 md:mx-auto md:gap-8 md:flex-col md:grid-flow-col
     .contact__information
         @apply flex mb-4
     .contact__button
@@ -294,6 +294,8 @@
         @apply text-lg
     .contact__subtitle
         @apply text-sm text-slate-500
+    .contact__form
+        @apply mb-4
     .contact__content
         @apply flex flex-col rounded-lg px-4 py-2 my-2
         background-color: $input
