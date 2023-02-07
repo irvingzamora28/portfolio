@@ -16,12 +16,11 @@ const Skills = forwardRef((props, ref: Ref<HTMLElement>) => {
   };
 
     return (
-        <section id="skills" className="skills section px-6" ref={ref}>
+        <section id="skills" className="skills section px-6 min-h-screen md:min-h-[600px]" ref={ref}>
             <h2 className="section__title">Skills</h2>
             <span className="section__subtitle">My technical level</span>
 
             <div className="skills__container container grid">
-                <div>
                     {/* Skill 1 */}
                     <div className={"skills__content " + (open[0] ? "skills__open" : "skills__close")}>
                         <div className="skills__header" onClick={() => handleOpen(0)}>
@@ -171,7 +170,6 @@ const Skills = forwardRef((props, ref: Ref<HTMLElement>) => {
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </section>
     );

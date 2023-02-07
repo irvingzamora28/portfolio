@@ -127,6 +127,8 @@
         background-color: $alt
     .scrollup-show
         @apply bottom-20
+    .scrollup-show-menu
+        @apply bottom-48
     .scrollup__icon
         @apply text-2xl text-slate-50
     /* ** Hero ** */
@@ -197,7 +199,7 @@
     /* ** About ** */
     /* ** Skills ** */
     .skills__container
-        @apply gap-y-0 md:mx-auto
+        @apply gap-y-0 md:mx-auto md:gap-8 md:flex-col md:grid-flow-col
     .skills__header
         @apply flex items-center mb-9 cursor-pointer
     .skills__open

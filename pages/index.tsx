@@ -93,7 +93,7 @@ export default function Home() {
                 <meta name="theme-color" content="#FFFFFF"></meta>
             </Head>
             <header id="header" className="header">
-                <nav className="nav container">
+                <nav className="nav container mx-auto">
                     <a href={"/"} className="nav__logo mx-6">
                         Irving
                     </a>
@@ -182,7 +182,7 @@ export default function Home() {
                 <Projects />
                 <Contact />
                 <Footer />
-                <a href={"#"} className={`scrollup ${showButton ? 'scrollup-show' : ''}`} id="scroll-up">
+                <a href={"#"} className={`scrollup ${showButton ? 'scrollup-show' : ''} ${showMenu ? ' scrollup-show-menu' : ''}`} id="scroll-up">
                     <BiUpArrowAlt className="scrollup__icon" />
                 </a>
             </main>
