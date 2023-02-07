@@ -29,13 +29,10 @@ const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
                         <ImageBackground />
                     </div>
                     <div className="hero__data">
-                        <h1 className="hero__title">Hi I an Irving</h1>
+                        <h1 className="hero__title">Hi I am Irving</h1>
                         <h3 className="hero__subtitle">Web Developer</h3>
                         <p className="hero__description">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Sequi facere sit eum assumenda culpa alias
-                            voluptate! Odit illo maiores eum, a reiciendis harum
-                            dolor. Quaerat.
+                        Full-stack web developer passionate about both front-end and back-end technologies
                         </p>
                         <a href={"/#contact"} className="hero__button button">
                             Contact Me <BiSend className="button__icon" />
