@@ -10,7 +10,7 @@ import 'swiper/css/scrollbar';
 
 const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <section id="projects" className="projects section px-6 min-h-screen" ref={ref}>
+        <section id="projects" className="projects section px-6 min-h-screen bg-white dark:bg-gray-900" ref={ref}>
             <h2 className="section__title">Projects</h2>
             <span className="section__subtitle">Recent work</span>
 

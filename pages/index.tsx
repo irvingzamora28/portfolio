@@ -2,11 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import {BiBriefcaseAlt2, BiImage, BiMoon, BiSun, BiUpArrowAlt} from "react-icons/bi"
-import { FaTimes } from "react-icons/fa";
+import { BiImage, BiMoon, BiSun, BiUpArrowAlt} from "react-icons/bi"
+import { FaBlog, FaTimes } from "react-icons/fa";
 import {MdOutlineContactMail} from "react-icons/md"
 import {TiThMenuOutline} from "react-icons/ti"
 import About from "../components/About";
+import Blogs from "../components/Blogs";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -17,7 +18,7 @@ export default function Home() {
     const [showMenu, setShowMenu] = useState(false)
     const [showButton, setShowButton] = useState(false)
     const [theme, setTheme] = useState("light")
-    const links = ["hero", "about", "skills", "services", "projects", "contact"];
+    const links = ["hero", "about", "skills", "blogs", "projects", "contact"];
     const [activeLink, setActiveLink] = useState("hero");
     const handleScroll = () => {
         
@@ -139,13 +140,13 @@ export default function Home() {
                                 </a>
                             </li>
                             <li className="nav__item">
-                                <a href={"/#services"} className={`nav__link flex items-center ${
-                                activeLink === "services"
+                                <a href={"/#blogs"} className={`nav__link flex items-center ${
+                                activeLink === "blogs"
                                     ? "nav__link-active"
                                     : ""
                             }`} onClick={toggleNav}>
-                                  <BiBriefcaseAlt2 className="nav__icon" />
-                                  <div className="pl-1">Services</div>
+                                  <FaBlog className="nav__icon" />
+                                  <div className="pl-1">Blog</div>
                                 </a>
                             </li>
                             <li className="nav__item">
@@ -180,6 +181,7 @@ export default function Home() {
                 <About />
                 <Skills />
                 <Projects />
+                <Blogs />
                 <Contact />
                 <Footer />
                 <a href={"#"} className={`scrollup ${showButton ? 'scrollup-show' : ''} ${showMenu ? ' scrollup-show-menu' : ''}`} id="scroll-up">
