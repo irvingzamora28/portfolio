@@ -1,7 +1,7 @@
 export const data = [
     {text: `Globals`, element: `h3`, class: 'text-2xl'},
     
-    {text: `Global variables and functions are bad and should be avoided. The reason is, they could make your code unpredictable. Global variables could cause bugs in big projects because they could be modified accidentaly
+    {text: `Global variables and functions are **bad** and should be avoided. The reason is, they could make your code unpredictable. Global variables could cause bugs in big projects because they could be modified accidentaly
 	from anywhere.`, element: `p`},
     {text: `Testing becomes more difficult, because globals could be very tight coupled to the code.`, element: `p`},
     {text: `One way to solve this problem is `, element: `p`},

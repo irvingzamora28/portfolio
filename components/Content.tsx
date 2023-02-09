@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { CopyBlock, dracula } from "react-code-blocks";
+import Paragraph from "./Paragraph";
 
 type Props = {
     data: {
@@ -31,17 +32,19 @@ const Content: React.FC<Props> = (props) => {
                     />
                 </div>
             );
+        } else if (elem.element === "p") {
+            return <Paragraph key={index} class={elem.class} text={elem.text} />
         } else {
             return React.createElement(
                 elem.element,
-                { key: index, className: "py-2 " + elem.class, id: elem.id, src: elem.src },
+                { key: index, className: "py-2 " + elem.class, id: elem.id, src: elem.src, },
                 elem.text
             );
         }
     });
     useEffect(() => {
         console.log("Content component has been rendered");
-    }, [{props}]);
+    }, []);
     return <>{children}</>;
 };
 
