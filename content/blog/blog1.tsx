@@ -1,4 +1,4 @@
-export const data = [
+const data = [
     {text: `Globals`, element: `h3`, class: 'text-2xl'},
     
     {text: `Global variables and functions are **bad** and should be avoided. The reason is, they could make your code unpredictable. Global variables could cause bugs in big projects because they could be modified accidentaly
@@ -28,3 +28,4 @@ export const data = [
 	}`, element: `code`, language: `javascript`},
     {text: `Hello`, element: `p`},
 ]
+module.exports = data;

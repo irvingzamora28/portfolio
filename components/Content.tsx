@@ -16,8 +16,6 @@ type Props = {
 const Content: React.FC<Props> = (props) => {
     const data = props.data;
 
-    console.log("elem");
-    console.log(data);
     const children = data.map((elem: any, index: number) => {
         if (elem.element === "code") {
             return (
