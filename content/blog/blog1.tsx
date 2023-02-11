@@ -28,4 +28,5 @@ const data = [
 	}`, element: `code`, language: `javascript`},
     {text: `Hello`, element: `p`},
 ]
-module.exports = data;
+
+export default data
