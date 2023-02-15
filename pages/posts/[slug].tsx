@@ -65,7 +65,7 @@ const Post: React.FC<Props> = ({ data }) => {
 
 export async function getStaticPaths() {
     // Get the list of post slugs from some data source
-    const slugs = ["asd", "blog1"];
+    const slugs = ["blog1", "blog3"];
 
     // Generate the paths for each post
     const paths = slugs.map((slug) => ({
@@ -84,6 +84,8 @@ export async function getStaticProps({ params }: { params: Params }) {
     // Read the file contents for the given slug
     try {
         const data = require(`../../content/blog/${params.slug}.tsx`);
+        console.log("data");
+        console.log(data.default);
         return { props: { data: data.default } };
     } catch (err) {
         console.error(err);
