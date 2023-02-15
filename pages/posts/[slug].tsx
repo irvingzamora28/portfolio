@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import PostHeader from "../../components/post/PostHeader";
 import { log } from "console";
-
+// import data from "../../content/blog/blog1";
 type Props = {
     data: any;
 };
@@ -82,37 +82,13 @@ type Params = {
 
 export async function getStaticProps({ params }: { params: Params }) {
     // Read the file contents for the given slug
-    const root = path.join(process.cwd());
-    const filePath = `${root}/content/blog/${params.slug}.tsx`;
-    const fileContents = fs.readFileSync(filePath, "utf-8");
     try {
-        console.log(`path`);
-        console.log(`${root}/content/blog/${params.slug}.tsx`);
-        // eslint-disable-next-line @next/next/no-assign-module-variable
-        const paragraph = await import ("../../components/Paragraph");
-        console.log(paragraph);
-        const data = await import ("../../components/blog1");
-        
-        // const {data} = await import(`${root}/content/blog/${params.slug}`);
-        // let data = module.data
-        console.log(data);
-        
+        const data = require(`../../content/blog/${params.slug}.tsx`);
         return { props: { data } };
     } catch (err) {
         console.error(err);
-        return {
-            props: {
-                data: [],
-            },
-        };
+        return { props: { data: [] } };
     }
-    // const data = import(fileContents).then(mod => {
-    //     console.log(mod);
-    // }
-    // )
-    // .catch(err => console.error(err));
-
-    // Return the props for the component
 }
 
 export default Post;
