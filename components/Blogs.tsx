@@ -18,7 +18,7 @@ const Blogs = () => {
                         <span className="text-sm">2 days ago</span>
                     </div>
                     <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        <a href="#">Install NPM using NVM</a>
+                        <a href="posts/how-to-install-npm-using-nvm">Install NPM using NVM</a>
                     </h2>
                     <div className="flex flex-col md:flex-row w-full gap-4">
                         <Image src={"/assets/images/blog/yarn-vs-npm.png"} className="w-full md:w-1/2 h-40 object-cover object-center rounded-sm" alt="Irving Zamora" width={200} height={200} />
