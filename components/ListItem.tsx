@@ -5,9 +5,9 @@ interface Props {
     text: string;
 }
 
-const Paragraph: React.FC<Props> = (props) => {
+const ListItem: React.FC<Props> = (props) => {
     const boldRegex = /\*\*(.*?)\*\*/g;
-    // TODO: remove duplicate parseText function from Paragraph and ListItem components
+
     const parseText = (text: string): any[] => {
         let parts: any[] = [];
         let match;
@@ -33,10 +33,10 @@ const Paragraph: React.FC<Props> = (props) => {
     };
 
     return React.createElement(
-        "p",
+        "li",
         {className: "py-2 " + props.class },
         parseText(props.text)
     );
 };
 
-export default Paragraph;
+export default ListItem;

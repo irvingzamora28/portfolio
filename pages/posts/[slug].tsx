@@ -32,29 +32,6 @@ const Post: React.FC<Props> = ({ data }) => {
                         <article className="relative pt-10">
                             <PostHeader title="Title of the post" />
                             <Content data={data} />
-
-                            <div className="mt-12 prose prose-slate dark:prose-dark">
-                                <p className="py-2">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nobis laudantium exercitationem, distinctio sunt excepturi temporibus suscipit dolorum minus
-                                    provident nostrum consectetur officia vero incidunt iste voluptates a! Necessitatibus, atque!
-                                </p>
-                                <div className="my-8">
-                                    <a href="https://tailwindui.com/templates/protocol">
-                                        <div className="relative rounded-md shadow-sm">{/* Image */}</div>
-                                    </a>
-                                </div>
-                                <p className="py-2">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut maiores, dolores debitis repudiandae ducimus harum vitae doloribus enim eligendi culpa laborum eos
-                                    eius dolore est excepturi officia ut delectus dolorum! Consectetur deleniti labore dolorum natus! Eum magnam ex officia soluta illo atque unde nam incidunt
-                                    reprehenderit repudiandae cum tempora similique voluptate enim magnam minus totam non voluptates amet accusantium delectus facere qui, nobis quam. Hic.
-                                </p>
-                                <p className="py-2">
-                                    Lorem doloremque est voluptates eaque expedita culpa tempora iure voluptatum velit sint non reprehenderit optio. Suscipit ducimus atque earum fuga porro nulla
-                                    itaque omnis quaerat optio in autem doloremque obcaecati iste assumenda odit tempore accusamus eius, soluta maiores sed ab! Vel, optio. Ullam quos eligendi hic
-                                    porro alias quis libero eos vitae officia, repudiandae dolore veniam minus, laborum exercitationem sit, labore itaque! Quas ab facilis modi! Praesentium fugit
-                                    exercitationem corporis explicabo!
-                                </p>
-                            </div>
                         </article>
                     </main>
                 </div>
@@ -65,7 +42,7 @@ const Post: React.FC<Props> = ({ data }) => {
 
 export async function getStaticPaths() {
     // Get the list of post slugs from some data source
-    const slugs = ["blog1", "blog3"];
+    const slugs = ["blog1", "how-to-install-npm-using-nvm"];
 
     // Generate the paths for each post
     const paths = slugs.map((slug) => ({

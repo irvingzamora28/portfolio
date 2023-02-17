@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { CopyBlock, dracula } from "react-code-blocks";
+import ListItem from "./ListItem";
 import Paragraph from "./Paragraph";
 
 type Props = {
@@ -32,6 +33,8 @@ const Content: React.FC<Props> = (props) => {
             );
         } else if (elem.element === "p") {
             return <Paragraph key={index} class={elem.class} text={elem.text} />
+        } else if (elem.element === "li") {
+            return <ListItem key={index} class={elem.class} text={elem.text} />
         } else {
             return React.createElement(
                 elem.element,

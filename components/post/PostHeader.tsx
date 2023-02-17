@@ -7,7 +7,7 @@ type Props = {
 const PostHeader: React.FC<Props> = (props) => {
     return (
         <>
-            <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200 md:text-4xl">
+            <h1 className="blog_title">
                 {props.title}
             </h1>
             <div className="text-sm leading-6">
