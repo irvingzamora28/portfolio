@@ -3,16 +3,13 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import path from "path";
 import { useEffect, useState } from "react";
-import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import { BiImage, BiMoon, BiSun, BiUpArrowAlt } from "react-icons/bi";
-import { FaBlog, FaTimes } from "react-icons/fa";
-import { MdOutlineContactMail } from "react-icons/md";
-import { TiThMenuOutline } from "react-icons/ti";
+import { BiUpArrowAlt } from "react-icons/bi";
 import About from "../components/About";
 import Blogs from "../components/Blogs";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import Header from "../components/home/Header";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
@@ -61,8 +58,8 @@ const Home = ({ blogNames }: InferGetStaticPropsType<typeof getStaticProps>) => 
         setShowMenu(!showMenu);
     };
 
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
+    const handleTheme = (newValue: string) => {
+        setTheme(newValue);
     };
 
     return (
@@ -88,64 +85,8 @@ const Home = ({ blogNames }: InferGetStaticPropsType<typeof getStaticProps>) => 
                 <meta name="msapplication-TileColor" content="#da532c" />
                 <meta name="theme-color" content="#FFFFFF"></meta>
             </Head>
-            <header id="header" className="header">
-                <nav className="nav container mx-auto">
-                    <a href={"/#"} className="nav__logo mx-6">
-                        Irving
-                    </a>
-                    <div className="nav__buttons">
-                        {theme === "dark" ? (
-                            <BiSun className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} />
-                        ) : (
-                            <BiMoon className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} />
-                        )}
-                        <div className="nav__toggle" id="nav-toggle" onClick={toggleNav}>
-                            <TiThMenuOutline />
-                        </div>
-                    </div>
-                    <div className={"nav__menu " + (showMenu ? "show-menu" : "")} id="nav-menu">
-                        <ul className="nav__list">
-                            <li className="nav__item">
-                                <a href={"/#"} className={`nav__link flex items-center ${activeLink === "hero" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                    <AiOutlineHome className="nav__icon" />
-                                    <div className="pl-1">Home</div>
-                                </a>
-                            </li>
-                            <li className="nav__item">
-                                <a href={"/#about"} className={`nav__link flex items-center ${activeLink === "about" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                    <AiOutlineUser className="nav__icon" />
-                                    <div className="pl-1">About</div>
-                                </a>
-                            </li>
-                            <li className="nav__item">
-                                <a href={"/#skills"} className={`nav__link flex items-center ${activeLink === "skills" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                    <AiOutlineFileText className="nav__icon" />
-                                    <div className="pl-1">Skills</div>
-                                </a>
-                            </li>
-                            <li className="nav__item">
-                                <a href={"/#blogs"} className={`nav__link flex items-center ${activeLink === "blogs" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                    <FaBlog className="nav__icon" />
-                                    <div className="pl-1">Blog</div>
-                                </a>
-                            </li>
-                            <li className="nav__item">
-                                <a href={"/#projects"} className={`nav__link flex items-center ${activeLink === "projects" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                    <BiImage className="nav__icon" />
-                                    <div className="pl-1">Projects</div>
-                                </a>
-                            </li>
-                            <li className="nav__item">
-                                <a href={"/#contact"} className={`nav__link flex items-center ${activeLink === "contact" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                    <MdOutlineContactMail className="nav__icon" />
-                                    <div className="pl-1">Contact</div>
-                                </a>
-                            </li>
-                        </ul>
-                        <FaTimes className="nav__close" id="nav-close" onClick={toggleNav} />
-                    </div>
-                </nav>
-            </header>
+    
+            <Header theme={theme} setTheme={handleTheme} showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} />
 
             <main className={`main ${theme === "dark" ? "dark" : ""}`}>
                 <Hero />
