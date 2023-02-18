@@ -1,12 +1,9 @@
-import fs from "fs";
 import Content from "../../components/Content";
-import path from "path";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import PostHeader from "../../components/post/PostHeader";
-import { log } from "console";
-// import data from "../../content/blog/blog1";
+
 type Props = {
     data: any;
 };
