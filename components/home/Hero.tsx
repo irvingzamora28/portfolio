@@ -2,7 +2,7 @@ import React, { forwardRef, Ref } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiSend, BiMouse, BiDownArrowAlt } from "react-icons/bi";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import ImageBackground from "./ImageBackground";
+import ImageBackground from "../ImageBackground";
 
 const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (

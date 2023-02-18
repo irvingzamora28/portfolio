@@ -3,15 +3,16 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import path from "path";
 import { useEffect, useState } from "react";
 import { BiUpArrowAlt } from "react-icons/bi";
-import About from "../components/About";
-import Blogs from "../components/Blogs";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
-import Hero from "../components/Hero";
+import About from "../components/home/About";
+import Blogs from "../components/home/Blogs";
+import Contact from "../components/home/Contact";
+import Footer from "../components/home/Footer";
+import Hero from "../components/home/Hero";
 import Header from "../components/home/Header";
 import HeadHTML from "../components/home/HeadHTML";
-import Projects from "../components/Projects";
-import Skills from "../components/Skills";
+import Projects from "../components/home/Projects";
+import Skills from "../components/home/Skills";
+import { Navbar } from "../components/Navbar";
 
 export const getStaticProps: GetStaticProps<BlogDirectory> = async () => {
     const root = path.join(process.cwd());

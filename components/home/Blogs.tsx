@@ -1,5 +1,5 @@
 import React from "react";
-import BlogCard from "./blog/BlogCard";
+import BlogCard from "../blog/BlogCard";
 
 const Blogs: React.FC<BlogDirectory> = (props) => {
     const blogPosts = props.blogNames?.map((blogName, index) => ({

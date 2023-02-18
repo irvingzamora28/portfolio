@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from "react";
-import { ProjectItem } from "./ProjectItem";
-import projectImage from "../public/assets/images/dalle-programming.png";
+import { ProjectItem } from "../ProjectItem";
+import projectImage from "../../public/assets/images/dalle-programming.png";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css';
