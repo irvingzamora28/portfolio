@@ -1,0 +1,3 @@
+type BlogDirectory = {
+    blogNames: string[];
+};

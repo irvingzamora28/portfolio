@@ -1,5 +1,7 @@
+import { readdirSync } from "fs";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import Image from "next/image";
+import path from "path";
 import { useEffect, useState } from "react";
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { BiImage, BiMoon, BiSun, BiUpArrowAlt } from "react-icons/bi";
@@ -14,7 +16,23 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
-export default function Home() {
+export const getStaticProps: GetStaticProps<BlogDirectory> = async () => {
+    const root = path.join(process.cwd());
+    const dirPath = `${root}/content/blog`;
+    const fileNames = readdirSync(dirPath);
+    const blogNames = fileNames.map((fileName) => {
+        const fileNameWOExt = fileName.split(".");
+        return fileNameWOExt.length > 1 ? fileNameWOExt[0] : fileName;
+    });
+
+    return {
+        props: {
+            blogNames,
+        },
+    };
+};
+
+const Home = ({ blogNames }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const [showMenu, setShowMenu] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [theme, setTheme] = useState("light");
@@ -134,7 +152,7 @@ export default function Home() {
                 <About />
                 <Skills />
                 <Projects />
-                <Blogs />
+                <Blogs blogNames={blogNames} />
                 <Contact />
                 <Footer />
                 <a href={"#"} className={`scrollup ${showButton ? "scrollup-show" : ""} ${showMenu ? " scrollup-show-menu" : ""}`} id="scroll-up">
@@ -143,4 +161,6 @@ export default function Home() {
             </main>
         </>
     );
-}
+};
+
+export default Home;
