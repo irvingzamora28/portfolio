@@ -6,7 +6,8 @@ const data = [
         system, making it easy to switch between different versions of Node.js as well as NPM.`,
         image: `yarn-vs-npm.png`,
         slug: `how-to-install-npm-using-nvm`,
-        author: `Irving Zamora`
+        author: `Irving Zamora`,
+        type: `Tutorial`,
     }},
     {text: `Installing Node Package Manager (NPM) is an essential step when working with Node.js projects. It is a powerful tool that helps to install and manage packages in your projects. One way to install NPM is by using Node Version Manager (NVM), **which** is a tool that helps manage different versions of Node.js.`, element: `p`},
     {text: `Here are some of the key benefits of installing NPM with NVM:`, element: `p`},
