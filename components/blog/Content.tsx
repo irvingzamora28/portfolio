@@ -28,7 +28,6 @@ const Content: React.FC<Props> = (props) => {
                     <CopyBlock
                         text={elem.text}
                         language={elem.language}
-                        showLineNumbers={true}
                         startingLineNumber={1}
                         wrapLines
                         theme={dracula}
