@@ -1,4 +1,4 @@
-import { readdirSync } from "fs";
+import fs from "fs";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import path from "path";
 import { useEffect, useState } from "react";
@@ -13,23 +13,52 @@ import HeadHTML from "../components/home/HeadHTML";
 import Projects from "../components/home/Projects";
 import Skills from "../components/home/Skills";
 
-export const getStaticProps: GetStaticProps<BlogDirectory> = async () => {
+export const getStaticProps: GetStaticProps<Blogs> = async () => {
     const root = path.join(process.cwd());
     const dirPath = `${root}/content/blog`;
-    const fileNames = readdirSync(dirPath);
-    const blogNames = fileNames.map((fileName) => {
-        const fileNameWOExt = fileName.split(".");
-        return fileNameWOExt.length > 1 ? fileNameWOExt[0] : fileName;
+    const fileNames = fs.readdirSync(dirPath);
+
+    const latestFiles = fileNames
+        .map((fileName) => ({
+            name: fileName,
+            time: fs.statSync(path.join(dirPath, fileName)).mtime.getTime(),
+        }))
+        .sort((a, b) => b.time - a.time)
+        .slice(0, 4)
+        .map((file) => file.name);
+    console.log(latestFiles)
+    const blogs: BlogMeta[] = [];
+    latestFiles.map((fileName) => {
+        const data = require(`../content/blog/${fileName}`);
+        const meta = data.default[0]?.meta;
+        console.log("meta");
+        console.log(meta);
+        if (typeof meta !== "undefined") {
+            blogs.push(meta);
+        }
+
+        fs.stat(`${dirPath}/${fileName}`, (err, stats) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+
+            const creationDate = stats.birthtime;
+            console.log(`File was created on: ${creationDate}`);
+        });
     });
+    console.log("blogs");
+    console.log(blogs);
+    
 
     return {
         props: {
-            blogNames,
+            blogs,
         },
     };
 };
 
-const Home = ({ blogNames }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const [showMenu, setShowMenu] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [theme, setTheme] = useState("light");
@@ -72,7 +101,7 @@ const Home = ({ blogNames }: InferGetStaticPropsType<typeof getStaticProps>) => 
                 <About />
                 <Skills />
                 <Projects />
-                <Blogs blogNames={blogNames} />
+                <Blogs blogs={blogs} />
                 <Contact />
                 <Footer />
                 <a href={"#"} className={`scrollup ${showButton ? "scrollup-show" : ""} ${showMenu ? " scrollup-show-menu" : ""}`} id="scroll-up">
