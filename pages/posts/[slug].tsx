@@ -58,8 +58,6 @@ export async function getStaticProps({ params }: { params: Params }) {
     // Read the file contents for the given slug
     try {
         const data = require(`../../content/blog/${params.slug}.tsx`);
-        console.log("data");
-        console.log(data.default);
         return { props: { data: data.default } };
     } catch (err) {
         console.error(err);

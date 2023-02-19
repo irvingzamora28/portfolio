@@ -18,7 +18,11 @@ const Content: React.FC<Props> = (props) => {
     const data = props.data;
 
     const children = data.map((elem: any, index: number) => {
-        if (elem.element === "code") {
+        // Do not render meta (This is the first element in blog's data)
+        if (typeof elem.meta !== "undefined") {
+            return <></>;
+        }
+        else if (elem.element === "code") {
             return (
                 <div key={index} className="py-2">
                     <CopyBlock

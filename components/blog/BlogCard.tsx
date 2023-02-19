@@ -5,9 +5,10 @@ import React from "react";
 type Props = {
     id: string;
     title: string;
-    url: string;
+    slug: string;
     image?: string;
     description: string;
+    author: string;
 };
 
 const BlogCard: React.FC<Props> = (props) => {
@@ -23,7 +24,7 @@ const BlogCard: React.FC<Props> = (props) => {
                 <span className="text-sm">2 days ago</span>
             </div>
             <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            <Link href="/posts/[url]" as={`/posts/${props.url}`}> {props.title} </Link>
+            <Link href="/posts/[slug]" as={`/posts/${props.slug}`}> {props.title} </Link>
             </h2>
             <div className="flex flex-col md:flex-row w-full gap-4">
                 {props.image && (
@@ -39,7 +40,7 @@ const BlogCard: React.FC<Props> = (props) => {
                     <Image src={"/assets/images/about_profile.jpg"} className="blogs__img" alt="Irving Zamora" width={50} height={50} />
                     <span className="blogs__author-text">Irving Zamora</span>
                 </div>
-                <Link href="/posts/[url]" as={`/posts/${props.url}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                <Link href="/posts/[slug]" as={`/posts/${props.slug}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                     Read More
                     <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path
