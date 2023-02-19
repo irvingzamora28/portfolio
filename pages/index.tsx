@@ -12,7 +12,6 @@ import Header from "../components/home/Header";
 import HeadHTML from "../components/home/HeadHTML";
 import Projects from "../components/home/Projects";
 import Skills from "../components/home/Skills";
-import { Navbar } from "../components/Navbar";
 
 export const getStaticProps: GetStaticProps<BlogDirectory> = async () => {
     const root = path.join(process.cwd());

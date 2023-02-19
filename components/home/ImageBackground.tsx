@@ -1,6 +1,4 @@
 import React from "react";
-import profileImage from "../public/assets/images/profile.png"
-import Image from "next/image";
 
 const ImageBackground = () => {
     return (

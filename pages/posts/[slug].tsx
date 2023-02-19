@@ -1,4 +1,4 @@
-import Content from "../../components/Content";
+import Content from "../../components/blog/Content";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
