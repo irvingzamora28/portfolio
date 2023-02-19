@@ -30,8 +30,8 @@ const PostHeader: React.FC<Props> = (props) => {
                             </div>
                             <div className="mt-1">
                                 <a
-                                    href="mailto:elcorreoquequieres@correo.com"
-                                    className="text-sky-500 hover:text-sky-600 dark:text-sky-400">
+                                    href="mailto:contact@irvingzamora.com"
+                                    className="blog__header-contact">
                                     irvingzamora06
                                 </a>
                             </div>

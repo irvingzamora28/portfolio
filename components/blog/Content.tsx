@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { CopyBlock, dracula } from "react-code-blocks";
+import Contents from "../post/PostContentsSection";
 import ListItem from "./ListItem";
 import Paragraph from "./Paragraph";
 
@@ -18,32 +19,23 @@ const Content: React.FC<Props> = (props) => {
     const data = props.data;
 
     const children = data.map((elem: any, index: number) => {
-        // Do not render meta (This is the first element in blog's data)
-        if (typeof elem.meta !== "undefined") {
-            return <></>;
-        }
-        else if (elem.element === "code") {
+        if (elem.element === "code") {
             return (
                 <div key={index} className="py-2">
-                    <CopyBlock
-                        text={elem.text}
-                        language={elem.language}
-                        startingLineNumber={1}
-                        wrapLines
-                        theme={dracula}
-                    />
+                    <CopyBlock text={elem.text} language={elem.language} startingLineNumber={1} wrapLines theme={dracula} />
                 </div>
             );
         } else if (elem.element === "p") {
-            return <Paragraph key={index} class={elem.class} text={elem.text} />
+            return <Paragraph key={index} class={elem.class} text={elem.text} />;
         } else if (elem.element === "li") {
-            return <ListItem key={index} class={elem.class} text={elem.text} />
+            return <ListItem key={index} class={elem.class} text={elem.text} />;
+        } else if (typeof elem.contents !== "undefined") {
+            return <Contents key={index} contents={elem.contents} />;
+        } else if (typeof elem.meta !== "undefined") {
+            // Do not render meta (This is the first element in blog's data)
+            return <></>;
         } else {
-            return React.createElement(
-                elem.element,
-                { key: index, className: "py-2 " + elem.class, id: elem.id, src: elem.src, },
-                elem.text
-            );
+            return React.createElement(elem.element, { key: index, className: "" + elem.class, id: elem.id, src: elem.src }, elem.text);
         }
     });
     useEffect(() => {
