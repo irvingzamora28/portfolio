@@ -33,6 +33,8 @@ const Post: React.FC<Props> = ({ data }) => {
                     </main>
                 </div>
             </div>
+            {/* Create a div with the classes used by the content blog. (Data is fetched dynamically from the filesystem and classes are not used on build time) */}
+            <div className="blog_title blog_subtitle hidden"></div>
         </div>
     );
 };
