@@ -7,7 +7,7 @@ type BlogMeta = {
     title: string;
     description: string;
     type: string;
-    image: string;
+    image?: string;
     slug: string;
     author: string;
 };
