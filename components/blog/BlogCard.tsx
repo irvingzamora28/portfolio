@@ -3,6 +3,17 @@ import Link from "next/link";
 import React from "react";
 
 const BlogCard: React.FC<BlogMeta> = (props) => {
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+
+        // calculate the difference in milliseconds between the two dates
+        const today = new Date();
+        const diffMs = today.getTime() - date.getTime();
+        
+        // calculate the number of days by dividing the milliseconds difference by the number of milliseconds in a day
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        return `${diffDays} day${diffDays === 1 ? '' : 's'} ago`
+    }
     return (
         <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div className="flex justify-between items-center mb-5 text-gray-500">
@@ -12,7 +23,7 @@ const BlogCard: React.FC<BlogMeta> = (props) => {
                     </svg>
                     {props.type}
                 </span>
-                <span className="text-sm">2 days ago</span>
+                <span className="text-sm">{formatDate(props.created_at)}</span>
             </div>
             <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             <Link href="/posts/[slug]" as={`/posts/${props.slug}`}> {props.title} </Link>
