@@ -26,30 +26,14 @@ export const getStaticProps: GetStaticProps<Blogs> = async () => {
         .sort((a, b) => b.time - a.time)
         .slice(0, 4)
         .map((file) => file.name);
-    console.log(latestFiles)
     const blogs: BlogMeta[] = [];
     latestFiles.map((fileName) => {
         const data = require(`../content/blog/${fileName}`);
         const meta = data.default[0]?.meta;
-        console.log("meta");
-        console.log(meta);
         if (typeof meta !== "undefined") {
             blogs.push(meta);
         }
-
-        fs.stat(`${dirPath}/${fileName}`, (err, stats) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-
-            const creationDate = stats.birthtime;
-            console.log(`File was created on: ${creationDate}`);
-        });
     });
-    console.log("blogs");
-    console.log(blogs);
-    
 
     return {
         props: {
