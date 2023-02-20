@@ -20,7 +20,7 @@ const Paragraph: React.FC<Props> = (props) => {
     };
 
     const generateFormattedText = (text: string): JSX.Element[] => {
-      const boldRegex = /\*{2}([^*]+)\*{2}/g;
+      const boldRegex = /\*{2}([^*]+)\*{2}(?!\*)/g;
       const linkRegex = /\*{3}([^*]+)\*{3}/g;
       let parts: any[] = [];
       let match;
