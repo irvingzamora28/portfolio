@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import BlogCard from "../components/blog/BlogCard";
+import Footer from "../components/home/Footer";
 
 const posts = [
     { id: "1", created_at: "Fri Feb 10 2023 16:54:35 GMT-0700", title: "Blog post 1", description: "Lorem ipsum dolor sit amet...", type:"Tutorial", slug:"how-to-install-npm-using-nvm", image: "yarn-vs-npm.png", author:"Irving Zamora" },
@@ -10,6 +11,7 @@ const posts = [
 
 const Blog = () => {
     return (
+        <>
         <div className="bg-white p-4 flex flex-col items-center">
             <Head>
                 <title>My Blog</title>
@@ -23,7 +25,10 @@ const Blog = () => {
                     <BlogCard key={post.id} created_at={post.created_at} title={post.title} slug={post.slug} author={post.author} type={post.type} image={post.image} description={post.description} />
                 ))}
             </div>
+
         </div>
+            <Footer />
+        </>
     );
 };
 
