@@ -38,11 +38,12 @@ export const getStaticProps: GetStaticProps<Blogs> = async () => {
     return {
         props: {
             blogs,
+            isBlogSection: true,
         },
     };
 };
 
-const Home = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const [showMenu, setShowMenu] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [theme, setTheme] = useState("light");
@@ -78,14 +79,14 @@ const Home = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <>
             <HeadHTML />
-            <Header theme={theme} setTheme={handleTheme} showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} />
+            <Header theme={theme} setTheme={handleTheme} showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} isHomePage={true} />
 
             <main className={`main ${theme === "dark" ? "dark" : ""}`}>
                 <Hero />
                 <About />
                 <Skills />
                 <Projects />
-                <Blogs blogs={blogs} />
+                <Blogs blogs={blogs} isBlogSection={isBlogSection} />
                 <Contact />
                 <Footer />
                 <a href={"#"} className={`scrollup ${showButton ? "scrollup-show" : ""} ${showMenu ? " scrollup-show-menu" : ""}`} id="scroll-up">

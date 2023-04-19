@@ -14,4 +14,5 @@ type BlogMeta = {
 
 type Blogs = {
     blogs: BlogMeta[];
+    isBlogSection: boolean;
 };

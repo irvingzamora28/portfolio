@@ -1,30 +1,68 @@
 import Head from "next/head";
-import Image from "next/image";
 import BlogCard from "../components/blog/BlogCard";
 import Footer from "../components/home/Footer";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Blogs from "../components/home/Blogs";
+import path from "path";
+import fs from "fs";
+import { useState } from "react";
+import Header from "../components/home/Header";
 
-const posts = [
-    { id: "1", created_at: "Fri Feb 10 2023 16:54:35 GMT-0700", title: "Blog post 1", description: "Lorem ipsum dolor sit amet...", type:"Tutorial", slug:"how-to-install-npm-using-nvm", image: "yarn-vs-npm.png", author:"Irving Zamora" },
-    { id: "2", created_at: "02/02/2023 16:54:35 GMT-0700", title: "Blog post 2", description: "Consectetur adipiscing elit...", type:"Article", slug:"how-to-install-npm-using-nvm", author:"Irving Zamora" },
-    { id: "3", created_at: "01/02/2023 2023 16:54:35 GMT-0700", title: "Blog post 3", description: "Sed sollicitudin augue euismod...", type:"Article", slug:"how-to-install-npm-using-nvm", author:"Irving Zamora" },
-];
+export const getStaticProps: GetStaticProps<Blogs> = async () => {
+    
+    const root = path.join(process.cwd());
+    const dirPath = `${root}/content/blog`;
+    const fileNames = fs.readdirSync(dirPath);
 
-const Blog = () => {
+    const latestFiles = fileNames
+        .map((fileName) => ({
+            name: fileName,
+            time: fs.statSync(path.join(dirPath, fileName)).mtime.getTime(),
+        }))
+        .sort((a, b) => b.time - a.time)
+        .slice(0, 4)
+        .map((file) => file.name);
+    const blogs: BlogMeta[] = [];
+    latestFiles.map((fileName) => {
+        const data = require(`../content/blog/${fileName}`);
+        const meta = data.default[0]?.meta;
+        if (typeof meta !== "undefined") {
+            blogs.push(meta);
+        }
+    });
+
+    return {
+        props: {
+            blogs,
+            isBlogSection: false,
+        },
+    };
+};
+
+const Blog = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStaticProps>) => {
+    const [showMenu, setShowMenu] = useState(false);
+    const [theme, setTheme] = useState("light");
+    const [activeLink, setActiveLink] = useState("hero");
+
+
+    const handleTheme = () => {
+        setTheme(theme === "dark" ? "light" : "dark");
+    };
+
+    const toggleNav = () => {
+        setShowMenu(!showMenu);
+    };
     return (
         <>
-        <div className="bg-white p-4 flex flex-col items-center">
+
+        <div className={`main ${theme === "dark" ? "dark" : ""}`}>
             <Head>
                 <title>My Blog</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <h1 className="text-2xl font-medium">Welcome to my blog</h1>
-            <p className="text-gray-600 text-lg">Here you will find my latest thoughts and musings</p>
-            <Image src={"/../public/assets/images/dalle-programming.png"} width={40} height={40} alt="Blog Image" className="mb-4 rounded-lg" />
-            <div className="grid grid-cols-2 gap-4">
-                {posts.map((post) => (
-                    <BlogCard key={post.id} created_at={post.created_at} title={post.title} slug={post.slug} author={post.author} type={post.type} image={post.image} description={post.description} />
-                ))}
-            </div>
+            <Header theme={theme} setTheme={handleTheme} showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} isHomePage={false} />
+            
+            <Blogs blogs={blogs} isBlogSection={isBlogSection} />
 
         </div>
             <Footer />

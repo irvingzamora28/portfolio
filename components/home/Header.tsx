@@ -12,9 +12,10 @@ interface Props {
     showMenu: boolean;
     setShowMenu: (newValue: boolean) => void;
     activeLink: string;
+    isHomePage: boolean;
 };
 
-const Header: React.FC<Props> = ({ theme, setTheme, showMenu, setShowMenu, activeLink }) => {
+const Header: React.FC<Props> = ({ theme, setTheme, showMenu, setShowMenu, activeLink, isHomePage }) => {
 
     const handleTheme = () => {
         setTheme(theme === "dark" ? "light" : "dark");
@@ -28,7 +29,7 @@ const Header: React.FC<Props> = ({ theme, setTheme, showMenu, setShowMenu, activ
         <header id="header" className="header">
             <nav className="nav container mx-auto">
                 <a href={"/#"} className="nav__logo mx-6">
-                    Irving
+                {isHomePage ? "Irving" : "Home" }
                 </a>
                 <div className="nav__buttons">
                     {theme === "dark" ? (
@@ -36,51 +37,57 @@ const Header: React.FC<Props> = ({ theme, setTheme, showMenu, setShowMenu, activ
                     ) : (
                         <BiMoon className="nav__toggle-darktheme" id="button-darktheme" onClick={handleTheme} />
                     )}
+                    {isHomePage && (
                     <div className="nav__toggle" id="nav-toggle" onClick={toggleNav}>
                         <TiThMenuOutline />
                     </div>
+                    )}
                 </div>
-                <div className={"nav__menu " + (showMenu ? "show-menu" : "")} id="nav-menu">
-                    <ul className="nav__list">
-                        <li className="nav__item">
-                            <a href={"/#"} className={`nav__link flex items-center ${activeLink === "hero" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                <AiOutlineHome className="nav__icon" />
-                                <div className="pl-1">Home</div>
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href={"/#about"} className={`nav__link flex items-center ${activeLink === "about" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                <AiOutlineUser className="nav__icon" />
-                                <div className="pl-1">About</div>
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href={"/#skills"} className={`nav__link flex items-center ${activeLink === "skills" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                <AiOutlineFileText className="nav__icon" />
-                                <div className="pl-1">Skills</div>
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href={"/#blogs"} className={`nav__link flex items-center ${activeLink === "blogs" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                <FaBlog className="nav__icon" />
-                                <div className="pl-1">Blog</div>
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href={"/#projects"} className={`nav__link flex items-center ${activeLink === "projects" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                <BiImage className="nav__icon" />
-                                <div className="pl-1">Projects</div>
-                            </a>
-                        </li>
-                        <li className="nav__item">
-                            <a href={"/#contact"} className={`nav__link flex items-center ${activeLink === "contact" ? "nav__link-active" : ""}`} onClick={toggleNav}>
-                                <MdOutlineContactMail className="nav__icon" />
-                                <div className="pl-1">Contact</div>
-                            </a>
-                        </li>
-                    </ul>
-                    <FaTimes className="nav__close" id="nav-close" onClick={toggleNav} />
-                </div>
+                {isHomePage && (
+                    <div className={"nav__menu " + (showMenu ? "show-menu" : "")} id="nav-menu">
+                        <ul className="nav__list">
+                            <li className="nav__item">
+                                <a href={"/#"} className={`nav__link flex items-center ${activeLink === "hero" ? "nav__link-active" : ""}`} onClick={toggleNav}>
+                                    <AiOutlineHome className="nav__icon" />
+                                    <div className="pl-1">Home</div>
+                                </a>
+                            </li>
+                            <li className="nav__item">
+                                <a href={"/#about"} className={`nav__link flex items-center ${activeLink === "about" ? "nav__link-active" : ""}`} onClick={toggleNav}>
+                                    <AiOutlineUser className="nav__icon" />
+                                    <div className="pl-1">About</div>
+                                </a>
+                            </li>
+                            <li className="nav__item">
+                                <a href={"/#skills"} className={`nav__link flex items-center ${activeLink === "skills" ? "nav__link-active" : ""}`} onClick={toggleNav}>
+                                    <AiOutlineFileText className="nav__icon" />
+                                    <div className="pl-1">Skills</div>
+                                </a>
+                            </li>
+                            <li className="nav__item">
+                                <a href={"/#projects"} className={`nav__link flex items-center ${activeLink === "projects" ? "nav__link-active" : ""}`} onClick={toggleNav}>
+                                    <BiImage className="nav__icon" />
+                                    <div className="pl-1">Projects</div>
+                                </a>
+                            </li>
+                            <li className="nav__item">
+                                <a href={"/blog"} className={`nav__link flex items-center ${activeLink === "blogs" ? "nav__link-active" : ""}`} onClick={toggleNav}>
+                                    <FaBlog className="nav__icon" />
+                                    <div className="pl-1">Blog</div>
+                                </a>
+                            </li>
+                            <li className="nav__item">
+                                <a href={"/#contact"} className={`nav__link flex items-center ${activeLink === "contact" ? "nav__link-active" : ""}`} onClick={toggleNav}>
+                                    <MdOutlineContactMail className="nav__icon" />
+                                    <div className="pl-1">Contact</div>
+                                </a>
+                            </li>
+                        </ul>
+                        <FaTimes className="nav__close" id="nav-close" onClick={toggleNav} />
+                    </div>
+
+                    )
+                }
             </nav>
         </header>
     );
