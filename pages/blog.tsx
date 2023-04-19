@@ -40,18 +40,12 @@ export const getStaticProps: GetStaticProps<Blogs> = async () => {
 };
 
 const Blog = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStaticProps>) => {
-    const [showMenu, setShowMenu] = useState(false);
     const [theme, setTheme] = useState("light");
-    const [activeLink, setActiveLink] = useState("hero");
-
 
     const handleTheme = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     };
 
-    const toggleNav = () => {
-        setShowMenu(!showMenu);
-    };
     return (
         <>
 
@@ -60,7 +54,7 @@ const Blog = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStatic
                 <title>My Blog</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header theme={theme} setTheme={handleTheme} showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} isHomePage={false} />
+            <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
             
             <Blogs blogs={blogs} isBlogSection={isBlogSection} />
 

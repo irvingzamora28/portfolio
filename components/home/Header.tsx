@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, useState } from "react";
+import React from "react";
 
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { BiImage, BiMoon, BiSun } from "react-icons/bi";
@@ -8,21 +8,21 @@ import { TiThMenuOutline } from "react-icons/ti";
 
 interface Props {
     theme: string;
-    setTheme: (newValue: string) => void;
-    showMenu: boolean;
-    setShowMenu: (newValue: boolean) => void;
-    activeLink: string;
     isHomePage: boolean;
+    setTheme: (newValue: string) => void;
+    showMenu?: boolean;
+    setShowMenu?: (newValue: boolean) => void;
+    activeLink?: string;
 };
 
 const Header: React.FC<Props> = ({ theme, setTheme, showMenu, setShowMenu, activeLink, isHomePage }) => {
 
     const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
+        setTheme?.(theme === "dark" ? "light" : "dark");
+    };    
 
     const toggleNav = () => {
-        setShowMenu(!showMenu);
+        setShowMenu?.(!showMenu);
     };
 
     return (
