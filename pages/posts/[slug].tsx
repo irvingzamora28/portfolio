@@ -41,7 +41,7 @@ const Post: React.FC<Props> = ({ data }) => {
 
 export async function getStaticPaths() {
     // Get the list of post slugs from some data source
-    const slugs = ["blog1", "how-to-install-npm-using-nvm", "how-to-structure-nextjs-project", "benefits-of-continuous-integration-and-deployment"];
+    const slugs = ["blog1", "how-to-install-npm-using-nvm", "how-to-structure-nextjs-project", "benefits-of-continuous-integration-and-deployment", "tips-for-scaling-web-applications"];
 
     // Generate the paths for each post
     const paths = slugs.map((slug) => ({
