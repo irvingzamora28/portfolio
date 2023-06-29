@@ -1,3 +1,20 @@
-# Hello World
+import Layout from '../../components/blog/BlogLayout';
+import BlogImage from '../../components/blog/BlogImage';
+
+export const meta = {
+  author: 'Irving Zamora',
+  title: 'Hello World',
+  slug: 'hello-world',
+  topics: [
+    'world',
+    'example',
+  ],
+};
+
+# Hello World!
 
 Example text
+
+<BlogImage image={"cicd_blog.png"} height={200} />
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

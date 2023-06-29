@@ -12,6 +12,13 @@ type BlogMeta = {
     author: string;
 };
 
+type BlogImage = {
+    image?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+};
+
 type Blogs = {
     blogs: BlogMeta[];
     isBlogSection: boolean;

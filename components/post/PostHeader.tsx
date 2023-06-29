@@ -1,15 +1,15 @@
 import React from "react";
 
 type Props = {
-    title: string
-}
+    title: string;
+    author: string;
+    topics: string[]
+};
 
 const PostHeader: React.FC<Props> = (props) => {
     return (
-        <>
-            <h1 className="blog_title">
-                {props.title}
-            </h1>
+        <div className="flex flex-col mt-6 mb-10 items-center justify-center text-center">
+            <h1 className="blog_title">{props.title}</h1>
             <div className="text-sm leading-6">
                 <dl>
                     <dt className="sr-only">Date</dt>
@@ -25,8 +25,19 @@ const PostHeader: React.FC<Props> = (props) => {
                     <li className="flex items-center font-medium whitespace-nowrap px-5 mt-6">
                         {/* Image */}
                         <div className="text-sm leading-4">
-                            <div className="text-slate-900 dark:text-slate-200">
-                                Irving Zamora
+                            <p className="text-md text-gray-500">
+                                By {props.author}
+                            </p>
+                            {/* topics */}
+                            <div className="flex flex-wrap gap-2 mt-4">
+                                {props.topics.map((topic) => (
+                                    <span
+                                        key={topic}
+                                        className="text-sm text-gray-500 bg-gray-200 rounded-full px-2 py-1">
+                                        {topic.slice(0, 1).toUpperCase() +
+                                            topic.slice(1)}
+                                    </span>
+                                ))}
                             </div>
                             <div className="mt-1">
                                 <a
@@ -39,7 +50,7 @@ const PostHeader: React.FC<Props> = (props) => {
                     </li>
                 </ul>
             </div>
-        </>
+        </div>
     );
 };
 
