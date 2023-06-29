@@ -19,6 +19,12 @@ type BlogImage = {
     height?: number;
 };
 
+type PostHeaderProps = {
+    title: string;
+    author: string;
+    topics?: string[];
+}
+
 type Blogs = {
     blogs: BlogMeta[];
     isBlogSection: boolean;

@@ -1,12 +1,6 @@
 import React from "react";
 
-type Props = {
-    title: string;
-    author: string;
-    topics: string[]
-};
-
-const PostHeader: React.FC<Props> = (props) => {
+const PostHeader: React.FC<PostHeaderProps> = (props) => {
     return (
         <div className="flex flex-col mt-6 mb-10 items-center justify-center text-center">
             <h1 className="blog_title">{props.title}</h1>
@@ -30,7 +24,7 @@ const PostHeader: React.FC<Props> = (props) => {
                             </p>
                             {/* topics */}
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {props.topics.map((topic) => (
+                                {props.topics?.map((topic) => (
                                     <span
                                         key={topic}
                                         className="text-sm text-gray-500 bg-gray-200 rounded-full px-2 py-1">
