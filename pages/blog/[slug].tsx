@@ -55,9 +55,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
 export async function getStaticPaths() {
     // Get the list of post slugs from some data source
     const slugs = [
-        "blog1",
         "how-to-install-npm-using-nvm",
-        "how-to-install-npm-using-nvm-copy",
         "how-to-structure-nextjs-project",
         "benefits-of-continuous-integration-and-deployment",
         "tips-for-scaling-web-applications",
