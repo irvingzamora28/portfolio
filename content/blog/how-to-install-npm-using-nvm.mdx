@@ -52,13 +52,21 @@ In this article, we will go through the steps to install NPM using NVM.
 
 The first step is to install NVM if you haven't already. You can do this by running the following command in your terminal:
 
-<CopyBlock text={curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash} startingLineNumber={1} wrapLines />
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+curl -o- httpss://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+</CopyBlockWrapper>
+
 
 This will download and run the NVM installation script, which will add NVM to your system and update your shell profile
     
 After the installation is complete, you can verify that NVM is installed by running the following command:
 
-<CopyBlock text={nvm --version} startingLineNumber={1} wrapLines />
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+nvm --version
+</CopyBlockWrapper>
+
 
 This should output the version of NVM that you just installed.
 
@@ -66,11 +74,19 @@ This should output the version of NVM that you just installed.
 
 Now that you have NVM installed, you can use it to install the latest version of Node.js by running the following command:
 
-<CopyBlock text={nvm install node} startingLineNumber={1} wrapLines />
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+nvm install node
+</CopyBlockWrapper>
+
 
 This will download and install the latest version of Node.js and set it as the default version. You can verify that Node.js is installed by running the following command:
 
-<CopyBlock text={node --version} startingLineNumber={1} wrapLines />
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+node --version
+</CopyBlockWrapper>
+
 
 This should output the version of Node.js that you just installed.
 
@@ -80,7 +96,11 @@ Now that Node.js is installed, you can install NPM alongside it by running the f
     
 This will download and install the latest latest Long-Term Support (LTS) version of NPM and associate it with the Node.js version you just installed. You can verify that NPM is installed by running the following command:
 
-<CopyBlock text={npm --version} startingLineNumber={1} wrapLines />
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+npm --version
+</CopyBlockWrapper>
+
 
 This should output the version of NPM that you just installed.
 
@@ -88,7 +108,11 @@ This should output the version of NPM that you just installed.
 
 If you want to update NPM to the latest version, you can run the following command:
 
-<CopyBlock text={nvm install-latest-npm} startingLineNumber={1} wrapLines />
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+nvm install-latest-npm
+</CopyBlockWrapper>
+
 
 This will update NPM to the latest version and make it available for use.
 

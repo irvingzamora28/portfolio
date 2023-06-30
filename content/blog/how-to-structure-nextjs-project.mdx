@@ -30,10 +30,8 @@ In this article, we will discuss the benefits of having a good directory structu
 
 The recommended directory structure for a Next.js project includes the following directories: pages, public, components, utils, types, styles, config, pages/api, pages/_app.tsx, and tests. Let's look at each of these directories in more detail.
 
-<CopyBlock
-    language="bash"
-    text={`
-    .
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
     ├── components/
     │   ├── Header/
     │   │   ├── Header.tsx
@@ -100,10 +98,7 @@ The recommended directory structure for a Next.js project includes the following
     ├── tsconfig.json
     ├── README.md
     └── yarn.lock
-`}
-    startingLineNumber={1}
-    wrapLines
-/>
+</CopyBlockWrapper>
 
 ## Pages Directory
 
@@ -127,18 +122,13 @@ To use the utils directory in your Next.js project, you can create a file inside
 
 Here's an example of what the contents of a formatDate.ts file might look like:
 
-<CopyBlock
-    language="javascript"
-    text={`
+<CopyBlockWrapper language="javascript" startingLineNumber={1} wrapLines >
     const formatDate = (date: Date, format: string): string => {
         // Implementation code here...
     }
-      
+    
     export default formatDate;
-	`}
-    startingLineNumber={1}
-    wrapLines
-/>
+</CopyBlockWrapper>
 
 ## Types Directory
 
@@ -150,17 +140,14 @@ In a Next.js project, you can define your type definitions in the types director
 
 You may also create a subdirectory structure in the types directory to organize your type definitions based on their function or type.
 
-<CopyBlock
-    language="bash"
-    text={`types/
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+    types/
     ├── custom.d.ts
     ├── index.d.ts
     └── my-module/
-        └── index.d.ts       
-    `}
-    startingLineNumber={1}
-    wrapLines
-/>
+        └── index.d.ts
+</CopyBlockWrapper>
 
 In this example, we have a types directory that contains a few files and a subdirectory:
 
@@ -192,38 +179,31 @@ The config directory is where you can keep configuration files for your Next.js 
 
 To use the config directory, you can create a file for each type of configuration you need. For example, you might create an env.ts file to store your environment variables, a constants.ts file to store constant values used throughout your application, and other files to store configuration settings related to specific parts of your application.
 
-<CopyBlock
-    language="bash"
-    text={`config/
+<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
+
+    config/
     ├── env.ts
-    └── api.ts    
-    `}
-    startingLineNumber={1}
-    wrapLines
-/>
+    └── api.ts
+</CopyBlockWrapper>
 
 In this example, the **config** directory contains three files. The env.ts file stores environment variables, the constants.ts file stores constant values used throughout the application, and the api.ts file stores configuration settings related to the API.
 
 You might use these configuration files throughout your project like this:
 
-<CopyBlock
-    language="javascript"
-    text={`
+<CopyBlockWrapper language="javascript" startingLineNumber={1} wrapLines />
+
     // Import configuration files
     import { API_BASE_URL } from '../config/constants';
     import { API_KEY } from '../config/env';
     import { API_TIMEOUT } from '../config/api';
-    
     // Use configuration values
     const url = \`$\{API_BASE_URL\}/users\`;
     const headers = {
       'x-api-key': API_KEY,
     };
-    const timeout = API_TIMEOUT;    
-    `}
-    startingLineNumber={1}
-    wrapLines
-/>
+    const timeout = API_TIMEOUT;
+</CopyBlockWrapper>
+
 
 ## Pages/API Directory
 
@@ -243,6 +223,6 @@ Finally, the tests directory is where you store your tests for your Next.js appl
 
 This naming convention helps you quickly identify which file the test corresponds to.
 
-Conclusion
+## Conclusion
 
 In conclusion, having a well-structured directory is essential for maintaining productivity and efficiency in building Next.js projects. A proper directory structure can help you locate files and code quickly, make collaboration with other developers more efficient, and simplify the testing and maintenance of your codebase over time. By using the recommended directory structure that includes directories such as pages, public, components, utils, types, styles, config, pages/api, pages/_app.tsx, and tests, you can create a more organized and maintainable project. Additionally, separating utility functions and components from other code and providing type definitions can improve type safety and make your codebase more scalable. Finally, organizing your tests in a dedicated directory and following a consistent naming convention can help you easily find and run tests as you build and maintain your application.

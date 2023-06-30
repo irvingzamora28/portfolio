@@ -4,6 +4,10 @@ import { CopyBlock, dracula } from "react-code-blocks";
 import PostTableOfContents from "./PostTableOfContents";
 import PostListItem from "./PostListItem";
 
+const CopyBlockWrapper = ({children, ...props}) => (
+    <CopyBlock text={children} theme={dracula} {...props} />
+);
+
 const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
     return (
         <div>
@@ -58,12 +62,8 @@ const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
                                 className: "py-3",
                             },
                         },
-                        CopyBlock: {
-                            component: CopyBlock,
-                            props: {
-                                theme: dracula,
-                                language: "bash",
-                            },
+                        CopyBlockWrapper: {
+                            component: CopyBlockWrapper,
                         },
                         PostTableOfContents: {
                             component: PostTableOfContents,
