@@ -10,12 +10,16 @@ import { parseContent } from "../../utils/parseContent";
 
 type BlogPostProps = {
     content: any;
+    meta: any;
 };
 
-const BlogPost: React.FC<BlogPostProps> = ({ content }) => {
+const BlogPost: React.FC<BlogPostProps> = (props) => {
     useEffect(() => {
         console.log("My function slug component has been rendered");
-    }, [content]);
+    }, [props.content]);
+
+    
+    
 
     return (
         <div className="overflow-hidden">
@@ -34,11 +38,11 @@ const BlogPost: React.FC<BlogPostProps> = ({ content }) => {
                     <main>
                         <article className="relative pt-10">
                             <PostHeader
-                                title={"props.meta.title"}
-                                author={"props.meta.author"}
-                                topics={["props.meta.topics"]}
+                                title={props.meta.title}
+                                author={props.meta.author}
+                                topics={props.meta.topics}
                             />
-                            <BlogContent content={content} />
+                            <BlogContent content={props.content} toc={props.meta.contents} />
                         </article>
                     </main>
                 </div>
@@ -80,12 +84,10 @@ export async function getStaticProps({ params }: { params: Params }) {
         const dirPath = `${root}/content/blog`;
         const filePath = path.join(dirPath, `${params.slug}.mdx`);
         const fileContents = fs.readFileSync(filePath, "utf8");
-        console.log(fileContents);
         const { data } = matter(fileContents);
         const content = parseContent(fileContents);
-        console.log(data);
 
-        return { props: { content: content } };
+        return { props: { content: content, meta: data } };
     } catch (err) {
         console.error(err);
         return { props: { content: [] } };

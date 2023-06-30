@@ -3,7 +3,7 @@ import Markdown from "markdown-to-jsx";
 import { CopyBlock, dracula } from "react-code-blocks";
 import PostContentsSection from "../post/PostContentsSection";
 
-const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
+const BlogContent: React.FC<BlogContentProps> = ({ content, toc }) => {
     return (
         <div>
             <Markdown
@@ -67,28 +67,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
                         PostContentsSection: {
                             component: PostContentsSection,
                             props: {
-                                contents: [
-                                    {
-                                        text: "Introduction",
-                                        href: "#introduction",
-                                    },
-                                    {
-                                        text: "Step 1: Install NVM",
-                                        href: "#step-1-install-nvm",
-                                    },
-                                    {
-                                        text: "Step 2: Install Node.js",
-                                        href: "#step-2-install-nodejs",
-                                    },
-                                    {
-                                        text: "Step 3: Install NPM",
-                                        href: "#step-3-install-npm",
-                                    },
-                                    {
-                                        text: "Step 4: Update NPM",
-                                        href: "#step-4-update-npm",
-                                    },
-                                ],
+                                contents: toc,
                             },
                         },
                         blockquote: {

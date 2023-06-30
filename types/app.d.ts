@@ -32,6 +32,7 @@ type PostSubtitleProps = {
 
 type BlogContentProps = {
     content: string;
+    toc: [text: string, href: string,][]
 }
 
 type Blogs = {

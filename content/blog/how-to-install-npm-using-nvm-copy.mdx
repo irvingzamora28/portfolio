@@ -8,6 +8,28 @@ slug: "how-to-install-npm-using-nvm"
 author: "Irving Zamora"
 type: "Tutorial"
 topics: ["Node", "Node Package Manager", "Node Version Manager"]
+contents: [
+    {
+        text: "Introduction",
+        href: "#introduction",
+    },
+    {
+        text: "Step 1: Install NVM",
+        href: "#step-1-install-nvm",
+    },
+    {
+        text: "Step 2: Install Node.js",
+        href: "#step-2-install-nodejs",
+    },
+    {
+        text: "Step 3: Install NPM",
+        href: "#step-3-install-npm",
+    },
+    {
+        text: "Step 4: Update NPM",
+        href: "#step-4-update-npm",
+    },
+]
 ---
 
 <PostContentsSection />
@@ -30,13 +52,13 @@ In this article, we will go through the steps to install NPM using NVM.
 
 The first step is to install NVM if you haven't already. You can do this by running the following command in your terminal:
 
-<CopyBlock language={`bash`} text={curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash} startingLineNumber={1} wrapLines />
+<CopyBlock text={curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash} startingLineNumber={1} wrapLines />
 
 This will download and run the NVM installation script, which will add NVM to your system and update your shell profile
     
 After the installation is complete, you can verify that NVM is installed by running the following command:
 
-<CopyBlock language={`bash`} text={nvm --version} startingLineNumber={1} wrapLines />
+<CopyBlock text={nvm --version} startingLineNumber={1} wrapLines />
 
 This should output the version of NVM that you just installed.
 
