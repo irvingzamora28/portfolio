@@ -1,4 +1,3 @@
-import fs from "fs";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import path from "path";
 import { useEffect, useState } from "react";
@@ -12,28 +11,12 @@ import Header from "../components/home/Header";
 import HeadHTML from "../components/home/HeadHTML";
 import Projects from "../components/home/Projects";
 import Skills from "../components/home/Skills";
+import { readBlogsMeta } from "../utils/blogFileReader";
 
 export const getStaticProps: GetStaticProps<Blogs> = async () => {
     const root = path.join(process.cwd());
     const dirPath = `${root}/content/blog`;
-    const fileNames = fs.readdirSync(dirPath);
-
-    const latestFiles = fileNames
-        .map((fileName) => ({
-            name: fileName,
-            time: fs.statSync(path.join(dirPath, fileName)).mtime.getTime(),
-        }))
-        .sort((a, b) => b.time - a.time)
-        .slice(0, 4)
-        .map((file) => file.name);
-    const blogs: BlogMeta[] = [];
-    latestFiles.map((fileName) => {
-        const data = require(`../content/blog/${fileName}`);
-        const meta = data.default[0]?.meta;
-        if (typeof meta !== "undefined") {
-            blogs.push(meta);
-        }
-    });
+    const blogs: BlogMeta[] = readBlogsMeta(dirPath);
 
     return {
         props: {

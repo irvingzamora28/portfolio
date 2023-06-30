@@ -60,3 +60,13 @@ type Blogs = {
     blogs: BlogMeta[];
     isBlogSection: boolean;
 };
+
+type FileData = {
+    name: string;
+    time: number;
+};
+
+type FileContentMeta = {
+    content: string;
+    data: BlogMeta;
+};

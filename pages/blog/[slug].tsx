@@ -6,10 +6,11 @@ import PostContent from "../../components/post/PostContent";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import { readBlogContentAndMeta } from "../../utils/blogFileReader";
 
 type BlogPostProps = {
     content: any;
-    data: any;
+    data: BlogMeta;
 };
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
@@ -80,9 +81,8 @@ export async function getStaticProps({ params }: { params: Params }) {
         const root = path.join(process.cwd());
         const dirPath = `${root}/content/blog`;
         const filePath = path.join(dirPath, `${params.slug}.mdx`);
-        const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data, content } = matter(fileContents);
-        return { props: { content, data } };
+        const result = readBlogContentAndMeta(filePath);
+        return { props: result };
     } catch (err) {
         console.error(err);
         return { props: { content: [] } };
