@@ -10,6 +10,8 @@ type BlogMeta = {
     image?: string;
     slug: string;
     author: string;
+    topics?: string[];
+    contents: TableOfContent[];
 };
 
 type BlogImage = {

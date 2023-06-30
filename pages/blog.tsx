@@ -1,5 +1,4 @@
 import Head from "next/head";
-import BlogCard from "../components/blog/BlogCard";
 import Footer from "../components/home/Footer";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Blogs from "../components/home/Blogs";
@@ -7,6 +6,7 @@ import path from "path";
 import fs from "fs";
 import { useState } from "react";
 import Header from "../components/home/Header";
+import matter from "gray-matter";
 
 export const getStaticProps: GetStaticProps<Blogs> = async () => {
     
@@ -24,10 +24,10 @@ export const getStaticProps: GetStaticProps<Blogs> = async () => {
         .map((file) => file.name);
     const blogs: BlogMeta[] = [];
     latestFiles.map((fileName) => {
-        const data = require(`../content/blog/${fileName}`);
-        const meta = data.default[0]?.meta;
-        if (typeof meta !== "undefined") {
-            blogs.push(meta);
+        const fileContents = fs.readFileSync(path.join(dirPath, fileName), "utf8");
+        const { data } = matter(fileContents);
+        if (typeof data !== "undefined") {
+            blogs.push(data as BlogMeta);
         }
     });
 
