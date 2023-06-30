@@ -2,7 +2,7 @@ import Layout from "../../components/blog/BlogLayout";
 import BlogImage from "../../components/blog/BlogImage";
 import Paragraph from "../../components/blog/Paragraph";
 import { CopyBlock, dracula } from "react-code-blocks";
-import PostContentsSection from "../../components/post/PostContentsSection";
+import PostTableOfContents from "../../components/post/PostTableOfContents";
 import PostSubtitle from "../../components/post/PostSubtitle";
 
 export const meta = {
@@ -25,7 +25,7 @@ export const contents = [
         {text: "Step 4: Update NPM", href: "#step4"},
     ];
 
-<PostContentsSection contents={contents} />
+<PostTableOfContents contents={contents} />
 
 <Paragraph text={`Installing Node Package Manager (NPM) is an essential step when working with Node.js projects. It is a powerful tool that helps to install and manage packages in your projects. One way to install NPM is by using Node Version Manager (NVM), which is a tool that helps manage different versions of Node.js.
     

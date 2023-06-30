@@ -19,6 +19,11 @@ type BlogImage = {
     height?: number;
 };
 
+type TableOfContent = {
+    text: string;
+    href: string;
+}
+
 type PostHeaderProps = {
     title: string;
     author: string;
@@ -32,7 +37,11 @@ type PostSubtitleProps = {
 
 type BlogContentProps = {
     content: string;
-    toc: [text: string, href: string,][]
+    toc: TableOfContent[]
+}
+
+type PostTableOfContentsProps = {
+    toc: TableOfContent[]
 }
 
 type Blogs = {

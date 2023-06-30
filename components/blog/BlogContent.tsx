@@ -1,7 +1,7 @@
 import React from "react";
 import Markdown from "markdown-to-jsx";
 import { CopyBlock, dracula } from "react-code-blocks";
-import PostContentsSection from "../post/PostContentsSection";
+import PostTableOfContents from "../post/PostTableOfContents";
 
 const BlogContent: React.FC<BlogContentProps> = ({ content, toc }) => {
     return (
@@ -64,10 +64,10 @@ const BlogContent: React.FC<BlogContentProps> = ({ content, toc }) => {
                                 language: "bash",
                             },
                         },
-                        PostContentsSection: {
-                            component: PostContentsSection,
+                        PostTableOfContents: {
+                            component: PostTableOfContents,
                             props: {
-                                contents: toc,
+                                toc: toc,
                             },
                         },
                         blockquote: {

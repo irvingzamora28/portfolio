@@ -1,7 +1,7 @@
 import Layout from "../../components/blog/BlogLayout";
 import BlogImage from "../../components/blog/BlogImage";
 import Paragraph from "../../components/blog/Paragraph";
-import PostContentsSection from "../../components/post/PostContentsSection";
+import PostTableOfContents from "../../components/post/PostTableOfContents";
 import PostSubtitle from "../../components/post/PostSubtitle";
 
 export const meta = {
@@ -44,7 +44,7 @@ export const contents = [
     },
 ];
 
-<PostContentsSection contents={contents} />
+<PostTableOfContents contents={contents} />
 
 <Paragraph
     text={`Web applications are a crucial part of our lives, powering everything from social media platforms to online banking systems. However, as user bases grow and more features are added, these applications can become increasingly complex and difficult to scale. In this blog post, we'll discuss some tips for scaling web applications to handle increased traffic and data demands.`}

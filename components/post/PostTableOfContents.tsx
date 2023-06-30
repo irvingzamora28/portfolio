@@ -1,20 +1,20 @@
 import React from "react";
 
-interface Content {
-    text: string;
-    href: string;
-}
+// interface Content {
+//     text: string;
+//     href: string;
+// }
 
-interface Props {
-    contents: Content[];
-}
+// interface Props {
+//     toc: Content[];
+// }
 
-const PostContentsSection: React.FC<Props> = ({ contents }) => {
+const PostTableOfContents: React.FC<PostTableOfContentsProps> = ({ toc }) => {
     return (
         <section className="blog__content">
             <h2 className="blog__content-title">Contents</h2>
             <ul className="blog__content-link-list">
-                {contents.map(({ text, href }) => (
+                {toc.map(({ text, href }) => (
                     <li key={href} className="blog__content-link-bullet">
                         <a href={href} className="blog__content-link">
                             {text}
@@ -26,4 +26,4 @@ const PostContentsSection: React.FC<Props> = ({ contents }) => {
     );
 };
 
-export default PostContentsSection;
+export default PostTableOfContents;

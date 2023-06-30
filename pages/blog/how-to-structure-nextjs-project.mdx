@@ -3,7 +3,7 @@ import BlogImage from "../../components/blog/BlogImage";
 import Paragraph from "../../components/blog/Paragraph";
 import ListItem from "../../components/blog/ListItem";
 import { CopyBlock, dracula } from "react-code-blocks";
-import PostContentsSection from "../../components/post/PostContentsSection";
+import PostTableOfContents from "../../components/post/PostTableOfContents";
 import PostSubtitle from "../../components/post/PostSubtitle";
 
 export const meta = {
@@ -31,7 +31,7 @@ export const contents = [
     { text: `Conclusion`, href: `#conclusion` },
 ];
 
-<PostContentsSection contents={contents} />
+<PostTableOfContents contents={contents} />
 
 <Paragraph text={`When it comes to building a Next.js project, having a well-structured directory is crucial. A well-organized directory can make your code easier to read, maintain, and understand. It can help you locate files and code more quickly, and make collaboration with other developers more efficient.`} />
 
