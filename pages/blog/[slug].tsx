@@ -6,11 +6,10 @@ import BlogContent from "../../components/blog/BlogContent";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { parseContent } from "../../utils/parseContent";
 
 type BlogPostProps = {
     content: any;
-    meta: any;
+    data: any;
 };
 
 const BlogPost: React.FC<BlogPostProps> = (props) => {
@@ -38,11 +37,11 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                     <main>
                         <article className="relative pt-10">
                             <PostHeader
-                                title={props.meta.title}
-                                author={props.meta.author}
-                                topics={props.meta.topics}
+                                title={props.data.title}
+                                author={props.data.author}
+                                topics={props.data.topics}
                             />
-                            <BlogContent content={props.content} toc={props.meta.contents} />
+                            <BlogContent content={props.content} toc={props.data.contents} />
                         </article>
                     </main>
                 </div>
@@ -84,10 +83,8 @@ export async function getStaticProps({ params }: { params: Params }) {
         const dirPath = `${root}/content/blog`;
         const filePath = path.join(dirPath, `${params.slug}.mdx`);
         const fileContents = fs.readFileSync(filePath, "utf8");
-        const { data } = matter(fileContents);
-        const content = parseContent(fileContents);
-
-        return { props: { content: content, meta: data } };
+        const { data, content } = matter(fileContents);
+        return { props: { content, data } };
     } catch (err) {
         console.error(err);
         return { props: { content: [] } };
