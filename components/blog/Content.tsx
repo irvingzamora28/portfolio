@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { CopyBlock, dracula } from "react-code-blocks";
-import Contents from "../post/PostContentsSection";
+import PostContentsSection from "../post/PostContentsSection";
 import ListItem from "./ListItem";
 import Paragraph from "./Paragraph";
 
@@ -30,7 +30,7 @@ const Content: React.FC<Props> = (props) => {
         } else if (elem.element === "li") {
             return <ListItem key={index} class={elem.class} text={elem.text} />;
         } else if (typeof elem.contents !== "undefined") {
-            return <Contents key={index} contents={elem.contents} />;
+            return <PostContentsSection key={index} contents={elem.contents} />;
         } else if (typeof elem.meta !== "undefined") {
             // Do not render meta (This is the first element in blog's data)
             return <></>;

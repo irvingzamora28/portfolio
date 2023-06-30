@@ -9,7 +9,7 @@ interface Props {
     contents: Content[];
 }
 
-const Contents: React.FC<Props> = ({ contents }) => {
+const PostContentsSection: React.FC<Props> = ({ contents }) => {
     return (
         <section className="blog__content">
             <h2 className="blog__content-title">Contents</h2>
@@ -26,4 +26,4 @@ const Contents: React.FC<Props> = ({ contents }) => {
     );
 };
 
-export default Contents;
+export default PostContentsSection;

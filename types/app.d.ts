@@ -25,6 +25,11 @@ type PostHeaderProps = {
     topics?: string[];
 }
 
+type PostSubtitleProps = {
+    subtitle: string;
+    id: string;
+}
+
 type Blogs = {
     blogs: BlogMeta[];
     isBlogSection: boolean;
