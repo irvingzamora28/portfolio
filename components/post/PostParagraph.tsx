@@ -1,13 +1,8 @@
 import Link from "next/link";
 import React from "react";
 
-interface Props {
-    class: string;
-    text: string;
-}
-
-const ListItem: React.FC<Props> = (props) => {
-    // TODO: remove duplicate generateFormattedText function from Paragraph and ListItem components
+const PostParagraph: React.FC<PostParagraphProps> = (props) => {
+    // TODO: remove duplicate generateFormattedText function from PostParagraph and PostListItem components
     /**
      * Parses new lines in text and returns an array of JSX elements.
      * @param {string} text - The text to parse new lines from.
@@ -81,7 +76,7 @@ const ListItem: React.FC<Props> = (props) => {
         return parts;
     };
 
-    return React.createElement("li", { className: "py-2 " + props.class }, generateFormattedText(props.text));
+    return React.createElement("p", { className: "py-2 " + props.class }, generateFormattedText(props.text));
 };
 
-export default ListItem;
+export default PostParagraph;

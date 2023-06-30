@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import PostHeader from "../../components/post/PostHeader";
-import BlogContent from "../../components/blog/BlogContent";
+import PostContent from "../../components/post/PostContent";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
@@ -41,7 +41,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                                 author={props.data.author}
                                 topics={props.data.topics}
                             />
-                            <BlogContent content={props.content} toc={props.data.contents} />
+                            <PostContent content={props.content} toc={props.data.contents} />
                         </article>
                     </main>
                 </div>

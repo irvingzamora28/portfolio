@@ -37,7 +37,17 @@ type PostSubtitleProps = {
     id: string;
 }
 
-type BlogContentProps = {
+type PostListItemProps = {
+    class: string;
+    text: string;
+}
+
+type PostParagraphProps = {
+    class: string;
+    text: string;
+}
+
+type PostContentProps = {
     content: string;
     toc: TableOfContent[]
 }

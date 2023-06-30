@@ -1,10 +1,10 @@
 import React from "react";
 import Markdown from "markdown-to-jsx";
 import { CopyBlock, dracula } from "react-code-blocks";
-import PostTableOfContents from "../post/PostTableOfContents";
-import ListItem from "./ListItem";
+import PostTableOfContents from "./PostTableOfContents";
+import PostListItem from "./PostListItem";
 
-const BlogContent: React.FC<BlogContentProps> = ({ content, toc }) => {
+const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
     return (
         <div>
             <Markdown
@@ -71,8 +71,8 @@ const BlogContent: React.FC<BlogContentProps> = ({ content, toc }) => {
                                 toc: toc,
                             },
                         },
-                        ListItem: {
-                            component: ListItem
+                        PostListItem: {
+                            component: PostListItem
                         },
                         blockquote: {
                             props: {
@@ -88,4 +88,4 @@ const BlogContent: React.FC<BlogContentProps> = ({ content, toc }) => {
     );
 };
 
-export default BlogContent;
+export default PostContent;
