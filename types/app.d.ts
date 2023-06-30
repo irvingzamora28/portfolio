@@ -30,6 +30,10 @@ type PostSubtitleProps = {
     id: string;
 }
 
+type BlogContentProps = {
+    content: string;
+}
+
 type Blogs = {
     blogs: BlogMeta[];
     isBlogSection: boolean;
