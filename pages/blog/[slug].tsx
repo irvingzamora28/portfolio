@@ -60,6 +60,7 @@ export async function getStaticPaths() {
         "how-to-structure-nextjs-project",
         "benefits-of-continuous-integration-and-deployment",
         "tips-for-scaling-web-applications",
+        "building-and-deploying-real-time-react-app-with-typescript-and-socketio",
     ];
 
     // Generate the paths for each post
