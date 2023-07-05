@@ -69,6 +69,8 @@ Before we start, let's ensure we have all the necessary tools installed both on 
 
 We will install Node.js using NVM (Node Version Manager)
 
+**Important:** After installing NVM you will need to open a new terminal.
+
 <CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
 
 curl -o- https\://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -187,7 +189,7 @@ git push
 </CopyBlockWrapper>
 
 ## Step 4 - Setting Up the Socket.IO Client
-Create a new socket.ts file inside the src folder and add the following code (Replace IP address with your server's address):
+Create a new socket.ts file inside the `src` folder and add the following code (Replace IP address with your server's address):
 
 <CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
 
@@ -200,7 +202,7 @@ export default socket;
 
 ## Step 5 - Using Socket.IO in a React Component
 Next, we'll create a React component that listens for a 'welcome' event from the server and sends a message to the server:
-Create a new `MyClientComponent.tsx` file inside the src foler and add the following code:
+Create a new `MyClientComponent.tsx` file inside the `src` folder and add the following code:
 
 <CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
 import React from 'react';
@@ -290,7 +292,7 @@ Create a tsconfig.json file in the server directory with the following content:
 }
 </CopyBlockWrapper>
 
-After that, create a new `src` directory in the server directory, and create a new file `server.ts` inside the src directory with the following content:
+After that, create a new `src` directory in the server directory, and create a new file `server.ts` inside the `src` directory with the following content:
 
 <CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
 import express from 'express';
@@ -381,7 +383,7 @@ sudo nano /etc/nginx/sites-available/defaultserver {
   listen 80 default_server;
   listen [::]:80 default_server;
 
-  root /var/www/my-socket-io-app/dist;
+  root /var/www/my-socketio-app/dist;
 
   server\_name _;
 
@@ -389,6 +391,13 @@ sudo nano /etc/nginx/sites-available/defaultserver {
     try_files $uri $uri/ =404;
   }
 }
+</CopyBlockWrapper>
+
+After modifying the `root` entry in the file, run the following command to make the changes take effect:
+
+<CopyBlockWrapper language="bash">
+
+sudo service nginx reload
 </CopyBlockWrapper>
 
 Now you should be able to see your React app if you visit your server's address.
@@ -478,6 +487,8 @@ pm2 restart my-socketio-app-server
 </CopyBlockWrapper>
 
 You can now access your React app in a web browser by visiting your server's IP address.
+
+![Socketio connection](/assets/images/blog/my-socketio-app-networktab-2.png)
 
 ## Conclusion
 In this tutorial, we've seen how tocreate a basic React app using TypeScript and Socket.IO, and then deploying it on a Ubuntu server in Digital Ocean using yarn, vite, and Nginx. This set-up can be used as a starting point for more complex applications. Happy coding!
