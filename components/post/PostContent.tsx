@@ -4,9 +4,7 @@ import { CopyBlock, dracula } from "react-code-blocks";
 import PostTableOfContents from "./PostTableOfContents";
 import PostListItem from "./PostListItem";
 
-const CopyBlockWrapper = ({children, ...props}) => (
-    <CopyBlock text={children} theme={dracula} {...props} />
-);
+const CopyBlockWrapper = ({ children, ...props }: { children: React.ReactNode }) => <CopyBlock text={children} theme={dracula} {...props} />;
 
 const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
     return (
@@ -16,20 +14,17 @@ const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
                     overrides: {
                         h1: {
                             props: {
-                                className:
-                                    "py-3 text-2xl md:text-3xl lg:text-4xl",
+                                className: "py-3 text-2xl md:text-3xl lg:text-4xl",
                             },
                         },
                         h2: {
                             props: {
-                                className:
-                                    "py-3 text-xl md:text-2xl lg:text-3xl",
+                                className: "py-3 text-xl md:text-2xl lg:text-3xl",
                             },
                         },
                         h3: {
                             props: {
-                                className:
-                                    "py-3 text-lg md:text-xl lg:text-2xl",
+                                className: "py-3 text-lg md:text-xl lg:text-2xl",
                             },
                         },
                         ul: {
@@ -59,8 +54,7 @@ const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
                         },
                         thead: {
                             props: {
-                                className:
-                                    "border-b font-medium dark:border-neutral-500",
+                                className: "border-b font-medium dark:border-neutral-500",
                             },
                         },
                         tr: {
@@ -83,12 +77,11 @@ const PostContent: React.FC<PostContentProps> = ({ content, toc }) => {
                             },
                         },
                         PostListItem: {
-                            component: PostListItem
+                            component: PostListItem,
                         },
                         blockquote: {
                             props: {
-                                className:
-                                    "text-md italic font-normal text-gray-500 dark:text-white",
+                                className: "text-md italic font-normal text-gray-500 dark:text-white",
                             },
                         },
                     },
