@@ -4,7 +4,7 @@ import { BiSend } from "react-icons/bi";
 
 const Contact = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
-        <section id="contact" className="contact section px-6 bg-white dark:bg-gray-900" ref={ref}>
+        <section id="contact" className="contact section bg-white dark:bg-gray-900" ref={ref}>
             <h2 className="section__title">Contact Me</h2>
             <span className="section__subtitle">Get in touch</span>
 

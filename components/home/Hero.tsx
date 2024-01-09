@@ -8,7 +8,7 @@ const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
         <section
             id="hero"
-            className="hero section px-6 h-screen"
+            className="hero section h-screen"
             ref={ref}
         >
             <div className="hero__container container grid">

@@ -19,16 +19,17 @@ const BlogCard: React.FC<BlogMeta> = (props) => {
                 </span>
                 <span className="text-sm">{daysAgo}</span>
             </div>
-            <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            <Link href="/posts/[slug]" as={`/posts/${props.slug}`}> {props.title} </Link>
+            <h2 className="mb-2 text-2xl font-medium tracking-tight text-slate-800 dark:text-white">
+                <Link href="/posts/[slug]" as={`/posts/${props.slug}`}>
+                    {" "}
+                    {props.title}{" "}
+                </Link>
             </h2>
             <div className="flex flex-col md:flex-row w-full gap-4">
                 {props.image && (
                     <Image src={`/assets/images/blog/${props.image}`} className="w-full md:w-1/2 h-40 object-cover object-center rounded-sm" alt="Irving Zamora" width={200} height={200} />
                 )}
-                <p className={`w-full ${props.image ? 'md:w-1/2' : ''} mb-5 font-light text-gray-500 dark:text-gray-400`}>
-                {props.description}
-                </p>
+                <p className={`w-full ${props.image ? "md:w-1/2" : ""} mb-5 font-light text-gray-500 dark:text-gray-400`}>{props.description}</p>
             </div>
             <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">

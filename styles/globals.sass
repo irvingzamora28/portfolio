@@ -88,15 +88,11 @@
         color: $primary
     /* ** Blog ** */
     .section
-        @apply dark:bg-slate-800 dark:text-slate-200 pt-6 md:pt-20
-    .section__common
-        text-center
+        @apply dark:bg-slate-800 dark:text-slate-200 px-4 py-16
     .section__title
-        @extend .section__common
-        @apply text-4xl sm:text-5xl md:text-6xl md:text-center dark:text-slate-300
+        @apply text-center text-4xl mb-6 sm:text-5xl md:text-6xl dark:text-slate-300
     .section__subtitle
-        @extend .section__common
-        @apply block mb-3 text-2xl sm:text-3xl md:text-2xl md:text-center dark:text-slate-200
+        @apply text-center block mb-3 text-2xl sm:text-3xl md:text-2xl dark:text-slate-200
     .header
         @apply w-full fixed bottom-0 left-0 z-20 md:top-0 md:bottom-auto
         background-color: $body

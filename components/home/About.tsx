@@ -6,7 +6,7 @@ const About = forwardRef((props, ref: Ref<HTMLElement>) => {
     return (
         <section
             id="about"
-            className="about section px-6 min-h-screen bg-white dark:bg-gray-900"
+            className="about section min-h-screen bg-white dark:bg-gray-900"
             ref={ref}
         >
             <h2 className="section__title">About Me</h2>
