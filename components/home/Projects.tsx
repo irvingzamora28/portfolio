@@ -31,10 +31,10 @@ const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
                     
                     
                     
-                <SwiperSlide><ProjectItem title="Project Name 1" description="Lorem ipsum dolor sit amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, rem?" image={projectImage} url="/project1" /></SwiperSlide>
-                <SwiperSlide><ProjectItem title="Project Name 2" description="Non, omnis animi! Libero, eligendi Similique sed porro hic laboriosam repudiandae laudantium molestias voluptates aperiam?" image={projectImage} url="/project1" /></SwiperSlide>
-                <SwiperSlide><ProjectItem title="Project Name 3" description="Tempore, illum possimus! Possimus, voluptates Officiis quis inventore alias vel velit maiores quas, sunt explicabo?" image={projectImage} url="/project1" /></SwiperSlide>
-                <SwiperSlide><ProjectItem title="Project Name 4" description="Consequatur excepturi sequi ipsa voluptatum Blanditiis hic eligendi voluptatum debitis itaque? Quod dignissimos impedit nulla." image={projectImage} url="/project1" /></SwiperSlide>
+                <SwiperSlide><ProjectItem title="Project Name 1" description="Lorem ipsum dolor sit amet Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta, rem?" image={projectImage} url="/projects/project1" /></SwiperSlide>
+                <SwiperSlide><ProjectItem title="Project Name 2" description="Non, omnis animi! Libero, eligendi Similique sed porro hic laboriosam repudiandae laudantium molestias voluptates aperiam?" image={projectImage} url="/projects/project1" /></SwiperSlide>
+                <SwiperSlide><ProjectItem title="Project Name 3" description="Tempore, illum possimus! Possimus, voluptates Officiis quis inventore alias vel velit maiores quas, sunt explicabo?" image={projectImage} url="/projects/project1" /></SwiperSlide>
+                <SwiperSlide><ProjectItem title="Project Name 4" description="Consequatur excepturi sequi ipsa voluptatum Blanditiis hic eligendi voluptatum debitis itaque? Quod dignissimos impedit nulla." image={projectImage} url="/projects/project1" /></SwiperSlide>
             </Swiper>
                 </div>
             </div>
