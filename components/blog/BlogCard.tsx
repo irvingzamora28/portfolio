@@ -20,7 +20,7 @@ const BlogCard: React.FC<BlogMeta> = (props) => {
                 <span className="text-sm">{daysAgo}</span>
             </div>
             <h2 className="mb-2 text-2xl font-medium tracking-tight text-slate-800 dark:text-white">
-                <Link href="/posts/[slug]" as={`/posts/${props.slug}`}>
+                <Link href="/blog/[slug]" as={`/blog/${props.slug}`}>
                     {" "}
                     {props.title}{" "}
                 </Link>
@@ -36,7 +36,7 @@ const BlogCard: React.FC<BlogMeta> = (props) => {
                     <Image src={"/assets/images/about_profile.jpg"} className="blogs__img" alt="Irving Zamora" width={50} height={50} />
                     <span className="blogs__author-text">{props.author}</span>
                 </div>
-                <Link href="/posts/[slug]" as={`/posts/${props.slug}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                <Link href="/blog/[slug]" as={`/blog/${props.slug}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
                     Read More
                     <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path
