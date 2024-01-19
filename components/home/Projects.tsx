@@ -53,10 +53,10 @@ const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
                         </SwiperSlide>
                         <SwiperSlide>
                             <ProjectItem
-                                title="Project Name 4"
-                                description="Consequatur excepturi sequi ipsa voluptatum Blanditiis hic eligendi voluptatum debitis itaque? Quod dignissimos impedit nulla."
+                                title="GitIssueCreator"
+                                description="A Python tool for automating GitHub issue creation from JSON files. It simplifies issue tracking in larger projects with environment variable integration and reliable error handling."
                                 image={projectImage}
-                                url="/projects/project1"
+                                url="/projects/git-issue-creator"
                             />
                         </SwiperSlide>
                     </Swiper>
