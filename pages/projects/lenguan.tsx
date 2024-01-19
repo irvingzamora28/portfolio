@@ -4,9 +4,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Header from "../../components/home/Header";
-import project1Image from "public/assets/images/project1.png";
+import ProjectLenguanImage from "public/assets/images/project1.png";
 import { FaCss3, FaDatabase, FaLaravel, FaReact, FaVial } from "react-icons/fa";
-const Project1: React.FC = () => {
+const ProjectLenguan: React.FC = () => {
     const [theme, setTheme] = useState("light");
 
     const handleTheme = () => {
@@ -21,7 +21,7 @@ const Project1: React.FC = () => {
             <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
             <div className="w-screen h-[30vh] lg:h-[40vh] relative">
                 <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/70 z-10"></div>
-                <Image src={project1Image} className="absolute z-1" fill={true} objectFit="cover" alt="Lenguan - Language Learning Platform" />
+                <Image src={ProjectLenguanImage} className="absolute z-1" fill={true} objectFit="cover" alt="Lenguan - Language Learning Platform" />
                 <div className="absolute top-[70%] max-w-[1240px] w-full left-[50%] right-[50%] translate-x-[-50%] translate-y-[-50%] text-white z-10 p-2">
                     <h2 className="py-2">Lenguan - Learn Languages with Fun</h2>
                     <h3>Laravel / ReactJS / TypeScript / Socket.io / TailwindCSS / Yarn / MongoDB / Jest</h3>
@@ -30,8 +30,8 @@ const Project1: React.FC = () => {
             <div className="max-w-[1240px] mx-auto p-2 grid md:grid-cols-12 gap-8 py-14 px-8 md:px-20 dark:bg-gray-900 dark:text-gray-100">
                 <div className="col-span-4 md:col-span-8">
                     <p className="text-3xl md:text-4xl">Lenguan Platform</p>
-                    <p className="text-xl md:text-2xl">Overview</p>
-                    <p>
+                    <p className="text-xl md:text-2xl my-2">Overview</p>
+                    <p className="my-5">
                         Lenguan is a unique and engaging way for people of all ages to learn new languages. Utilizing gamification and spaced repetition techniques, our platform makes learning both
                         fun and effective. Interact with others through social learning features, participate in language-based games and challenges, and track your progress with personalized
                         dashboards.
@@ -83,4 +83,4 @@ const Project1: React.FC = () => {
     );
 };
 
-export default Project1;
+export default ProjectLenguan;

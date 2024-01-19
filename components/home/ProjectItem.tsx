@@ -18,7 +18,7 @@ export const ProjectItem: React.FC<Props> = (props) => {
                 <h3 className="projects__title">{props.title}</h3>
                 <p className="projects__description">{props.description}</p>
                 <Link href={props.url} className="button button-flex button--small projects__button">
-                    Demo <BsArrowBarRight className="button__icon" />
+                    Project <BsArrowBarRight className="button__icon" />
                 </Link>
             </div>
         </div>

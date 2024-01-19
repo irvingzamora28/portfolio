@@ -32,15 +32,15 @@ const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
                                 title="Lenguan"
                                 description="Lenguan is a web that offers people of all ages a way to learn new languages in an engaging and interactive way."
                                 image={projectLenguanImage}
-                                url="/projects/project1"
+                                url="/projects/lenguan"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
                             <ProjectItem
-                                title="Project Name 2"
-                                description="Non, omnis animi! Libero, eligendi Similique sed porro hic laboriosam repudiandae laudantium molestias voluptates aperiam?"
+                                title="Lesson Generator"
+                                description="An innovative Python command-line application that uses the OpenAI API to automate the creation of educational content in MDX format. Features include dynamic content generation, support for multiple languages, and integration of interactive React components."
                                 image={projectImage}
-                                url="/projects/project1"
+                                url="/projects/lesson-generator"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
