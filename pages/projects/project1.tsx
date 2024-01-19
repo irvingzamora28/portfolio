@@ -36,7 +36,9 @@ const Project1: React.FC = () => {
                         fun and effective. Interact with others through social learning features, participate in language-based games and challenges, and track your progress with personalized
                         dashboards.
                     </p>
-                    <button className="button px-8 py-2 mt-4 mr-8">Demo</button>
+                    <Link href="https://lenguan.de" target="_blank">
+                        <button className="button px-8 py-2 mt-4 mr-8">Demo</button>
+                    </Link>
                     <Link href="https://github.com/irvingzamora28/lenguan" target="_blank">
                         <button className="button px-8 py-2 mt-4">Code</button>
                     </Link>
