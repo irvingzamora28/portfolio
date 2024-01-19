@@ -45,10 +45,10 @@ const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
                         </SwiperSlide>
                         <SwiperSlide>
                             <ProjectItem
-                                title="Project Name 3"
-                                description="Tempore, illum possimus! Possimus, voluptates Officiis quis inventore alias vel velit maiores quas, sunt explicabo?"
+                                title="Listen German Stories"
+                                description="A NextJS web app that allows users to listen to German stories for language learners. Features include audio playback, transcripts, translations and vocabulary lists."
                                 image={projectImage}
-                                url="/projects/project1"
+                                url="/projects/listen-german-stories"
                             />
                         </SwiperSlide>
                         <SwiperSlide>
