@@ -14,9 +14,7 @@ const Contact = forwardRef((props, ref: Ref<HTMLElement>) => {
                         <AiOutlinePhone className="contact__icon" />
                         <div>
                             <h3 className="contact__title">Call me</h3>
-                            <span className="contact__subtitle">
-                                +52 (656) 131-1408
-                            </span>
+                            <span className="contact__subtitle">+52 (656) 131-1408</span>
                         </div>
                     </div>
 
@@ -24,9 +22,7 @@ const Contact = forwardRef((props, ref: Ref<HTMLElement>) => {
                         <AiOutlineMail className="contact__icon" />
                         <div>
                             <h3 className="contact__title">Email</h3>
-                            <span className="contact__subtitle">
-                                contact@irvingzamora.com
-                            </span>
+                            <span className="contact__subtitle">irvingzamora06@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -34,16 +30,22 @@ const Contact = forwardRef((props, ref: Ref<HTMLElement>) => {
                     <div className="contact__inputs grid">
                         <div className="contact__content">
                             <input type="text" className="contact__input" id="input_name" name="input_name" />
-                            <label htmlFor="input_name" className="contact__label">Name</label>
+                            <label htmlFor="input_name" className="contact__label">
+                                Name
+                            </label>
                         </div>
                         <div className="contact__content">
                             <input type="email" className="contact__input" id="input_email" name="input_email" />
-                            <label htmlFor="input_email" className="contact__label">Email</label>
+                            <label htmlFor="input_email" className="contact__label">
+                                Email
+                            </label>
                         </div>
                     </div>
                     <div className="contact__content">
                         <textarea name="input_message" id="input_message" cols={0} rows={7} className="contact__input"></textarea>
-                        <label htmlFor="input_message" className="contact__label">Message</label>
+                        <label htmlFor="input_message" className="contact__label">
+                            Message
+                        </label>
                     </div>
                     <div>
                         <a href="" className="contact__button button button-flex">
