@@ -47,7 +47,7 @@
     li
         @apply cursor-pointer
     .button
-        @apply inline-block p-4 rounded-lg font-medium shadow-xl shadow-gray-400 dark:shadow-gray-800 uppercase
+        @apply inline-block p-3 md:p-4 rounded-lg font-medium shadow-xl shadow-gray-400 dark:shadow-gray-800 uppercase
         background-color: $primary
         color: $text-white
     .button:hover
@@ -276,7 +276,7 @@
     .projects__container
         @apply flex-initial md:mx-auto
     .projects__content
-        @apply px-6 md:gap-8 md:flex-col md:grid-flow-col
+        @apply px-16 md:px-8 md:gap-8 md:flex-col md:grid-flow-col
     .projects__img
         @apply w-4/5 h-52 rounded-lg justify-self-center md:h-64
     .projects__data
@@ -286,7 +286,7 @@
     .projects__title
         @apply text-lg mb-2
     .projects__description
-        @apply mb-3
+        @apply mb-3 text-sm text-slate-600
     .projects__button:hover .button__icon
         @apply translate-x-1
     .swiper .swiper-button-prev, .swiper .swiper-button-next

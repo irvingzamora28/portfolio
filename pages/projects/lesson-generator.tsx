@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Header from "../../components/home/Header";
-import project1Image from "public/assets/images/dalle-programming.png";
+import project1Image from "public/assets/images/lesson-generator-theme.png";
 import { FaPython } from "react-icons/fa";
 import { BsQuestionCircleFill } from "react-icons/bs";
 const ProjectLessonGenerator: React.FC = () => {

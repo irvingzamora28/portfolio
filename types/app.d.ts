@@ -24,41 +24,49 @@ type BlogImage = {
 type TableOfContent = {
     text: string;
     href: string;
-}
+};
 
 type PostHeaderProps = {
     title: string;
     author: string;
     topics?: string[];
-}
+};
 
 type PostSubtitleProps = {
     subtitle: string;
     id: string;
-}
+};
 
 type PostListItemProps = {
     class: string;
     text: string;
-}
+};
 
 type PostParagraphProps = {
     class: string;
     text: string;
-}
+};
 
 type PostContentProps = {
     content: string;
-    toc: TableOfContent[]
-}
+    toc: TableOfContent[];
+};
 
 type PostTableOfContentsProps = {
-    toc: TableOfContent[]
-}
+    toc: TableOfContent[];
+};
 
 type Blogs = {
     blogs: BlogMeta[];
     isBlogSection: boolean;
+};
+
+type ProjectItemProps = {
+    title: string;
+    image: StaticImageData;
+    description: string;
+    url: string;
+    demourl?: string;
 };
 
 type FileData = {
