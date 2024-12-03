@@ -41,6 +41,7 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
                                 title={props.data.title}
                                 author={props.data.author}
                                 topics={props.data.topics}
+                                created_at={props.data.created_at}
                             />
                             <PostContent content={props.content} toc={props.data.contents} />
                         </article>

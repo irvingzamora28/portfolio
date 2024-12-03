@@ -1,6 +1,21 @@
 import React from "react";
 
+interface PostHeaderProps {
+    title: string;
+    author: string;
+    topics?: string[];
+    created_at: string;
+}
+
 const PostHeader: React.FC<PostHeaderProps> = (props) => {
+    const date = new Date(props.created_at);
+    const formattedDate = date.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
     return (
         <div className="flex flex-col mt-6 mb-10 items-center justify-center text-center">
             <h1 className="blog_title">{props.title}</h1>
@@ -8,8 +23,8 @@ const PostHeader: React.FC<PostHeaderProps> = (props) => {
                 <dl>
                     <dt className="sr-only">Date</dt>
                     <dd className="absolute top-0 inset-x-0 text-slate-700 dark:text-slate-400">
-                        <time dateTime="2022-12-15T15:00:00.000Z">
-                            Thursday, December 15, 2022
+                        <time dateTime={props.created_at}>
+                            {formattedDate}
                         </time>
                     </dd>
                 </dl>
