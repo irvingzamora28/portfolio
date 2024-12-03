@@ -61,6 +61,7 @@ export async function getStaticPaths() {
         "benefits-of-continuous-integration-and-deployment",
         "tips-for-scaling-web-applications",
         "building-and-deploying-real-time-react-app-with-typescript-and-socketio",
+        "future-of-software-development",
     ];
 
     // Generate the paths for each post
