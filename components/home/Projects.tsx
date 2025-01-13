@@ -4,7 +4,8 @@ import projectImage from "../../public/assets/images/dalle-programming.png";
 import projectGithubIssueCreatorImage from "../../public/assets/images/github-issue-creator-theme.png";
 import projectGermanStoriesImage from "../../public/assets/images/german-stories-theme.png";
 import projectLessonGeneratorImage from "../../public/assets/images/lesson-generator-theme.png";
-import projectLengofyImage from "../../public/assets/images/lengofy-project.png";
+import projectLengofyImage from "../../public/assets/images/lengofy-theme.png";
+import projectGetSlidesImage from "../../public/assets/images/getslides-theme.png";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -14,6 +15,20 @@ import "swiper/css/scrollbar";
 import { useMediaQuery } from "react-responsive";
 
 const projectData: ProjectItemProps[] = [
+    {
+        title: "Lengofy",
+        description: "Lengofy is a comprehensive language learning platform that combines interactive lessons, gamified learning experiences, and real-time practice to help users master new languages.",
+        demourl: "https://lengofy.online/",
+        image: projectLengofyImage,
+        url: "/projects/lengofy",
+    },
+    {
+        title: "GetSlides",
+        description: "GetSlides is a modern web application that automatically generates beautiful presentations using AI. Built with Nuxt.js and powered by Slidev, it allows users to create professional-looking slides from simple text prompts.",
+        demourl: "https://getslides-f3fau.ondigitalocean.app",
+        image: projectGetSlidesImage,
+        url: "/projects/getslides",
+    },
     {
         title: "Lesson Generator",
         description:
@@ -35,13 +50,6 @@ const projectData: ProjectItemProps[] = [
         image: projectGithubIssueCreatorImage,
         url: "/projects/git-issue-creator",
     },
-    {
-        title: "Lengofy",
-        description: "Lengofy is a comprehensive language learning platform that combines interactive lessons, gamified learning experiences, and real-time practice to help users master new languages.",
-        demourl: "https://lengofy.online/",
-        image: projectLengofyImage,
-        url: "/projects/lengofy",
-    }
 ];
 
 const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
