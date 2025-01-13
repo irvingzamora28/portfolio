@@ -19,7 +19,7 @@ const ImageBackground = () => {
         129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
         -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
                     />
-                    <image className="hero__blob-img" xlinkHref="/assets/images/profile-picture.png" x="-60" y="-140" width="360" height="400" />
+                    <image className="hero__blob-img" xlinkHref="/assets/images/profile-picture-alt.png" x="-80" y="-30" width="400" height="240" />
                 </g>
             </svg>
         </div>
