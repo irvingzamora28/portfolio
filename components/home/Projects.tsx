@@ -2,7 +2,6 @@ import React, { forwardRef, Ref, useState, useEffect } from "react";
 import { ProjectItem } from "./ProjectItem";
 import projectImage from "../../public/assets/images/dalle-programming.png";
 import projectGithubIssueCreatorImage from "../../public/assets/images/github-issue-creator-theme.png";
-import projectLenguanImage from "../../public/assets/images/lenguan-theme.png";
 import projectGermanStoriesImage from "../../public/assets/images/german-stories-theme.png";
 import projectLessonGeneratorImage from "../../public/assets/images/lesson-generator-theme.png";
 import projectLengofyImage from "../../public/assets/images/lengofy-project.png";
@@ -15,13 +14,6 @@ import "swiper/css/scrollbar";
 import { useMediaQuery } from "react-responsive";
 
 const projectData: ProjectItemProps[] = [
-    {
-        title: "Lenguan",
-        description: "Lenguan is a web platform that offers people of all ages a way to learn new languages in an engaging and interactive way.",
-        image: projectLenguanImage,
-        url: "/projects/lenguan",
-        demourl: "https://lenguan.de/",
-    },
     {
         title: "Lesson Generator",
         description:
