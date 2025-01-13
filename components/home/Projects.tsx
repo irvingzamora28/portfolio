@@ -5,6 +5,7 @@ import projectGithubIssueCreatorImage from "../../public/assets/images/github-is
 import projectLenguanImage from "../../public/assets/images/lenguan-theme.png";
 import projectGermanStoriesImage from "../../public/assets/images/german-stories-theme.png";
 import projectLessonGeneratorImage from "../../public/assets/images/lesson-generator-theme.png";
+import projectLengofyImage from "../../public/assets/images/lengofy-project.png";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -42,6 +43,13 @@ const projectData: ProjectItemProps[] = [
         image: projectGithubIssueCreatorImage,
         url: "/projects/git-issue-creator",
     },
+    {
+        title: "Lengofy",
+        description: "Lengofy is a comprehensive language learning platform that combines interactive lessons, gamified learning experiences, and real-time practice to help users master new languages.",
+        demourl: "https://lengofy.online/",
+        image: projectLengofyImage,
+        url: "/projects/lengofy",
+    }
 ];
 
 const Projects = forwardRef((props, ref: Ref<HTMLElement>) => {
