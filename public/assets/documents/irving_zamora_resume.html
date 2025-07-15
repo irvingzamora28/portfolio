@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irving Manuel Zamora Ontiveros - Resume</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --text-color: #1f2937;
+            --text-light: #4b5563;
+            --background-color: #ffffff;
+            --section-bg: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0 auto;
+            font-size: 24px;
+        }
+        
+        .resume-container {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        main {
+            padding: 6rem;
+        }
+        
+        section {
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .summary {
+            background-color: var(--section-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background-color: var(--section-bg);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+        
+        .company-name {
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .job-duration {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+        
+        .job-description {
+            margin-top: 0.75rem;
+        }
+        
+        .job-description ul {
+            padding-left: 1.5rem;
+        }
+        
+        .job-description li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .degree {
+            font-weight: 600;
+        }
+        
+        .university {
+            color: var(--primary-color);
+        }
+        
+        .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            list-style-type: none;
+        }
+        
+        .languages-list li {
+            background-color: var(--section-bg);
+            padding: 0.75rem 1.25rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .language-level {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+                font-size: 16px;
+            }
+            
+            header {
+                padding: 1.5rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>Irving Manuel Zamora Ontiveros</h1>
+            <p class="subtitle">Senior Software Developer</p>
+            <div class="contact-info">
+                <span>Memmingen, Germany</span>
+                <span>|</span>
+                <a href="tel:+4917688053275">+49 176-88053275</a>
+                <span>|</span>
+                <a href="mailto:imzodev@gmail.com">imzodev@gmail.com</a>
+                <span>|</span>
+                <a href="https://www.irvingzamora.online" target="_blank">irvingzamora.online</a>
+                <span>|</span>
+                <a href="https://github.com/imzodev" target="_blank">github.com/imzodev</a>
+            </div>
+        </header>
+        
+        <main>
+            <section class="summary">
+                <p>Highly skilled Senior Software Developer with over 5 years of experience specializing in the design, development, and maintenance of robust backend services and scalable web applications using PHP and Laravel. Proven expertise in creating high-performance RESTful APIs, implementing clean, test-driven code (TDD), and architecting solutions within the Laravel ecosystem. Passionate about leveraging modern cloud and DevOps practices to deliver high-quality software.</p>
+            </section>
+            
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>PHP & Laravel Ecosystem</h3>
+                        <ul class="skill-list">
+                            <li>PHP 8</li>
+                            <li>Laravel</li>
+                            <li>WordPress</li>
+                            <li>PHPUnit</li>
+                            <li>Test-Driven Development</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend & API Development</h3>
+                        <ul class="skill-list">
+                            <li>RESTful APIs</li>
+                            <li>Node.js</li>
+                            <li>Domain-Driven Design</li>
+                            <li>Clean Architecture</li>
+                            <li>WebSockets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>MongoDB</li>
+                            <li>Microsoft SQL Server</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Cloud & DevOps</h3>
+                        <ul class="skill-list">
+                            <li>AWS</li>
+                            <li>Docker</li>
+                            <li>CI/CD Pipelines</li>
+                            <li>DigitalOcean</li>
+                            <li>Vercel</li>
+                            <li>Git & GitHub</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Frontend Technologies</h3>
+                        <ul class="skill-list">
+                            <li>JavaScript (ES6+)</li>
+                            <li>ReactJS</li>
+                            <li>Next.js</li>
+                            <li>Vite</li>
+                            <li>HTML5</li>
+                            <li>CSS3/Sass</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Methodologies</h3>
+                        <ul class="skill-list">
+                            <li>Agile/Scrum</li>
+                            <li>Clean Code Practices</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-title">Co-Founder & Lead Developer</div>
+                    <div class="company-name">Mandado a Domicilio</div>
+                    <div class="job-duration">Jan 2019 – Dec 2020 | Remote</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Architected and developed a scalable e-commerce platform from the ground up using Laravel and MySQL, focusing on backend service reliability and performance.</li>
+                            <li>Designed and implemented advanced admin dashboards and product management interfaces, directly contributing to operational efficiency.</li>
+                            <li>Established and managed CI/CD pipelines for streamlined, automated deployments.</li>
+                            <li>Implemented secure payment processing integrations and real-time order tracking features.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Co-Founder & Lead Developer</div>
+                    <div class="company-name">Livenin S.A.S.</div>
+                    <div class="job-duration">Apr 2017 – Nov 2018 | Remote</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Led the backend development of a food delivery platform, building the core services and RESTful APIs with Laravel.</li>
+                            <li>Engineered a scalable backend architecture to support a responsive and accessible ReactJS frontend.</li>
+                            <li>Managed and configured a multi-server infrastructure on DigitalOcean, including Apache and HAProxy, to ensure high availability and handle traffic loads.</li>
+                            <li>Implemented geolocation services and real-time delivery tracking features.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">Freelance Full Stack Developer</div>
+                    <div class="company-name">Ridinghood Media</div>
+                    <div class="job-duration">Jan 2021 – Mar 2023 | Remote</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Provided ongoing maintenance and technical support for a variety of client WordPress sites.</li>
+                            <li>Developed and customized WordPress plugins and themes to meet specific client requirements.</li>
+                            <li>Applied TDD principles using PHPUnit and Jest to ensure high-quality codebases in custom development work.</li>
+                            <li>Optimized website performance and implemented SEO best practices, resulting in improved page load times and search rankings.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Recent Projects & Learning</h2>
+                <div class="project-item">
+                    <div class="job-title">Language Learning Platform</div>
+                    <div class="job-duration">Mar 2023 – Present</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Currently developing a complex, real-time multiplayer language-learning platform using Laravel for the backend API and React for the frontend.</li>
+                            <li>Designing a scalable architecture with WebSockets for real-time features and advanced CI/CD best practices with Docker.</li>
+                            <li>Implementing gamification elements to enhance user engagement and learning outcomes.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="job-title">GetSlides</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Developed a presentation creation tool that allows users to create and share professional slides.</li>
+                            <li>Built with React and integrated with cloud storage for seamless file management.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="job-title">Git Issue Creator</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Created a tool to streamline GitHub issue creation and management for development teams.</li>
+                            <li>Integrated with GitHub API to provide a more user-friendly interface for issue tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="job-title">Lengofy</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Developed a language learning application focused on vocabulary acquisition through spaced repetition.</li>
+                            <li>Implemented advanced algorithms to optimize the learning experience based on user performance.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div>
+                        <div class="degree">Bachelor's Degree in Computer Systems Engineering</div>
+                        <div class="university">Universidad Autónoma de Ciudad Juárez</div>
+                    </div>
+                    <div class="education-date">Jun 2010 – May 2015</div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Languages</h2>
+                <ul class="languages-list">
+                    <li>Spanish <span class="language-level">(Native)</span></li>
+                    <li>English <span class="language-level">(B2+ Professional Proficiency)</span></li>
+                    <li>German <span class="language-level">(A1 - Currently enrolled in integration course)</span></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    
+</body>
+</html>
