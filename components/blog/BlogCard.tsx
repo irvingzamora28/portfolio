@@ -1,52 +1,94 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
+import { FaCalendarAlt, FaUser, FaArrowRight } from "react-icons/fa";
 
 const BlogCard: React.FC<BlogMeta> = (props) => {
     const daysAgo = (() => {
         const diffMs = new Date().getTime() - new Date(props.created_at).getTime();
         const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
         return `${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
-      })();
+    })();
+    
     return (
-        <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div className="flex justify-between items-center mb-5 text-gray-500">
-                <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                    <svg className="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
-                    </svg>
-                    {props.type}
-                </span>
-                <span className="text-sm">{daysAgo}</span>
-            </div>
-            <h2 className="mb-2 text-2xl font-medium tracking-tight text-slate-800 dark:text-white">
-                <Link href="/blog/[slug]" as={`/blog/${props.slug}`}>
-                    {" "}
-                    {props.title}{" "}
-                </Link>
-            </h2>
-            <div className="flex flex-col md:flex-row w-full gap-4">
-                {props.image && (
-                    <Image src={`/assets/images/blog/${props.image}`} className="w-full md:w-1/2 h-40 object-cover object-center rounded-sm" alt="Irving Zamora" width={200} height={200} />
+        <motion.article 
+            className="h-full bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
+            whileHover={{ y: -5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+        >
+            {/* Blog Image with Overlay */}
+            <div className="relative overflow-hidden">
+                {props.image ? (
+                    <div className="relative h-48 overflow-hidden">
+                        <Image 
+                            src={`/assets/images/blog/${props.image}`} 
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" 
+                            alt={props.title} 
+                            width={600} 
+                            height={300}
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        
+                        {/* Type Badge */}
+                        <div className="absolute top-4 right-4">
+                            <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/70 text-blue-800 dark:text-blue-200 backdrop-blur-sm">
+                                {props.type}
+                            </span>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="h-24 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500" />
                 )}
-                <p className={`w-full ${props.image ? "md:w-1/2" : ""} mb-5 font-light text-gray-500 dark:text-gray-400`}>{props.description}</p>
             </div>
-            <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-4">
-                    <Image src={"/assets/images/about_profile.jpg"} className="blogs__img" alt="Irving Zamora" width={50} height={50} />
-                    <span className="blogs__author-text">{props.author}</span>
+            
+            {/* Content */}
+            <div className="p-6 flex-1 flex flex-col">
+                {/* Title */}
+                <Link href="/blog/[slug]" as={`/blog/${props.slug}`} className="group">
+                    <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                        {props.title}
+                    </h2>
+                </Link>
+                
+                {/* Meta Info */}
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4 space-x-4">
+                    <div className="flex items-center">
+                        <FaCalendarAlt className="mr-1 text-blue-500 dark:text-blue-400" size={12} />
+                        <span>{daysAgo}</span>
+                    </div>
+                    <div className="flex items-center">
+                        <FaUser className="mr-1 text-blue-500 dark:text-blue-400" size={12} />
+                        <span>{props.author}</span>
+                    </div>
                 </div>
-                <Link href="/blog/[slug]" as={`/blog/${props.slug}`} className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline">
+                
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-5 flex-1">
+                    {props.description.length > 150 ? `${props.description.substring(0, 150)}...` : props.description}
+                </p>
+                
+                {/* Read More Link */}
+                <Link 
+                    href="/blog/[slug]" 
+                    as={`/blog/${props.slug}`} 
+                    className="mt-auto inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
+                >
                     Read More
-                    <svg className="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            fillRule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"></path>
-                    </svg>
+                    <motion.div 
+                        className="ml-1"
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 3 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <FaArrowRight size={12} />
+                    </motion.div>
                 </Link>
             </div>
-        </article>
+        </motion.article>
     );
 };
 

@@ -50,9 +50,9 @@ const PostHeader: React.FC<PostHeaderProps> = (props) => {
                             </div>
                             <div className="mt-1">
                                 <a
-                                    href="mailto:contact@irvingzamora.com"
+                                    href="mailto:imzodev@gmail.com"
                                     className="blog__header-contact">
-                                    irvingzamora06
+                                    imzodev
                                 </a>
                             </div>
                         </div>
