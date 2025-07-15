@@ -67,38 +67,20 @@ const Footer = () => {
           <motion.div variants={itemVariants} className="flex flex-col space-y-4">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Quick Links</h3>
             <motion.div className="flex flex-col space-y-2">
-              <Link href="/" passHref>
-                <motion.a 
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  Home
-                </motion.a>
-              </Link>
-              <Link href="/#projects" passHref>
-                <motion.a 
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  Projects
-                </motion.a>
-              </Link>
-              <Link href="/#blogs" passHref>
-                <motion.a 
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  Blog
-                </motion.a>
-              </Link>
-              <Link href="/#contact" passHref>
-                <motion.a 
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                  whileHover={{ x: 5 }}
-                >
-                  Contact
-                </motion.a>
-              </Link>
+              <motion.div className="flex flex-col space-y-2">
+                <Link href="/" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                  <motion.span whileHover={{ x: 5 }}>Home</motion.span>
+                </Link>
+                <Link href="/#projects" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                  <motion.span whileHover={{ x: 5 }}>Projects</motion.span>
+                </Link>
+                <Link href="/#blogs" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                  <motion.span whileHover={{ x: 5 }}>Blog</motion.span>
+                </Link>
+                <Link href="/#contact" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">
+                  <motion.span whileHover={{ x: 5 }}>Contact</motion.span>
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
           
