@@ -125,7 +125,7 @@ const About = forwardRef((props, ref: Ref<HTMLElement>) => {
                                     transition={{ duration: 0.3 }}
                                 >
                                     <Image
-                                        src={"/assets/images/about_profile.jpg"}
+                                        src={"/assets/images/about_profile_1.jpg"}
                                         className="object-cover"
                                         alt="Irving Zamora"
                                         width={500}
