@@ -220,7 +220,7 @@ const About = forwardRef((props, ref: Ref<HTMLElement>) => {
                             viewport={{ once: true }}
                         >
                             <motion.a 
-                                href="/assets/cv/irving_zamora_cv.pdf" 
+                                href="/assets/documents/irving_zamora_resume.pdf" 
                                 className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium py-3 px-6 rounded-full overflow-hidden"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
