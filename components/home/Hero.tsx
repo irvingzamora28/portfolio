@@ -1,5 +1,6 @@
 import React, { forwardRef, Ref, useEffect, useState } from "react";
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { AiOutlineMail } from "react-icons/ai";
 import { BiSend, BiMouse, BiDownArrowAlt } from "react-icons/bi";
 import { FaGithub, FaLinkedinIn, FaCode, FaLaptopCode, FaRocket } from "react-icons/fa";
@@ -144,7 +145,7 @@ const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
                                     transition={{ duration: 0.3 }}
                                 />
                                 <span className="relative z-10 flex items-center justify-center gap-2">
-                                    <span className="text-sm sm:text-base">Let's Work Together</span>
+                                    <span className="text-sm sm:text-base">Let&apos;s Work Together</span>
                                     <BiSend className="group-hover:translate-x-1 transition-transform" />
                                 </span>
                             </motion.a>
@@ -254,10 +255,13 @@ const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
                                     />
                                     <div className="text-white text-4xl sm:text-6xl font-bold relative z-10">I</div>
                                 </div> */}
-                                <img 
+                                <Image 
                                     src="/assets/images/profile-picture-alt.png" 
                                     alt="Irving Zamora" 
                                     className="w-full h-full object-cover"
+                                    width={400}
+                                    height={400}
+                                    priority
                                 />
                             </motion.div>
 
