@@ -63,6 +63,7 @@ export async function getStaticPaths() {
         "tips-for-scaling-web-applications",
         "building-and-deploying-real-time-react-app-with-typescript-and-socketio",
         "future-of-software-development",
+        "getting-started-with-openai-agents",
     ];
 
     // Generate the paths for each post

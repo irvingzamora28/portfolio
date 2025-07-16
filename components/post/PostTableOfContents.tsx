@@ -1,13 +1,13 @@
 import React from "react";
 
-// interface Content {
-//     text: string;
-//     href: string;
-// }
+export interface TableOfContentsItem {
+    text: string;
+    href: string;
+}
 
-// interface Props {
-//     toc: Content[];
-// }
+interface PostTableOfContentsProps {
+    toc: TableOfContentsItem[];
+}
 
 const PostTableOfContents: React.FC<PostTableOfContentsProps> = ({ toc }) => {
     return (
