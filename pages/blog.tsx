@@ -3,7 +3,6 @@ import Footer from "../components/home/Footer";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Blogs from "../components/home/Blogs";
 import path from "path";
-import { useState } from "react";
 import Header from "../components/home/Header";
 import { readBlogsMeta } from "../utils/blogFileReader";
 
@@ -22,24 +21,17 @@ export const getStaticProps: GetStaticProps<Blogs> = async () => {
 };
 
 const Blog = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStaticProps>) => {
-    const [theme, setTheme] = useState("light");
-
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
-
+    
     return (
         <>
 
-        <div className={`main ${theme === "dark" ? "dark" : ""}`}>
+        <div className="main bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 min-h-screen text-slate-800 dark:text-slate-100">
             <Head>
                 <title>My Blog</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
-            
+            <Header isHomePage={false} />
             <Blogs blogs={blogs} isBlogSection={isBlogSection} />
-
         </div>
             <Footer />
         </>

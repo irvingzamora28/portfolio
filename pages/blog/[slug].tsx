@@ -124,7 +124,7 @@ const BlogPost: React.FC<BlogPostProps & { prevPost?: { slug: string, title: str
                 {/* Main content */}
                 <div className="relative">
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                        <main>
+                        <main className="blog__content">
                             <article className="relative">
                                 {/* Article header with enhanced styling */}
                                 <div className="mb-12">
