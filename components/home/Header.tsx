@@ -1,29 +1,29 @@
-import React from "react";
-
 import { AiOutlineFileText, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { BiImage, BiMoon, BiSun } from "react-icons/bi";
 import { FaBlog, FaTimes } from "react-icons/fa";
 import { MdOutlineContactMail } from "react-icons/md";
 import { TiThMenuOutline } from "react-icons/ti";
+import { useContext } from "react";
+import { ThemeContext } from "../../pages/_app";
 
 interface Props {
-    theme: string;
     isHomePage: boolean;
-    setTheme: (newValue: string) => void;
     showMenu?: boolean;
     setShowMenu?: (newValue: boolean) => void;
     activeLink?: string;
 };
 
-const Header: React.FC<Props> = ({ theme, setTheme, showMenu, setShowMenu, activeLink, isHomePage }) => {
+const Header: React.FC<Props> = ({ showMenu, setShowMenu, activeLink, isHomePage }) => {
+    const { theme, setTheme } = useContext(ThemeContext);
 
     const handleTheme = () => {
-        setTheme?.(theme === "dark" ? "light" : "dark");
-    };    
+        setTheme(theme === "dark" ? "light" : "dark");
+    };
 
     const toggleNav = () => {
         setShowMenu?.(!showMenu);
     };
+
 
     return (
         <header id="header" className="header">

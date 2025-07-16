@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps<Blogs> = async () => {
 const Home = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStaticProps>) => {
     const [showMenu, setShowMenu] = useState(false);
     const [showButton, setShowButton] = useState(false);
-    const [theme, setTheme] = useState("light");
+
     const [activeLink, setActiveLink] = useState("hero");
     const [floatingShapes, setFloatingShapes] = useState<React.ReactNode[]>([]);
     const [codeSnippetsElements, setCodeSnippetsElements] = useState<React.ReactNode[]>([]);
@@ -56,14 +56,7 @@ const Home = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStatic
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     
-    // Apply dark mode class to HTML element
-    useEffect(() => {
-        if (theme === "dark") {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }, [theme]);
+
     
     // Initialize all client-side elements to prevent hydration mismatch
     useEffect(() => {
@@ -178,14 +171,12 @@ const Home = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStatic
         setShowMenu(!showMenu);
     };
 
-    const handleTheme = (newValue: string) => {
-        setTheme(newValue);
-    };
+
 
     return (
         <>
             <HeadHTML />
-            <Header theme={theme} setTheme={handleTheme} showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} isHomePage={true} />
+            <Header showMenu={showMenu} setShowMenu={toggleNav} activeLink={activeLink} isHomePage={true} />
 
             <main className="main relative bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
                 {/* Global Background Pattern */}
