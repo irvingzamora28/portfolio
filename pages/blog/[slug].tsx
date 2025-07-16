@@ -196,7 +196,8 @@ export async function getStaticPaths() {
         "building-and-deploying-real-time-react-app-with-typescript-and-socketio",
         "future-of-software-development",
         "getting-started-with-openai-agents",
-        "using-openai-agents-with-other-llms"
+        "using-openai-agents-with-other-llms",
+        "using-mcp-servers-with-openai-agents"
     ];
 
     // Generate the paths for each post

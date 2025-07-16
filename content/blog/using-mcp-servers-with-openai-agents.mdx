@@ -1,0 +1,210 @@
+---
+created_at: "2025-07-16T11:08:10-06:00"
+title: "How to Use MCP Servers with OpenAI Agents SDK (Practical Guide)"
+description: "Learn how to supercharge your OpenAI Agents with MCP servers. This hands-on tutorial covers what MCP is, why it matters, and how to connect your agents to real-world tools and data sources using the Model Context Protocol."
+image: "openai-agents-mcp.png"
+slug: "using-mcp-servers-with-openai-agents"
+author: "Irving Zamora"
+type: "Tutorial"
+topics: ["AI", "OpenAI Agents", "MCP", "Python", "LLM Integrations"]
+contents: [
+    { text: "Introduction", href: "#introduction" },
+    { text: "What is MCP?", href: "#what-is-mcp" },
+    { text: "Why Use MCP with Agents?", href: "#why-use-mcp-with-agents" },
+    { text: "Setup: Environment & Installation", href: "#setup-environment--installation" },
+    { text: "Configuring Your Provider", href: "#configuring-your-provider" },
+    { text: "Example: Using MCP in an Agent", href: "#example-using-mcp-in-an-agent" },
+    { text: "Line-by-Line Code Walkthrough", href: "#line-by-line-code-walkthrough" },
+    { text: "What You Can Change", href: "#what-you-can-change" },
+    { text: "Troubleshooting & Tips", href: "#troubleshooting--tips" },
+    { text: "Useful Resources", href: "#useful-resources" }
+]
+---
+
+<PostTableOfContents/>
+
+## Introduction
+
+OpenAI Agents SDK lets you build powerful, flexible AI agents in Python. But what if your agents could interact with the outside world—browsing websites, extracting data, or plugging into external tools? That’s where **MCP servers** come in.
+
+---
+
+## What is MCP?
+
+**MCP (Model Context Protocol)** is like a universal translator and smart router for AI models. Imagine your agent as a world traveler, and MCP as the guide that instantly connects it to any local expert, tool, or database—no matter the language or system. Need to browse the web, query a database, or operate a custom API? MCP handles the handshake and translation, letting your agent plug into new skills and data sources on the fly.
+
+- **Dynamic integrations:** Instantly connect your agent to a huge and growing ecosystem of tools, plugins, and data sources.
+- **Open and extensible:** MCP is an open protocol, designed so anyone can build or use new integrations—no vendor lock-in.
+- **Provider-agnostic:** Works with OpenAI, Anthropic, Google, DeepSeek, and more.
+- **Secure by design:** You control where your data goes and how it's accessed.
+
+Want to dive deeper? Check out [Anthropic’s overview of MCP](https://www.anthropic.com/news/model-context-protocol).
+
+---
+
+## Why Use MCP with Agents?
+
+- **Supercharge your agents:** Give them access to web browsing, databases, APIs, and more.
+- **Rapid prototyping:** Add new skills to your agent without writing tons of glue code.
+- **Future-proof:** Easily swap tools or LLM providers as your needs evolve.
+
+---
+
+## Setup: Environment & Installation
+
+- **Python 3.8+** required
+- Create a virtual environment (recommended):
+
+```bash
+python -m venv vtemp
+source vtemp/bin/activate  # On Windows: vtemp\Scripts\activate
+```
+
+- Install dependencies:
+
+```bash
+pip install openai-agents python-dotenv
+```
+
+---
+
+## Configuring Your Provider
+
+Copy the example `.env` and edit it for your chosen LLM provider. Only one should be active at a time:
+
+**Google GenAI example:**
+```
+LLM_API_PROVIDER=google-genai
+LLM_API_KEY=YOUR_GOOGLE_API_KEY
+LLM_MODEL=gemini-2.5-flash-preview-04-17
+LLM_API_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+```
+**Anthropic Claude example:**
+```
+LLM_API_PROVIDER=anthropic
+LLM_API_KEY=YOUR_ANTHROPIC_API_KEY
+LLM_MODEL=claude-3-opus-20240229
+LLM_API_URL=https://api.anthropic.com/v1/
+```
+**DeepSeek example:**
+```
+LLM_API_PROVIDER=deepseek
+LLM_API_KEY=YOUR_DEEPSEEK_API_KEY
+LLM_MODEL=deepseek-chat
+LLM_API_URL=https://api.deepseek.com/v1
+```
+
+---
+
+## What Are We Building?
+
+In this example, we're going to create an agent that acts as a real-world lead finder. The agent will:
+- Launch a real browser using Playwright MCP
+- Go to Bing, search for "mecánico en medellin"
+- Click on the "Mapas" tab
+- Extract and return structured information (like business names, contact details, etc.)
+
+This is not just an API call—the agent is actually controlling a browser, navigating web pages, and scraping results, just like a human would. This is extremely useful for automating research, lead generation, and data extraction tasks.
+
+---
+
+## Example: Using MCP in an Agent
+
+To enable this, we use [Playwright MCP](https://github.com/microsoft/playwright-mcp), an open-source tool that exposes browser automation as an MCP server. By connecting Playwright MCP to our agent, we give it the power to browse, click, and extract data from real websites—no manual scripting required!
+
+Here’s a real Python example showing how to connect an agent to Playwright MCP and automate a lead-finding workflow:
+
+```python
+import os
+from agents.mcp import MCPServerStdio
+from dotenv import load_dotenv
+from agents import Agent, Runner
+from openai import AsyncOpenAI
+import asyncio
+from agents import set_default_openai_client, set_default_openai_api, set_tracing_disabled
+
+async def main():
+    load_dotenv()
+    BASE_URL = os.getenv("LLM_API_URL") or ""
+    API_KEY = os.getenv("LLM_API_KEY") or ""
+    MODEL_NAME = os.getenv("LLM_MODEL") or ""
+    
+    client = AsyncOpenAI(
+        base_url=BASE_URL,
+        api_key=API_KEY,
+    )
+    
+    set_default_openai_client(client=client, use_for_tracing=False)
+    set_default_openai_api("chat_completions")
+    set_tracing_disabled(True)
+    
+    async with MCPServerStdio(
+        params={
+            "command": "npx",
+            "args": ["@playwright/mcp@latest", "--headless", "--viewport-size=1720,920"],
+        }
+    ) as server:
+        tools = await server.list_tools()
+        # print([tool.name for tool in tools])
+
+        agent = Agent(
+            name="Experto en SEO",
+            instructions="Eres un experto navegando y extrayendo información para formatearla en un JSON estructurado.",
+            model=MODEL_NAME,
+            mcp_servers=[server],
+        )
+
+        result = await Runner.run(agent, "Ve a esta direccion https://www.bing.com y busca 'mecánico en medellin'. Despues da click en Mapas. Dame la informacion que veas")
+        print(result.final_output)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+---
+
+## Line-by-Line Code Walkthrough
+
+We launch a browser automation server, connect it to our agent, and give the agent a real-world lead-finding task. Here’s what each part does:
+
+- **Imports:**
+  - `from agents.mcp import MCPServerStdio` — This launches a Playwright MCP server, which exposes browser automation as tools that agents can use. [Playwright MCP](https://github.com/microsoft/playwright-mcp) is a project that lets LLM-powered agents control a real browser—navigate, click, extract data, and more.
+  - Other imports set up your agent, environment, and LLM provider.
+- **load_dotenv()** — Loads your credentials and settings from `.env`.
+- **AsyncOpenAI client** — Connects the agent to your chosen LLM provider.
+- **set_default_openai_client / set_default_openai_api / set_tracing_disabled** — Configures the SDK to use your provider and disables tracing for simplicity.
+- **MCPServerStdio context** — Spins up a Playwright MCP server using Node.js and npx. This gives your agent real browser powers, not just API access!
+- **server.list_tools()** — Lists all tools the MCP server exposes (e.g., browser navigation, clicking, typing, scraping, etc.).
+- **Agent setup** — The agent is told to use the MCP server, so it can perform browser actions as part of its reasoning.
+- **Runner.run** — The agent is given an actual lead-finding task: go to Bing, search for 'mecánico en medellin', click on Mapas, and extract the info you see.
+- **Result** — The agent’s output (structured JSON with the extracted leads) is printed to your terminal.
+
+---
+
+## What You Can Change
+
+- **Change the agent’s instructions** to make it perform different tasks (e.g., scrape data, fill forms, interact with APIs).
+- **Switch the MCP server** to a different integration as new ones become available.
+- **Try different LLM providers** by editing your `.env` file—no code changes needed.
+- **Experiment with prompts** to see how well your agent can use new tools.
+- **Enable tracing** for debugging by setting `set_tracing_disabled(False)`.
+
+---
+
+## Troubleshooting & Tips
+
+- If you get errors about missing packages, make sure you have Node.js and `npx` installed for Playwright MCP.
+- Only one LLM provider should be active in your `.env` file at a time.
+- Use `server.list_tools()` to explore what your MCP server can do.
+- For advanced tracing, see the [tracing docs](https://openai.github.io/openai-agents-python/tracing/).
+- Always keep your API keys secure and never commit `.env` files to version control.
+
+---
+
+## Useful Resources
+
+- [OpenAI Agents SDK Docs](https://openai.github.io/openai-agents-python/)
+- [MCP Protocol Overview](https://modelcontextprotocol.io/introduction)
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp)
+- [Example Projects](https://github.com/openai/openai-agents-python/tree/main/examples)
+- [Tracing Docs](https://openai.github.io/openai-agents-python/tracing/)
