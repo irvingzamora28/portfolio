@@ -7,18 +7,13 @@ import Header from "../../components/home/Header";
 import ProjectLengofyImage from "public/assets/images/lengofy-app.png";
 import { FaCss3, FaDatabase, FaLaravel, FaReact, FaVial } from "react-icons/fa";
 const ProjectLengofy: React.FC = () => {
-    const [theme, setTheme] = useState("light");
-
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
     return (
-        <div className={`main ${theme === "dark" ? "dark" : ""}`}>
+        <div className={`main`}>
             <Head>
                 <title>Lengofy - Language Learning Platform</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
+            <Header isHomePage={false} />
             <div className="w-screen h-[30vh] lg:h-[40vh] relative">
                 <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/70 z-10"></div>
                 <Image src={ProjectLengofyImage} className="absolute z-1" fill={true} alt="Lengofy - Language Learning Platform" />

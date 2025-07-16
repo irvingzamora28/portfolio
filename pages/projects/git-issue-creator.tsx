@@ -1,26 +1,21 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { RiRadioButtonFill } from "react-icons/ri";
 import Header from "../../components/home/Header";
 import project1Image from "public/assets/images/github-issue-creator-theme.png";
-import { FaCss3, FaPython } from "react-icons/fa";
+import { FaPython } from "react-icons/fa";
 
 const ProjectGitIssueCreator: React.FC = () => {
-    const [theme, setTheme] = useState("light");
-
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
 
     return (
-        <div className={`main ${theme === "dark" ? "dark" : ""}`}>
+        <div className={`main`}>
             <Head>
                 <title>GitIssueCreator Project</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
+            <Header isHomePage={false} />
             <div className="w-screen h-[30vh] lg:h-[40vh] relative">
                 <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/70 z-10"></div>
                 <Image src={project1Image} className="absolute z-1" fill={true} objectFit="cover" alt="GitIssueCreator" />

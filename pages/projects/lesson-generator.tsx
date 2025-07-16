@@ -8,18 +8,13 @@ import project1Image from "public/assets/images/lesson-generator-theme.png";
 import { FaPython } from "react-icons/fa";
 import { BsQuestionCircleFill } from "react-icons/bs";
 const ProjectLessonGenerator: React.FC = () => {
-    const [theme, setTheme] = useState("light");
-
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
     return (
-        <div className={`main ${theme === "dark" ? "dark" : ""}`}>
+        <div className={`main`}>
             <Head>
                 <title>Lesson Generator Project</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
+            <Header isHomePage={false} />
             <div className="w-screen h-[30vh] lg:h-[40vh] relative">
                 <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/70 z-10"></div>
                 <Image src={project1Image} className="absolute z-1" fill={true} objectFit="cover" alt="Lesson Generator" />

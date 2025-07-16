@@ -8,18 +8,14 @@ import ProjectGetSlidesImage from "public/assets/images/getslides-hero.png";
 import { FaChalkboard, FaCss3, FaDatabase, FaNode, FaRobot, FaTools, FaVuejs } from "react-icons/fa";
 
 const ProjectGetSlides: React.FC = () => {
-    const [theme, setTheme] = useState("light");
-
-    const handleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
+    
     return (
-        <div className={`main ${theme === "dark" ? "dark" : ""}`}> 
+        <div className={`main`}> 
             <Head>
                 <title>GetSlides - AI Presentation Generator</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header theme={theme} setTheme={handleTheme} isHomePage={false} />
+            <Header isHomePage={false} />
             <div className="w-screen h-[30vh] lg:h-[40vh] relative">
                 <div className="absolute top-0 left-0 w-full h-[30vh] lg:h-[40vh] bg-black/70 z-10"></div>
                 <Image src={ProjectGetSlidesImage} className="absolute z-1" fill={true} alt="GetSlides - AI Presentation Generator" />
