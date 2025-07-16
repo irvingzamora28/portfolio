@@ -56,7 +56,7 @@ const ProjectGitIssueCreator: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-[1240px] mx-auto p-2 grid md:grid-cols-12 gap-8 mb-20 md:mb-0 px-8 md:px-20 dark:bg-gray-900 dark:text-gray-100">
+            <div className="max-w-[1240px] mx-auto p-2 grid md:grid-cols-12 gap-8 md:mb-0 px-8 md:px-20 dark:bg-gray-900 dark:text-gray-100">
                 <div className="col-span-12">
                     <Link href={"/#projects"}>
                         <p className="underline cursor-pointer">Back to Projects</p>
