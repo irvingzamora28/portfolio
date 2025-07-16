@@ -1,0 +1,148 @@
+---
+created_at: "2025-07-16T12:10:14-06:00"
+title: "Getting Started with OpenAI Agents: A Comprehensive Guide"
+description: "Learn how to build intelligent agents using OpenAI's Agents SDK. This guide covers everything from basic setup to creating sophisticated multi-agent systems."
+image: "openai-agents.png"
+slug: "getting-started-with-openai-agents"
+author: "Irving Zamora"
+type: "Tutorial"
+topics: ["AI", "OpenAI", "Agents", "Python", "Machine Learning"]
+contents: [
+    {
+        text: "Introduction to OpenAI Agents",
+        href: "#introduction-to-openai-agents",
+    },
+    {
+        text: "Key Features",
+        href: "#key-features",
+    },
+    {
+        text: "Installation",
+        href: "#installation",
+    },
+    {
+        text: "Creating Your First Agent",
+        href: "#creating-your-first-agent",
+    },
+    {
+        text: "Advanced: Multi-Agent Systems",
+        href: "#advanced-multi-agent-systems",
+    },
+    {
+        text: "Best Practices",
+        href: "#best-practices",
+    },
+    {
+        text: "Conclusion",
+        href: "#conclusion",
+    }
+]
+---
+
+## Introduction to OpenAI Agents
+
+OpenAI Agents is a powerful Python library that enables developers to build intelligent agents that can perform complex tasks by breaking them down into manageable steps. These agents can leverage OpenAI's language models to understand context, make decisions, and execute actions in both digital and real-world environments.
+
+Agents are particularly useful for:
+- Automating complex workflows
+- Building AI assistants
+- Creating research assistants
+- Developing customer support systems
+- Implementing data processing pipelines
+
+## Key Features
+
+1. **Modular Design**: Build agents with specific capabilities and chain them together
+2. **Tool Integration**: Connect to external APIs, databases, and services
+3. **Memory Management**: Maintain context across interactions
+4. **Parallel Execution**: Run multiple agents concurrently
+5. **Observability**: Monitor agent behavior and decision-making
+
+## Installation
+
+To get started, you'll need Python 3.8 or higher. Install the OpenAI Agents SDK using pip:
+
+```bash
+pip install openai-agents
+```
+
+## Creating Your First Agent
+
+Let's create a simple agent that can answer questions about current events:
+
+```python
+from openai_agents import Agent, run_agent
+
+# Initialize the agent
+agent = Agent(
+    name="Research Assistant",
+    instructions="You are a helpful research assistant. Use available tools to find accurate information."
+)
+
+# Run the agent
+response = run_agent(
+    agent=agent,
+    input_text="What are the latest developments in AI?",
+    tools=["web_search", "document_retrieval"]
+)
+
+print(response)
+```
+
+## Advanced: Multi-Agent Systems
+
+For more complex tasks, you can create multiple specialized agents that work together:
+
+```python
+from openai_agents import Agent, MultiAgentSystem
+
+# Create specialized agents
+researcher = Agent(
+    name="Researcher",
+    instructions="Find and summarize information from reliable sources"
+)
+
+analyst = Agent(
+    name="Analyst",
+    instructions="Analyze the information and provide insights"
+)
+
+writer = Agent(
+    name="Writer",
+    instructions="Create well-structured reports based on the analysis"
+)
+
+# Create a multi-agent system
+research_team = MultiAgentSystem(
+    agents=[researcher, analyst, writer],
+    workflow=[
+        (researcher, "Gather information about {topic}"),
+        (analyst, "Analyze the research: {researcher.output}"),
+        (writer, "Write a report based on: {analyst.output}")
+    ]
+)
+
+# Run the system
+report = research_team.run("The impact of AI on software development")
+print(report)
+```
+
+## Best Practices
+
+1. **Start Simple**: Begin with a single agent and add complexity gradually
+2. **Clear Instructions**: Provide detailed instructions for each agent's role
+3. **Error Handling**: Implement robust error handling for API calls
+4. **Rate Limiting**: Be mindful of API rate limits
+5. **Cost Management**: Monitor token usage to control costs
+
+## Conclusion
+
+OpenAI Agents provide a powerful framework for building sophisticated AI applications. By leveraging the modular architecture and integration capabilities, you can create intelligent systems that automate complex tasks and provide valuable insights.
+
+For more advanced use cases, explore the [official documentation](https://openai.github.io/openai-agents-python/).
+
+## Additional Resources
+
+- [OpenAI Agents GitHub Repository](https://github.com/openai/openai-agents)
+- [API Documentation](https://platform.openai.com/docs/agents-sdk)
+- [Example Projects](https://cookbook.openai.com/topic/agents)
