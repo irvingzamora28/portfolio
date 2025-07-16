@@ -30,8 +30,7 @@ In this article, we will discuss the benefits of having a good directory structu
 
 The recommended directory structure for a Next.js project includes the following directories: pages, public, components, utils, types, styles, config, pages/api, pages/_app.tsx, and tests. Let's look at each of these directories in more detail.
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
     ├── components/
     │   ├── Header/
     │   │   ├── Header.tsx
@@ -98,7 +97,7 @@ The recommended directory structure for a Next.js project includes the following
     ├── tsconfig.json
     ├── README.md
     └── yarn.lock
-</CopyBlockWrapper>
+```
 
 ## Pages Directory
 
@@ -122,13 +121,13 @@ To use the utils directory in your Next.js project, you can create a file inside
 
 Here's an example of what the contents of a formatDate.ts file might look like:
 
-<CopyBlockWrapper language="javascript" startingLineNumber={1} wrapLines >
+```javascript
     const formatDate = (date: Date, format: string): string => {
         // Implementation code here...
     }
     
     export default formatDate;
-</CopyBlockWrapper>
+```
 
 ## Types Directory
 
@@ -140,14 +139,13 @@ In a Next.js project, you can define your type definitions in the types director
 
 You may also create a subdirectory structure in the types directory to organize your type definitions based on their function or type.
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
     types/
     ├── custom.d.ts
     ├── index.d.ts
     └── my-module/
         └── index.d.ts
-</CopyBlockWrapper>
+```
 
 In this example, we have a types directory that contains a few files and a subdirectory:
 
@@ -179,19 +177,17 @@ The config directory is where you can keep configuration files for your Next.js 
 
 To use the config directory, you can create a file for each type of configuration you need. For example, you might create an env.ts file to store your environment variables, a constants.ts file to store constant values used throughout your application, and other files to store configuration settings related to specific parts of your application.
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
     config/
     ├── env.ts
     └── api.ts
-</CopyBlockWrapper>
+```
 
 In this example, the **config** directory contains three files. The env.ts file stores environment variables, the constants.ts file stores constant values used throughout the application, and the api.ts file stores configuration settings related to the API.
 
 You might use these configuration files throughout your project like this:
 
-<CopyBlockWrapper language="javascript" startingLineNumber={1} wrapLines />
-
+```javascript
     // Import configuration files
     import { API_BASE_URL } from '../config/constants';
     import { API_KEY } from '../config/env';
@@ -202,7 +198,7 @@ You might use these configuration files throughout your project like this:
       'x-api-key': API_KEY,
     };
     const timeout = API_TIMEOUT;
-</CopyBlockWrapper>
+```
 
 
 ## Pages/API Directory

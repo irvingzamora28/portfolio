@@ -71,24 +71,21 @@ We will install Node.js using NVM (Node Version Manager)
 
 **Important:** After installing NVM you will need to open a new terminal.
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 curl -o- https\://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-</CopyBlockWrapper>
+```
 
 Then let's install Node.js by using the following command:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 nvm install v16.20.1
-</CopyBlockWrapper>
+```
 
 Let's verify Node.js has been installed
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 node --version
-</CopyBlockWrapper>
+```
 
 <br />
 
@@ -96,40 +93,36 @@ node --version
 
 After Node.js is installed, we will now install Yarn
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 npm install --global yarn
 yarn --version
-</CopyBlockWrapper>
+```
 
 The next steps will require root access. If you're logged in as a non-root user, you can use the sudo command to get root access.
 <br />
 
 ## Update the package lists
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 sudo apt-get update
-</CopyBlockWrapper>
+```
 
 <br />
 
 ## Install Git
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 sudo apt-get install git
 git --version
-</CopyBlockWrapper>
+```
 
 <br />
 
 ## Install vite globally
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 yarn global add create-vite
-</CopyBlockWrapper>
+```
 
 <br />
 
@@ -137,74 +130,68 @@ yarn global add create-vite
 
 Lastly, install Nginx
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 sudo apt-get install nginx -y
 nginx -v
-</CopyBlockWrapper>
+```
 
 <br />
 
 ## Step 1 - Creating a GitHub Repository
 First, create a new empty repository on GitHub. For this example, let's call it "my-socketio-app". After creating the repository, clone it to your local machine:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 git clone https\://github.com/<your_username>/my-socketio-app.git
-</CopyBlockWrapper>
+```
 
 ## Step 2 - Setting Up the React App
 Navigate to the cloned repository folder, then create a new Vite project with `react-ts` template
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 cd my-socketio-app
 npx create-vite . --template react-ts
-</CopyBlockWrapper>
+```
 
 After creating the project, stage and commit the changes:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 git add .
 git commit -m "Initialize React app with Vite"
 git push
-</CopyBlockWrapper>
+```
 
 ## Step 3 - Installing Socket.IO Client
 Inside the project directory, install the Socket.IO client:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 yarn add socket.io-client
-</CopyBlockWrapper>
+```
 
 Then, commit the changes:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines />
-
+```bash
 git add .
 git commit -m "Install socket.io client"
 git push
-</CopyBlockWrapper>
+```
 
 ## Step 4 - Setting Up the Socket.IO Client
 Create a new socket.ts file inside the `src` folder and add the following code (Replace IP address with your server's address):
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 
 import { io } from "socket.io-client";
 
 const socket = io("http://<your_server_ip>:3000");
 
 export default socket;
-</CopyBlockWrapper>
+```
 
 ## Step 5 - Using Socket.IO in a React Component
 Next, we'll create a React component that listens for a 'welcome' event from the server and sends a message to the server:
 Create a new `MyClientComponent.tsx` file inside the `src` folder and add the following code:
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 import React from 'react';
 import socket from './socket';
 
@@ -236,11 +223,11 @@ const MyClientComponent: React.FC = () => {
 };
 
 export default MyClientComponent;
-</CopyBlockWrapper>
+```
 
 The next thing is to modify `src/main.tsx` to include the `MyClientComponent` instead of the App component, the file should look like the following:
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import MyClientComponent from './MyClientComponent.tsx'
@@ -251,29 +238,27 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     \<MyClientComponent />
   </React.StrictMode>,
 )
-</CopyBlockWrapper>
+```
 
 ## Step 6 - Building the Socket.IO Server
 First, create a new directory server in your my-socketio-app directory and initialize a new yarn project inside it:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines>
-
+```bash
 mkdir server
 cd server
 yarn init -y
-</CopyBlockWrapper>
+```
 
 After that, install the necessary packages:
 
-<CopyBlockWrapper language="bash" startingLineNumber={1} wrapLines>
-
+```bash
 yarn add express socket.io cors
 yarn add -D typescript ts-node @types/node @types/express
-</CopyBlockWrapper>
+```
 
 Create a tsconfig.json file in the server directory with the following content:
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 {
   "compilerOptions": {
     "module": "commonjs",
@@ -290,11 +275,11 @@ Create a tsconfig.json file in the server directory with the following content:
   },
   "include": ["src"]
 }
-</CopyBlockWrapper>
+```
 
 After that, create a new `src` directory in the server directory, and create a new file `server.ts` inside the `src` directory with the following content:
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 import express from 'express';
 import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
@@ -323,62 +308,56 @@ io.on('connection', (socket: Socket) => {
 httpServer.listen(3000, () => {
   console.log('listening on *:3000');
 });
-</CopyBlockWrapper>
+```
 
 Finally, add the following scripts to your package.json file:
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 "scripts": {
   "start": "node dist/server.js",
   "build": "tsc",
   "dev": "ts-node src/server.ts"
 },
-</CopyBlockWrapper>
+```
 
 After setting up the server go back to the root directory of the project. And then stage and commit the changes:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 git add .
 git commit -m "Setup Socket.IO server"
 git push
-</CopyBlockWrapper>
+```
 
 ## Step 7 - Deploying the Project
 SSH into your Ubuntu server and install all the tools as you did it with your local environment. After you are done installing everything navigate to the `/var/www` directory, then clone your GitHub repository:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 cd /var/www
 git clone https\://github.com/<your_username>/my-socketio-app.git
-</CopyBlockWrapper>
+```
 
 Navigate to the `my-socketio-app` directory and install the necessary packages:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 cd my-socketio-app
 yarn install
-</CopyBlockWrapper>
+```
 
 Before you can run the application, we need to compile the TypeScript code into JavaScript:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 yarn build
-</CopyBlockWrapper>
+```
 
 Next, configure Nginx to serve our React app:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 sudo nano /etc/nginx/sites-available/default
-</CopyBlockWrapper>
+```
 
 Update the file to look like this:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 sudo nano /etc/nginx/sites-available/defaultserver {
   listen 80 default_server;
   listen [::]:80 default_server;
@@ -391,47 +370,42 @@ sudo nano /etc/nginx/sites-available/defaultserver {
     try_files $uri $uri/ =404;
   }
 }
-</CopyBlockWrapper>
+```
 
 After modifying the `root` entry in the file, run the following command to make the changes take effect:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 sudo service nginx reload
-</CopyBlockWrapper>
+```
 
 Now you should be able to see your React app if you visit your server's address.
 
 After setting up and running our frontend React app, we need to build our server and also run it, let's start by installing all the necessary packages:
 
-<CopyBlockWrapper language="bash">
-cd server
+```bash
 yarn install
-</CopyBlockWrapper>
+```
 
 Now we can build the server:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 yarn build
-</CopyBlockWrapper>
+```
 
 We got our server ready, for a production environment, I recommend using PM2 to manage the server process, so let's install it:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 yarn global add pm2
 pm2 start dist/server.js --name my-socketio-app-server
 pm2 startup
 pm2 save
-</CopyBlockWrapper>
+```
 
 We should see our Socket.io server now running, to make sure of that, run the following command:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 pm2 status
-</CopyBlockWrapper>
+```
 
 If we navigate to our IP address and then to the Network tab in the browser, we should see a `CORS Error`.
 
@@ -441,7 +415,7 @@ If we navigate to our IP address and then to the Network tab in the browser, we 
 
 To fix this error let's edit our `server/src/server.ts` file and add a cors directive to look like the following (Important: Avoid any slashes at the end of the IP address):
 
-<CopyBlockWrapper language="javascript" wrapLines showLineNumbers={true}>
+```javascript
 import express from 'express';
 import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
@@ -475,16 +449,15 @@ io.on('connection', (socket: Socket) => {
 httpServer.listen(3000, () => {
   console.log('listening on *:3000');
 });
-</CopyBlockWrapper>
+```
 
 
 After saving changes run the build command again and restart the pm2 service:
 
-<CopyBlockWrapper language="bash">
-
+```bash
 yarn build
 pm2 restart my-socketio-app-server
-</CopyBlockWrapper>
+```
 
 You can now access your React app in a web browser by visiting your server's IP address.
 
