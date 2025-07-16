@@ -1,0 +1,199 @@
+---
+created_at: "2025-07-16T10:30:29-06:00"
+title: "How to Use OpenAI Agents SDK with Any LLM Provider (Gemini, Claude, DeepSeek, etc.)"
+description: "A practical, step-by-step guide to using OpenAI Agents SDK with providers like Google Gemini, Anthropic Claude, DeepSeek, and more. Learn to set up your environment, configure your API keys, and run your first agent!"
+image: "llm-multicloud.png"
+slug: "using-openai-agents-with-other-llms"
+author: "Irving Zamora"
+type: "Tutorial"
+topics: ["AI", "OpenAI Agents", "LLM", "Gemini", "Claude", "DeepSeek", "Python"]
+contents: [
+    { text: "Introduction", href: "#use-openai-agents-sdk-with-any-llm-provider-a-complete-tutorial" },
+    { text: "Prerequisites", href: "#prerequisites" },
+    { text: "Project Setup", href: "#1-project-setup" },
+    { text: "Configure Your .env File", href: "#2-configure-your-env-file" },
+    { text: "The Code: Using a Custom LLM Provider", href: "#3-the-code-using-a-custom-llm-provider" },
+    { text: "Troubleshooting & Tips", href: "#4-troubleshooting-tips" },
+    { text: "Conclusion", href: "#5-conclusion" },
+    { text: "Useful Resources", href: "#useful-resources" }
+]
+---
+
+<PostTableOfContents/>
+
+## Use OpenAI Agents SDK with Any LLM Provider: A Complete Tutorial
+
+One of the best things about the OpenAI Agents SDK is that it's provider-agnostic. You're not stuck with OpenAI's models—you can use Google Gemini, Anthropic Claude, DeepSeek, or any of 100+ supported LLMs. This flexibility is great for experimenting, optimizing costs, or using models with unique capabilities.
+
+---
+
+## Prerequisites
+
+- Python 3.8+
+- An API key for your chosen LLM provider (Google, Anthropic, DeepSeek, etc.)
+- Basic command-line and Python knowledge
+
+---
+
+## 1. Project Setup
+
+### (a) Create and activate a virtual environment (recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+### (b) Install dependencies
+
+```bash
+pip install openai-agents python-dotenv
+```
+
+---
+
+## 2. Configure Your .env File
+
+The SDK uses environment variables to know which provider and model to use. Here's how to set it up:
+
+1. Copy the example file and edit it:
+    ```bash
+    cp .env.example .env
+    ```
+2. Open `.env` in your editor and set the variables for your chosen provider. **Only one provider should be uncommented at a time!**
+
+**Example for Google Gemini:**
+```
+LLM_API_PROVIDER=google-genai
+LLM_API_KEY=YOUR_GOOGLE_API_KEY
+LLM_MODEL=gemini-2.5-flash-preview-04-17
+LLM_API_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+```
+
+**Example for Claude (Anthropic):**
+```
+LLM_API_PROVIDER=anthropic
+LLM_API_KEY=YOUR_ANTHROPIC_API_KEY
+LLM_MODEL=claude-3-opus-20240229
+LLM_API_URL=https://api.anthropic.com/v1/
+```
+
+**Example for DeepSeek:**
+```
+LLM_API_PROVIDER=deepseek
+LLM_API_KEY=YOUR_DEEPSEEK_API_KEY
+LLM_MODEL=deepseek-chat
+LLM_API_URL=https://api.deepseek.com/v1
+```
+
+> **Tip:** Never commit your `.env` file with real API keys to GitHub!
+
+---
+
+## 3. The Code: Using a Custom LLM Provider
+
+Here's a real, working example that loads your .env settings and uses your chosen LLM provider with the Agents SDK:
+
+```python
+import os
+from dotenv import load_dotenv
+from agents import Agent, Runner
+from openai import AsyncOpenAI
+import asyncio
+from agents import set_default_openai_client, set_default_openai_api, set_tracing_disabled
+
+async def main():
+    load_dotenv()
+    BASE_URL = os.getenv("LLM_API_URL") or ""
+    API_KEY = os.getenv("LLM_API_KEY") or ""
+    MODEL_NAME = os.getenv("LLM_MODEL") or ""
+    
+    client = AsyncOpenAI(
+        base_url=BASE_URL,
+        api_key=API_KEY,
+    )
+    
+    set_default_openai_client(client=client, use_for_tracing=False)
+    set_default_openai_api("chat_completions")
+    set_tracing_disabled(True)
+
+    agent = Agent(
+        name="Assistant",
+        instructions="Eres un asistente que responde en español",
+        model=MODEL_NAME,
+    )
+
+    result = await Runner.run(agent, "¿Quién eres? ¿De qué compañía eres?")
+    print(result.final_output)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Line-by-line code walkthrough
+
+Let's break down exactly what each part of the code does:
+
+- **Imports**
+  - `import os` — Accesses environment variables and OS functions.
+  - `from dotenv import load_dotenv` — Loads variables from your `.env` file into the environment so your code can access them securely.
+  - `from agents import Agent, Runner` — Imports the core classes from the OpenAI Agents SDK: `Agent` (defines your agent's behavior) and `Runner` (executes the agent).
+  - `from openai import AsyncOpenAI` — Imports the OpenAI-compatible async client, which is used to connect to any LLM provider that supports the OpenAI API format.
+  - `import asyncio` — Enables running asynchronous code in Python.
+  - `from agents import set_default_openai_client, set_default_openai_api, set_tracing_disabled` — Utility functions for configuring the SDK to use your custom LLM client and disable tracing if you don't need it.
+
+- **Main function**
+  - `load_dotenv()` — Loads all the variables from your `.env` file (like API keys and endpoints) into `os.environ`.
+  - `BASE_URL`, `API_KEY`, `MODEL_NAME` — Pulls the provider endpoint, API key, and model name from the environment.
+
+- **Client setup**
+  - `client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)` — Creates an API client for your chosen LLM provider. This client speaks the OpenAI API format, but can point to any compatible provider (Gemini, Claude, DeepSeek, etc.).
+  - `set_default_openai_client(client=client, use_for_tracing=False)` — Tells the Agents SDK to use your custom client for all LLM calls. `use_for_tracing=False` means this client won't be used for tracing/debugging (which is optional).
+  - `set_default_openai_api("chat_completions")` — Ensures the SDK uses the chat completion API endpoint (this is the standard for most LLMs).
+  - `set_tracing_disabled(True)` — Turns off tracing to avoid extra network calls or logs unless you want advanced debugging.
+
+- **Agent setup**
+  - `agent = Agent(...)` — Creates your agent. You can set its name, instructions (prompt), and model. Here, the instructions make the agent respond in Spanish, but you can change this to anything you want.
+
+- **Running the agent**
+  - `result = await Runner.run(agent, "¿Quién eres? ¿De qué compañía eres?")` — Sends a prompt to your agent and waits for the response.
+  - `print(result.final_output)` — Prints the agent's final reply to your terminal.
+
+- **Entrypoint**
+  - `if __name__ == "__main__": asyncio.run(main())` — Runs the main async function if you execute this script directly.
+
+---
+
+### What you can change
+- **Agent instructions:** Change the `instructions` string to make your agent behave differently (e.g., answer in another language, take on a specific persona, or follow custom rules).
+- **Model and provider:** Update the `.env` file to swap LLM providers or models. No code changes needed—just edit your environment variables.
+- **Prompt:** Change the prompt you send to the agent (`"¿Quién eres? ¿De qué compañía eres?"`) to test different queries or tasks.
+- **Tracing:** If you want to debug or trace agent execution, set `set_tracing_disabled(False)` and check the SDK docs for tracing options.
+- **Multiple agents or advanced workflows:** You can create and run multiple agents, chain them together, or add tools—see the [SDK docs](https://openai.github.io/openai-agents-python/) for more advanced examples.
+
+---
+
+## 4. Troubleshooting & Tips
+
+- **Check your provider’s docs** for supported models and endpoint URLs.
+- **Never commit your .env file** with real API keys to GitHub!
+- You can switch providers by just changing the .env settings—no code changes required.
+- If you want to use tracing or advanced features, see the [official docs](https://openai.github.io/openai-agents-python/).
+- If you get errors about missing packages, double-check your `pip install` commands and your Python version.
+
+---
+
+## 5. Conclusion
+
+With OpenAI Agents SDK, you’re free to use the LLM that fits your needs, budget, or curiosity. Whether you want to try Google Gemini, Claude, DeepSeek, or something else, it’s just a config change away.
+
+If you run into issues, check the SDK’s [GitHub Discussions](https://github.com/openai/openai-agents-python/discussions) or drop your question in the comments!
+
+---
+
+## Useful Resources
+
+- [OpenAI Agents SDK Official Docs](https://openai.github.io/openai-agents-python/)
+- [Supported Providers List](https://github.com/openai/openai-agents-python#supported-llm-providers)
+- [Example Projects](https://github.com/openai/openai-agents-python/tree/main/examples)
+- [python-dotenv Docs](https://saurabh-kumar.com/python-dotenv/)
