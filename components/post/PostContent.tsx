@@ -42,7 +42,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ className = '', children, ...prop
 
     // For code blocks with language
     return (
-        <div className="my-6 rounded-lg overflow-hidden relative group">
+        <div className="my-2 rounded-lg overflow-hidden relative group">
             <div className="flex justify-between items-center bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs px-4 py-2 font-mono">
                 <span>{language}</span>
                 <button
@@ -110,7 +110,7 @@ const PreBlock: React.FC<{ children?: ReactNode }> = ({ children, ...props }) =>
     console.log('Rendering non-code pre block');
     // For any other content, render it in a pre tag
     return (
-        <pre className="my-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-x-auto">
+        <pre className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-x-auto">
             {children}
         </pre>
     );
