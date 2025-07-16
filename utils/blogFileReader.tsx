@@ -45,11 +45,12 @@ export const getBlogContentAndMeta = (fileContents: string): FileContentMeta | n
 
 export const readBlogsMeta = (
     dirPath: string,
-    limit: number = 4
+    limit?: number // make limit optional
 ): BlogMeta[] => {
-    const latestFiles = getFilesSortedByDate(dirPath).slice(0, limit);
+    const allFiles = getFilesSortedByDate(dirPath);
+    const filesToRead = typeof limit === "number" ? allFiles.slice(0, limit) : allFiles;
     const blogs: BlogMeta[] = [];
-    latestFiles.forEach((file) => {
+    filesToRead.forEach((file) => {
         const fileContents = getFileContent(path.join(dirPath, file.name));
         const blogMeta = getBlogMeta(fileContents);
         if (blogMeta) {

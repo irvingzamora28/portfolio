@@ -201,7 +201,7 @@ const Home = ({ blogs, isBlogSection }: InferGetStaticPropsType<typeof getStatic
                 <About />
                 <Skills />
                 <Projects />
-                <Blogs blogs={blogs} isBlogSection={isBlogSection} />
+                <Blogs blogs={blogs} isBlogSection={isBlogSection} limit={4} />
                 <Contact />
                 <Footer />
                 <a href={"#"} className={`scrollup ${showButton ? "scrollup-show" : ""} ${showMenu ? " scrollup-show-menu" : ""}`} id="scroll-up">
