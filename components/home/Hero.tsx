@@ -168,7 +168,7 @@ const Hero = forwardRef((props, ref: Ref<HTMLElement>) => {
                             transition={{ duration: 0.8, delay: 1 }}
                         >
                             {[
-                                { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/irving-zamora-53833b18/", color: "#0077b5" },
+                                { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/imzodev", color: "#0077b5" },
                                 { icon: FaGithub, href: "https://github.com/irvingzamora28", color: "#333" },
                                 { icon: AiOutlineMail, href: "mailto:imzodev@gmail.com", color: "#ea4335" },
                             ].map((social, i) => (
